@@ -11,44 +11,48 @@ Team Brand:
 
 **Lead**: Tyler Hoang
 
--Github Link:
+- 3rd Year CS Major
+- Backend SWE
+- "A leader leads by example, not by force." - Sun Tzu
+- [Github Link](https://github.com/Tylody)
+- [LinkedIn](https://www.linkedin.com/in/tyler-hoang-8079ab246/)
 
 **Lead**: Anusha Rao
 
--Github Link:
+- [Github Link](LINK HERE)
 
 **Developer**: Ria Singhania
 
--Github Link:
+- [Github Link](LINK HERE)
 
 **Developer**: Angelica Cabusi
 
--Github Link:
+- [Github Link](LINK HERE)
 
 **Developer**: Anthony Georgis
 
--Github Link:
+- [Github Link](LINK HERE)
 
 **Developer**: Teddy Gyatso
 
--Github Link:
+- [Github Link](LINK HERE)
 
 **Developer**: Aiden Krueger
 
--Github Link:
+- [Github Link](LINK HERE)
 
 **Developer**: Minjoo O
 
--Github Link:
+- [Github Link](LINK HERE)
 
 **Developer**: Nikhil Akiti
 
--Github Link:
+- [Github Link](LINK HERE)
 
 **Developer**: Dustin Nguyen
 
--Github Link:
+- [Github Link](LINK HERE)
 
 **Developer**: Leonard Shi
 
--Github Link:
+- [Github Link](LINK HERE)
