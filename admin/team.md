@@ -26,8 +26,11 @@ Team Brand:
 - GitHub: [USERNAME HERE](LINK HERE)
 
 **Developer**: Angelica Cabusi
-
-- GitHub: [USERNAME HERE](LINK HERE)
+- 2nd year CS major
+- Frontend
+- Current Hobby: Arts & crafts (woodworking)
+- GitHub: [Lyka717](https://github.com/Lyka717)
+- [LinkedIn](https://www.linkedin.com/in/angelica-cabusi-715a62246/)
 
 
 **Developer**: Anthony Georgis
