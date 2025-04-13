@@ -57,8 +57,11 @@ Team Brand:
 - GitHub: [USERNAME HERE](LINK HERE)
 
 **Developer**: Nikhil Akiti
-
-- GitHub: [USERNAME HERE](LINK HERE)
+- Second Year Computer Science Major
+- Full Stack Development
+- Hobbies: Basketball and Running
+- GitHub: [nakiti](https://github.com/Nakiti)
+- [Linkedin](https://www.linkedin.com/in/nikhil-akiti-445bb6242/)
 
 **Developer**: Dustin Nguyen
 
