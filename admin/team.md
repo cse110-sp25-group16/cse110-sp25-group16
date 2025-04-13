@@ -1,11 +1,11 @@
 # Welcome to Sweet 16's Team Page!
 
 Team Brand:
-- Team Colors:
+- Team Colors: Pink and White
 - Logo:
-- Fonts:
-- PowerPoint Theme:
-- Values:
+- Fonts: Cosmopolitan 
+- PowerPoint Theme: 
+- Values: As a team, we have core values we seek to embody through our working style and submission quality. These values include: timely delivery and task completion, consistent coordination with one another, clear communication, transparency, and a commitment to working hard and asking for help when needed.
 
 ## Roster:
 
@@ -19,7 +19,11 @@ Team Brand:
 
 **Lead**: Anusha Rao
 
-- GitHub: [USERNAME HERE](LINK HERE)
+- 3rd Year CE Major
+- Full Stack Development
+- Hobbies: Classical Indian dance, and building racecars!
+- GitHub: [anushaprao](https://github.com/anushaprao)
+- [LinkedIn](www.linkedin.com/in/anusha-p-rao)
 
 **Developer**: Ria Singhania
 - 3rd Year International Business Major and CS Minor
