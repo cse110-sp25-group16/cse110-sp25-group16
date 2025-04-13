@@ -22,8 +22,11 @@ Team Brand:
 - GitHub: [USERNAME HERE](LINK HERE)
 
 **Developer**: Ria Singhania
-
-- GitHub: [USERNAME HERE](LINK HERE)
+- 3rd Year International Business Major and CS Minor
+- Frontend
+- Current Hobby: DJing!
+- GitHub: [riasinghania](https://github.com/riasinghania)
+- [LinkedIn](https://www.linkedin.com/in/ria-singhania/)
 
 **Developer**: Angelica Cabusi
 - 2nd year CS major
