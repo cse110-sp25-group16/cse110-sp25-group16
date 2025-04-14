@@ -79,5 +79,8 @@ Team Brand:
 
 
 **Developer**: Leonard Shi
-
-- GitHub: [USERNAME HERE](LINK HERE)
+- 4th Year MATH CS Major
+- Full Stack
+- Hobbies: Target shooting, collecting and hiking
+- GitHub: [leonardshi058](https://github.com/leonardshi058)
+- [Lindedin](https://www.linkedin.com/in/chang-shi-439976263/)
