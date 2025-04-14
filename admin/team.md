@@ -39,10 +39,12 @@ Team Brand:
 - GitHub: [Lyka717](https://github.com/Lyka717)
 - [LinkedIn](https://www.linkedin.com/in/angelica-cabusi-715a62246/)
 
-
 **Developer**: Anthony Georgis
-
-- GitHub: [USERNAME HERE](LINK HERE)
+- 3rd year CE Major
+- Backend
+- Current Hobbies: Weightlifting and eating
+- GitHub: [Malakelis](https://github.com/Malakelis)
+- [LinkedIn](https://www.linkedin.com/in/anthony-georgis-awg/)
 
 **Developer**: Teddy Gyatso
 
