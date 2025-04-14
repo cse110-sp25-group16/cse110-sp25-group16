@@ -71,8 +71,12 @@ Team Brand:
 - [Linkedin](https://www.linkedin.com/in/nikhil-akiti-445bb6242/)
 
 **Developer**: Dustin Nguyen
+- 3rd Year Transfer CS Major
+- Full Stack
+- Hobbies: Basketball and Videogames
+- GitHub: [dustinnguyen012](https://github.com/dustinnguyen012)
+- [Linkedin](https://www.linkedin.com/in/dustin-nguyen-429256240/)
 
-- GitHub: [USERNAME HERE](LINK HERE)
 
 **Developer**: Leonard Shi
 
