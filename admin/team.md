@@ -2,7 +2,7 @@
 
 Team Brand:
 - Team Colors: Pink and White
-- Logo:
+- Logo: ![Sweet 16 Logo](/../branding/sweet 16 logo.png)
 - Fonts: Cosmopolitan 
 - PowerPoint Theme: 
 - Values: As a team, we have core values we seek to embody through our working style and submission quality. These values include: timely delivery and task completion, consistent coordination with one another, clear communication, transparency, and a commitment to working hard and asking for help when needed.
