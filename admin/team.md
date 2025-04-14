@@ -46,7 +46,11 @@ Team Brand:
 
 **Developer**: Teddy Gyatso
 
-- GitHub: [USERNAME HERE](LINK HERE)
+- 3rd Year CS Major
+- Frontend
+- Current Hobby: Hanging out.
+- GitHub: [tgyatso413](https://github.com/tgyatso413)
+- [LinkedIn](https://www.linkedin.com/in/teddy-gyatso/)
 
 **Developer**: Aiden Krueger
 - 3rd Year Transfer Computer Engineering Major
