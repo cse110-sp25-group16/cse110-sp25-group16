@@ -49,8 +49,11 @@ Team Brand:
 - GitHub: [USERNAME HERE](LINK HERE)
 
 **Developer**: Aiden Krueger
-
-- GitHub: [USERNAME HERE](LINK HERE)
+- 3rd Year Transfer Computer Engineering Major
+- Fullstack
+- Current Hobby: Running and trying to learn Spanish
+- GitHub: [aidenkrew](https://github.com/aidenkrew)
+- [LinkedIn](https://www.linkedin.com/in/aiden-krueger-951699247/)
 
 **Developer**: Minjoo O
 
