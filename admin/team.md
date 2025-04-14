@@ -60,8 +60,11 @@ Team Brand:
 - [LinkedIn](https://www.linkedin.com/in/aiden-krueger-951699247/)
 
 **Developer**: Minjoo O
-
-- GitHub: [USERNAME HERE](LINK HERE)
+- 2nd Year Computer Science Major
+- Full-stack development
+- Hobbies: Crochet, Minecraft, hanging out with friends and family
+- GitHub: [ominjoo](https://github.com/ominjoo)
+- [LinkedIn](https://linkedin.com/in/minjoo-o)
 
 **Developer**: Nikhil Akiti
 - Second Year Computer Science Major
