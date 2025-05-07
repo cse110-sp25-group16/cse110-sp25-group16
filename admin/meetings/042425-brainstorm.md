@@ -77,7 +77,24 @@ There is no centralized space for tarot, horoscope, personality analysis even th
 
 You can build a profile based on your MBTI personality (INFP, ENTP, etc.), your horoscope, and every day we generate a tarot card reading. You can share your readings & horoscope predictions with friends.
 
-## SWOT Analysis  Strengths:   \- Integrates tarot, astrology and MBTI which has not been seen between similar apps.  \- Ability to connect and share readings with friends which encourages daily engagement \- Daily Tarot pulls and horoscope updates create a reason for users to return  Weaknesses:  \- Most likely only attracts people who are already interested in tarot/astrology/MBTI, limiting the user base  \- Having tarot, astrology, and MBTI could overwhelm users if not designed cleanly \- Very strong competition from apps like Co-star and Sanctuary which already trusted platforms in astrology. Labyrinthos is strong for tarot.  Opportunities: \- No other app fully integrates and merges MBTI, tarot and astrology. This makes it stand out \- Daily streaks could keep users engaged long term \- Rising interest in spirituality  Threats: \- Market Saturation: Many astrology and tarot already exist so standing out requires a good UI and a clear hook \-Spirtuality and astrology are popular now but trends can potentially shift, which may affect user interest long-termSimilar Applications
+## SWOT Analysis  
+### Strengths:   
+- Integrates tarot, astrology and MBTI which has not been seen between similar apps.
+- Ability to connect and share readings with friends which encourages daily engagement
+- Daily Tarot pulls and horoscope updates create a reason for users to return
+### Weaknesses:
+- Most likely only attracts people who are already interested in tarot/astrology/MBTI, limiting the user base
+- Having tarot, astrology, and MBTI could overwhelm users if not designed cleanly
+- Very strong competition from apps like Co-star and Sanctuary which already trusted platforms in astrology. Labyrinthos is strong for tarot.
+### Opportunities:
+- No other app fully integrates and merges MBTI, tarot and astrology. This makes it stand out
+- Daily streaks could keep users engaged long term
+- Rising interest in spirituality
+### Threats:
+- Market Saturation: Many astrology and tarot already exist so standing out requires a good UI and a clear hook
+- Spirtuality and astrology are popular now but trends can potentially shift, which may affect user interest long-term
+
+## Similar Applications
 
 \-Co-star: Astrological charts personalized, daily horoscopes, can compare and match with friends. 
 
