@@ -2,7 +2,11 @@
 
 4/24/25
 
-# Attendees: Tyler Hoang, Anusha Rao, Ria Singhania, Aiden Krueger, Angelica Cabusi, Anthony Georgis, Leonard Shi
+# Attendees: 
+Tyler Hoang, Anusha Rao, Ria Singhania, Aiden Krueger, Angelica Cabusi, Anthony Georgis, Leonard Shi
+
+# Excused: 
+Nikhil Akiti
 
 [Miro Team Invite](https://miro.com/welcome/czdwVGV3eDNkRzVGTFZXRkhWUGJkQVpMQ0o3WllwNGpLdXlMdVlqMk02NzFvN1JKaitJQktVcXZKTlBGQlMxT09oTytoRDFhb09ITjBYMVdlVGRKRjBFUlBkTTFxUmNJSlRQMFljVnRnUWpNa1Q1bnVmRnl6eHFvWXRYR1ArTG13VHhHVHd5UWtSM1BidUtUYmxycDRnPT0hdjE=?share_link_id=218115209461)   
 [Miro Board](https://miro.com/app/board/uXjVI-XzGaA=/) 
