@@ -3,7 +3,7 @@
 - Purpose: set up course for rest of project, & weekly assignments
 
 ## Attendees:
-Tyler Hoang, 
+Tyler Hoang, Leonard Shi, Dustin Nguyen, Aiden Krueger, Ria Singhania, Minjoo O, Angelica Cabusi
 
 ## Agenda:
 1. Sprint reflection, retrospective
