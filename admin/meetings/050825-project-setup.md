@@ -39,4 +39,4 @@
 ## Questions, Concerns, Ideas, Misc.
 
 - What do we do with the information after we've gathered it?\
-**Answer:** in the `admin/adr` folder, create a new `.md` file detailing what you've researched, why we should choose one technology over the other (your rationale), how it fits the project we are building, how it addresses user concerns, etc.
+**Answer:** in the `admin/adr` folder, create a new `.md` file detailing what you've researched, why we should choose one technology over the other (your rationale), how it fits the project we are building, how it addresses user concerns, etc. Then, build it in GitHub actions with some experimental code.
