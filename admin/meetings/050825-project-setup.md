@@ -21,15 +21,19 @@ Tyler Hoang, Leonard Shi, Dustin Nguyen, Aiden Krueger, Ria Singhania, Minjoo O,
 - We will have "bi-daily" standups, if you have to-do items please post your progress in the #standups chat at least once every three days. 
 
 ## Action Items (to-do):
-- Nikhil Akiti:
-- Angelica Cabusi:
-- Anthony Georgis:
-- Tyler Hoang: 
-- Aiden Krueger:
-- Dustin Nguyen:
-- Minjoo O:
-- Anusha Rao: 
-- Leonard Shi:
-- Ria Singhania:
+
+- ***EVERYONE***: sign team charter, submit as `/admin/misc/rules-studentname.pdf`
+
+- **Nikhil Akiti:** create issue tracking, & story points system w/ reasoning
+- **Angelica Cabusi:** decide testing framework (w/ reasoning)
+- **Anthony Georgis:** write definition of "done", flex role (help as needed)
+- **Tyler Hoang:** add branch rules for PRs, polish group contract, polish ADRs
+- **Aiden Krueger:** look into documentation generation via automation (ex JSDocs)
+- **Dustin Nguyen:** research code quality tools, decide what's best (w/ reasoning) (ex. Codeclimate, Codacy, etc.)
+- **Minjoo O:** research linting/code style enforcement, decide what's best (w/ reasoning) may happen in pipeline and/or in editor, ex: Prettier
+- **Anusha Rao:** branch/merging strategy, ADR & reasoning, create issues
+- **Leonard Shi:** decide what unit test we should use (w/ reasoning); examples: Jest, Tape, Ava, Cypress, Mocha/Chai, etc.
+- **Ria Singhania:** research e2e (end to end) and pixel testing, conclude on how reasonable it is for our project
 
 ## Questions, Concerns, Ideas, Misc.
+N/A
