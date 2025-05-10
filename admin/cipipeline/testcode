@@ -1,0 +1,23 @@
+// Test for ESLint: Unused variable, incorrect indentation, and inconsistent semicolons
+
+// Unused variable
+const unusedVariable = 42;
+
+function testFunction() {
+  const name = 'John';
+  let age = 30;
+
+  // Inconsistent indentation
+  if (name === 'John') {
+    console.log('Name is John');
+  } else {
+        console.log('Name is not John');  // ESLint should flag this indentation issue
+  }
+
+  // Incorrect semicolon usage
+  console.log('Hello, World!') // missing semicolon
+  age++; // correct semicolon
+}
+
+// Call the function
+testFunction()
