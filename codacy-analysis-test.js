@@ -1,4 +1,4 @@
-// Codacy test file
+// This file is meant to pass Codacy and Prettier checks
 
-var x = "This should trigger a lint warning"  // Missing semicolon
-console.log(x)
+const greeting = "Hello, Codacy!";
+console.log(greeting);
