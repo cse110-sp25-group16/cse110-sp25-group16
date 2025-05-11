@@ -1,0 +1,132 @@
+# Unit Testing Framework Decision
+
+## Purpose
+
+ Unit testing ensures that individual components function as expected and plays a critical role in Agile and DevOps methodologies. In this docuement, I will disccuss the potential testing framework and reasons for the final decision
+
+## Candidate Frameworks
+
+### 1. **Jest**
+
+* **Overview:** Jest is an all-in-one testing framework developed by Meta. It supports unit testing, mocking, coverage reporting, and snapshot testing out of the box.
+* **Pros:**
+
+  * Built-in assertion, mocking, and test runner
+  * Excellent documentation and large community
+  * Fast test execution with parallelization
+  * Snapshot testing support
+  * Easy integration with GitHub Actions
+  * Maintained by Meta and frequently updated
+* **Cons:**
+
+  * Slightly slower startup on large projects compared to lighter tools
+  * Snapshot testing can be misused if not reviewed properly
+* **Reference:** [https://jestjs.io/](https://jestjs.io/)
+
+### 2. **Mocha + Chai**
+
+* **Overview:** Mocha is a flexible testing framework that can be paired with various assertion libraries like Chai. It’s known for its configurability and long-term use in Node.js environments.
+* **Pros:**
+
+  * Modular and customizable
+  * Mature and battle-tested
+  * Works well with BDD and TDD styles
+* **Cons:**
+
+  * Requires extra configuration (e.g., Chai, Sinon)
+  * No built-in mocking or coverage reporting
+* **Reference:** [https://mochajs.org/](https://mochajs.org/) | [https://www.chaijs.com/](https://www.chaijs.com/)
+
+### 3. **Tape**
+
+* **Overview:** Tape is a minimalist test runner that runs tests sequentially and exits cleanly. It emphasizes simplicity and clarity.
+* **Pros:**
+
+  * Lightweight and minimal
+  * No global variables; easy to reason about
+  * Suitable for small projects
+* **Cons:**
+
+  * No built-in mocking, assertions, or reporting tools
+  * Limited plugin ecosystem
+* **Reference:** [https://github.com/ljharb/tape](https://github.com/ljharb/tape)
+
+### 4. **Ava**
+
+* **Overview:** Ava is a fast test runner that runs tests concurrently. It’s designed for performance and simplicity.
+* **Pros:**
+
+  * Built-in support for async/await
+  * Concurrent test execution improves speed
+  * Clean and minimal API
+* **Cons:**
+
+  * Lacks built-in mocking and browser support
+  * Poorer IDE integration and debugging support
+* **Reference:** [https://avajs.dev/](https://avajs.dev/)
+
+
+
+## Decision
+
+After evaluating the above options, we selected **Jest** as the unit testing framework for our project.
+
+### Rationale:
+
+* **Ecosystem Fit:** Works with both frontend and backend JavaScript code
+* **Automation:** Integrates cleanly with GitHub Actions for CI
+* **Developer Experience:** Well-documented, great error messages, and easy to use
+* **Extensibility:** Supports future needs like code coverage and snapshot tests
+
+## Implementation Plan
+
+1. Add Jest to `package.json`:
+
+   ```bash
+   npm install --save-dev jest
+   ```
+2. Add test script:
+
+   ```json
+   "scripts": {
+     "test": "jest"
+   }
+   ```
+3. Create sample test file:
+
+   ```js
+   // sum.js
+   export function sum(a, b) {
+     return a + b;
+   }
+
+   // sum.test.js
+   import { sum } from './sum';
+
+   test('adds 2 + 3 to equal 5', () => {
+     expect(sum(2, 3)).toBe(5);
+   });
+   ```
+4. Add GitHub Actions workflow to run Jest:
+
+   ```yaml
+   name: CI
+
+   on: [push, pull_request]
+
+   jobs:
+     test:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v3
+         - name: Setup Node.js
+           uses: actions/setup-node@v3
+           with:
+             node-version: '18'
+         - run: npm install
+         - run: npm run test
+   ```
+
+## Conclusion
+
+Jest provides a reliable, modern, and feature-complete solution for unit testing in JavaScript environments. Its strong community backing, zero-config setup, and extensibility make it ideal for integrating into our CI/CD pipeline during Phase 1 and beyond.
