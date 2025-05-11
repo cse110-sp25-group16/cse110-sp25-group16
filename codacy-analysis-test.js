@@ -1,4 +1,4 @@
-// This file is meant to pass Codacy and Prettier checks
+// Codacy test file with proper formatting
 
-const greeting = "Hello, Codacy!";
-console.log(greeting);
+const message = "Hello, Codacy!";
+console.log(message);
