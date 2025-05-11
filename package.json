@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/cse110-sp25-group16/cse110-sp25-group16#readme",
   "devDependencies": {
+    "eslint": "^9.26.0",
     "prettier": "^3.5.3"
   }
 }
