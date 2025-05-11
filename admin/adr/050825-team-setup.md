@@ -5,6 +5,7 @@
   - This app is less "practical," more of a fun app, so the focus should be on the user experience over 100% efficient/robust API design and optimization
 
 ## Front-end
+
 - Anusha Rao
 - Dustin Nguyen
 - Leonard Shi
@@ -14,6 +15,7 @@
 - Ria Singhania
 
 ## Back-end
+
 - Tyler Hoang
 - Ria Singhania (specs only)
 - Minjoo O
@@ -23,7 +25,7 @@
 
 - Rationale: We want concrete role definitions to encourage specialization, where each person may be masters of their domain
 - Within each front-end & back-end category, we may have more concrete role breakdowns in the subteams themselves, for purpose of further specialization
-- However, each team member should be comfortable with the content within their sub-team ("T-shaped") to ease collaboration 
+- However, each team member should be comfortable with the content within their sub-team ("T-shaped") to ease collaboration
 
 ## Front-end
 
@@ -35,8 +37,8 @@
 ## Back-end
 
 - Logic for generating tarot card readings
-- MBTI decisions*
-- Logic for horoscope readings*
+- MBTI decisions\*
+- Logic for horoscope readings\*
 - Handling localStorage API, data
 - Architecting class structures, etc.
 
