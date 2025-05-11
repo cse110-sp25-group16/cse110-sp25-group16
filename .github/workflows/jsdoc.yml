@@ -3,8 +3,12 @@ name: Generate JSDoc
 on:
   push:
     branches: [main]
+    paths:
+    - '**/*.js'
   pull_request:
     branches: [main]
+    paths:
+    - '**/*.js'
 
 jobs:
   jsdoc:
