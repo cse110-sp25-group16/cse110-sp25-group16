@@ -1,0 +1,10 @@
+{
+  "name": "jsdoc-test",
+  "version": "1.0.0",
+  "scripts": {
+    "docs": "jsdoc src --destination docs"
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.0"
+  }
+}
