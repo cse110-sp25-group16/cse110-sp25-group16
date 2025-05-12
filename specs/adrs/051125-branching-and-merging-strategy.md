@@ -1,9 +1,11 @@
 # Branching and Merging Strategies
 
 ## Context
+
 In collaborative software development, a clear branching and merging strategy is essential for managing code changes, ensuring stability, and supporting different workflows such as feature development, bug fixing, continuous deployment, and release management. Choosing the right strategy depends on factors like team size, project complexity, deployment frequency, and whether the codebase supports multiple versions in production.
 
 ## Branching Strategies
+
 ### 1. Git Flow
 
 - **Use Case**: Long-term projects with scheduled releases
@@ -15,7 +17,9 @@ In collaborative software development, a clear branching and merging strategy is
   - `hotfix/*`: Emergency production fixes
 - **Pros**: Clear role for each branch; well-suited for teams needing structured release processes.
 - **Cons**: Heavyweight; slow for fast-moving or small teams.
+
 ---
+
 ### 2. GitHub Flow
 
 - **Use Case**: Continuous deployment, small teams
@@ -84,16 +88,19 @@ In collaborative software development, a clear branching and merging strategy is
 ## Merging Strategies
 
 ### 1. Merge Commits
+
 - Uses `git merge` to bring changes together.
 - **Pros**: Preserves full history and branch structure.
 - **Cons**: Messier commit history.
 
 ### 2. Squash and Merge
+
 - Combines all PR commits into a single commit.
 - **Pros**: Clean history, easier to revert.
 - **Cons**: Loses intermediate commit context.
 
 ### 3. Rebase and Merge
+
 - Rewrites commit history to appear linear.
 - **Pros**: Clean history, bisect-friendly.
 - **Cons**: Can be confusing; not suitable for shared branches.

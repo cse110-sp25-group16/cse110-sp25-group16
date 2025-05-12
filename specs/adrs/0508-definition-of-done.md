@@ -25,4 +25,4 @@ README and ADRs under `admin/adr` are up to date
 
 **Continuous Integration & Code Review**  
 All GitHub Actions pipelines complete successfully  
-Each pull request is reviewed and approved before merging  
+Each pull request is reviewed and approved before merging

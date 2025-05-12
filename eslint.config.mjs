@@ -12,8 +12,8 @@ export default defineConfig([
       'docs/**',
       'node_modules/**',
       'sum.test.js',
-      'sum.js'
-    ]
+      'sum.js',
+    ],
   },
   {
     files: ['**/*.{js,mjs,cjs}'],
