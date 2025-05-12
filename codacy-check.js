@@ -1,2 +1,2 @@
 const status = "Codacy is working!";
-console.log(status);
+console.log(state);
