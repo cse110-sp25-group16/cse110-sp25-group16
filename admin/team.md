@@ -1,9 +1,10 @@
 # Welcome to Sweet 16's Team Page!
 
 Team Brand:
+
 - Team Colors: Pink and White
 - Logo: ![Sweet 16 logo](./branding/sweet16logo.png)
-- Fonts: Cosmopolitan 
+- Fonts: Cosmopolitan
 - PowerPoint Theme: Included in branding, color palette created from our logo colors!
 - Values: As a team, we have core values we seek to embody through our working style and submission quality. These values include: timely delivery and task completion, consistent coordination with one another, clear communication, transparency, and a commitment to working hard and asking for help when needed.
 
@@ -26,6 +27,7 @@ Team Brand:
 - [LinkedIn](www.linkedin.com/in/anusha-p-rao)
 
 **Developer**: Ria Singhania
+
 - 3rd Year International Business Major and CS Minor
 - Frontend
 - Current Hobby: DJing!
@@ -33,6 +35,7 @@ Team Brand:
 - [LinkedIn](https://www.linkedin.com/in/ria-singhania/)
 
 **Developer**: Angelica Cabusi
+
 - 2nd year CS major
 - Frontend
 - Current Hobby: Arts & crafts (woodworking)
@@ -40,6 +43,7 @@ Team Brand:
 - [LinkedIn](https://www.linkedin.com/in/angelica-cabusi-715a62246/)
 
 **Developer**: Anthony Georgis
+
 - 3rd year CE Major
 - Backend
 - Current Hobbies: Weightlifting and eating
@@ -55,6 +59,7 @@ Team Brand:
 - [LinkedIn](https://www.linkedin.com/in/teddy-gyatso/)
 
 **Developer**: Aiden Krueger
+
 - 3rd Year Transfer Computer Engineering Major
 - Fullstack
 - Current Hobby: Running and trying to learn Spanish
@@ -62,6 +67,7 @@ Team Brand:
 - [LinkedIn](https://www.linkedin.com/in/aiden-krueger-951699247/)
 
 **Developer**: Minjoo O
+
 - 2nd Year Computer Science Major
 - Full-stack development
 - Hobbies: Crochet, Minecraft, hanging out with friends and family
@@ -69,6 +75,7 @@ Team Brand:
 - [LinkedIn](https://linkedin.com/in/minjoo-o)
 
 **Developer**: Nikhil Akiti
+
 - Second Year Computer Science Major
 - Full Stack Development
 - Hobbies: Basketball and Running
@@ -76,14 +83,15 @@ Team Brand:
 - [Linkedin](https://www.linkedin.com/in/nikhil-akiti-445bb6242/)
 
 **Developer**: Dustin Nguyen
+
 - 3rd Year Transfer CS Major
 - Full Stack
 - Hobbies: Basketball and Videogames
 - GitHub: [dustinnguyen012](https://github.com/dustinnguyen012)
 - [Linkedin](https://www.linkedin.com/in/dustin-nguyen-429256240/)
 
-
 **Developer**: Leonard Shi
+
 - 4th Year MATH CS Major
 - Full Stack
 - Hobbies: Target shooting, collecting and hiking
