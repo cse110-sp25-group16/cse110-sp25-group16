@@ -24,15 +24,16 @@
 - **_EVERYONE_**: To-do standup: drop what you need to get done & by when in the #standups channel.
 - 
 
-- **Nikhil Akiti:** Pair program w/ Angelica - Daily spread page 
-- **Angelica Cabusi:** Pair program w/ Nikhil - Daily spread page 
-- **Anthony Georgis:** Pair program w/ Tyler - MBTI
-- **Tyler Hoang:** Pair program w/ Minjoo - deck management, start horoscope/tarot algos
-- **Aiden Krueger:** Settings page
-- **Dustin Nguyen:** Pair program w/ Leonard - user info input page
-- **Minjoo O:** Pair program w/ Tyler - deck management, start horoscope/tarot algos
-- **Anusha Rao:** Specs for the horoscopes - what we are required to store, how we can generate/compute horoscopes (based on what patterns), etc.
-- **Leonard Shi:** Pair program w/ Dustin - user info input page
-- **Ria Singhania:** Specs for tarot cards - what is required to store, what computations do we need to create
+- **Nikhil Akiti:** Pair program w/ Angelica - [Daily spread page](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/43) 
+- **Angelica Cabusi:** Pair program w/ Nikhil - [Daily spread page](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/43) 
+- **Anthony Georgis:** Pair program w/ Tyler - [MBTI](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/48)
+- **Tyler Hoang:** Pair program w/ Minjoo - [deck management](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/45), start horoscope/[tarot algos](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/46), create issues & setup story points/issue tracking page
+- **Aiden Krueger:** [Settings page](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/49)
+- **Dustin Nguyen:** Pair program w/ Leonard - [user info input page](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/44)
+- **Minjoo O:** Pair program w/ Tyler - [deck management](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/45), start horoscope/[tarot algos](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/46)
+- **Anusha Rao:** [Specs for the horoscopes](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/47)
+- **Leonard Shi:** Pair program w/ Dustin - [user info input page](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/44)
+- **Ria Singhania:** [Specs for tarot cards](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/42)
 
 ## Questions, Concerns, Ideas, Misc.
+N/A
