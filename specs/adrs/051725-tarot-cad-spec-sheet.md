@@ -38,9 +38,6 @@
 #### Metadata:
 - **id**: Unique identifier for the card.
 - **description**: Detailed explanation of the card's background and story.
-- **dateAdded**: Timestamp for when the card was added to the system.
-  - *Version control – If card descriptions or symbols are updated over time.*
-  - *Data analytics – Tracking when cards are introduced for app updates or feature rollouts.*
 
 #### User Interaction Data (Optional):
 - **lastDrawn**: Date and time when the card was last pulled.
