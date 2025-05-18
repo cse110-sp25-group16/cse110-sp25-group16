@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-
     const users = JSON.parse(localStorage.getItem('users')) || [];
-    const match = users.find(user => user.username === username && user.password === password);
+    const match = users.find(
+      (user) => user.username === username && user.password === password
+    );
 
     if (match) {
       localStorage.setItem('currentUser', JSON.stringify({ username }));

@@ -6,7 +6,8 @@
 }
 
 /* Prevent scrolling and fit page to viewport */
-html, body {
+html,
+body {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
@@ -14,10 +15,9 @@ html, body {
   background-color: #fff;
 }
 
-
 /* Full-width pink top bar */
 .top-bar {
-  background-color: #E3BCBA;
+  background-color: #e3bcba;
   height: 60px;
   width: 100%;
   display: flex;
@@ -28,7 +28,7 @@ html, body {
 .top-bar h2 {
   margin: 0;
   font-size: 20px;
-  color: #7D4F50;
+  color: #7d4f50;
 }
 
 /* Centered form container */
@@ -44,7 +44,7 @@ html, body {
 }
 
 h1 {
-  color: #7D4F50;
+  color: #7d4f50;
   margin-bottom: 20px;
   font-size: 40px;
 }
@@ -52,15 +52,15 @@ h1 {
 label {
   display: block;
   margin: 10px 0 0px;
-  color: #7D4F50;
+  color: #7d4f50;
 }
 
-input[type="text"],
-input[type="password"],
+input[type='text'],
+input[type='password'],
 select {
   width: 100%;
   padding: 10px;
-  border: 2px solid #7D4F50; 
+  border: 2px solid #7d4f50;
   border-radius: 10px;
   box-sizing: border-box;
   margin-bottom: 5px;
@@ -77,40 +77,42 @@ select {
   padding: 10px;
   font-size: 16px;
   font-weight: 500;
-  border: 2px solid #7D4F50;
-  border-radius: 10px; 
-  text-align: center;  /* center placeholder text */
-  color: #7D4F50;
+  border: 2px solid #7d4f50;
+  border-radius: 10px;
+  text-align: center; /* center placeholder text */
+  color: #7d4f50;
 }
 
-.dob-fields input:nth-child(1) { /* DD */
+.dob-fields input:nth-child(1) {
+  /* DD */
   width: 50px;
 }
 
-.dob-fields input:nth-child(2) { /* MM */
+.dob-fields input:nth-child(2) {
+  /* MM */
   width: 50px;
 }
 
-.dob-fields input:nth-child(3) { /* YYYY */
+.dob-fields input:nth-child(3) {
+  /* YYYY */
   width: 90px;
 }
 
 select {
-  background-color: #ED8839;
-  border-color: #E3BCBA;
+  background-color: #ed8839;
+  border-color: #e3bcba;
   color: white;
   width: 300px;
 }
 
 select:focus {
   outline: none;
-  border: 2px solid #E3BCBA;
+  border: 2px solid #e3bcba;
 }
 
-
 button {
-  background-color: #ED8839;
-  border-color: #E3BCBA;
+  background-color: #ed8839;
+  border-color: #e3bcba;
   color: white;
   padding: 10px 15px;
   border-radius: 10px;
@@ -118,28 +120,27 @@ button {
   margin-top: 20px;
   font-size: 20px;
   display: block;
-  width: 200px; 
+  width: 200px;
 }
 
 button:hover {
   background-color: #d7732f;
 }
 
-
 .disclaimer {
   display: block;
   font-size: 0.85em;
-  color: #7D4F50;
+  color: #7d4f50;
   margin-top: 5px;
 }
 
 .disclaimer a {
-  color: #FF6C6C;
+  color: #ff6c6c;
   text-decoration: underline;
 }
 
 .storage-note {
   font-size: 0.8em;
   margin-top: 15px;
-  color: #7D4F50;
+  color: #7d4f50;
 }
