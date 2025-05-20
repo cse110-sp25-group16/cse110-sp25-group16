@@ -1,0 +1,30 @@
+{
+  "name": "cse110-sp25-group16",
+  "version": "1.0.0",
+  "description": "## [Meet our team!](/admin/team.md)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "docs": "jsdoc src --destination docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cse110-sp25-group16/cse110-sp25-group16.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues"
+  },
+  "homepage": "https://github.com/cse110-sp25-group16/cse110-sp25-group16#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^9.26.0",
+    "prettier": "^3.5.3",
+    "jsdoc": "^4.0.0"
+  }
+}
