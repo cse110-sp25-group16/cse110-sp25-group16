@@ -22,23 +22,30 @@
 - **Compatibility**
 
 ### Readings:
+
 - **Daily/Weekly/Monthly Horoscope Texts**
 - **OPTIONAL: Solar Eclipse/Planetary Event special case**
 
 ---
+
 ### Reading Information:
+
 - Based on sun sign
 - Pull pre-written horoscope text for sign/date
 
 ### User Input vs. App-Data
+
 - User Input: Birth Date, Birth Time
 - App-Data: Current Date, Zodiac, Horoscope Content, Planetary Data, Reading History
+
 ---
 
 #### Imagery and Visual Data:
+
 - Text: Zodiac Sign, Date, Reading
 
 #### Metadata:
+
 - **id**: Unique identifier for each reading based on zodiac
 - **description**: Unique reading for each zodiac sign
 
@@ -50,7 +57,7 @@
 
 - First, collect birth date and assign user to a Zodiac sign: can be done using a simple function with date ranges.
 - Next, create a table with readings for each sign for each day of the year, associated to each horoscope. Table can be database(ex.SQL) with three columns (date, sign, reading).
-- Every day, fetch the reading for that date and for that user's sign. 
+- Every day, fetch the reading for that date and for that user's sign.
 
 ---
 
@@ -76,7 +83,7 @@
 
 - Sharing options for group chats and text.
 - Compare & contrast readings with mutual users.
-- 
+-
 
 ### Analytical Anna:
 
