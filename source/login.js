@@ -1,27 +1,22 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form');
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("login-form");
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value.trim();
+    const inputName = document.getElementById("name").value.trim();
+    const storedUser = JSON.parse(localStorage.getItem("tarotUserInfo"));
 
-    if (!username || !password) {
-      alert('Please enter both a username and password.');
+    if (!storedUser || !storedUser.name) {
+      alert("No user found. Please sign up first.");
       return;
     }
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const match = users.find(
-      (user) => user.username === username && user.password === password
-    );
-
-    if (match) {
-      localStorage.setItem('currentUser', JSON.stringify({ username }));
-      window.location.href = 'home.html';
+    if (storedUser.name.toLowerCase() === inputName.toLowerCase()) {
+      alert(`Welcome back, ${storedUser.name}!`);
+      localStorage.setItem("currentUser", storedUser.name);
     } else {
-      alert('Incorrect username or password.');
+      alert("Name not recognized. Please try again or sign up.");
     }
   });
 });
