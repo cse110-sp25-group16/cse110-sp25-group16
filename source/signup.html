@@ -7,25 +7,38 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Full-width pink top bar -->
     <div class="top-bar"></div>
 
-    <!-- Centered sign-up form -->
     <div class="container">
       <h1>Sign up</h1>
 
-      <form>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required />
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+      <form id="signup-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
 
         <label>Date of Birth</label>
         <div class="dob-fields">
-          <input type="text" placeholder="DD" maxlength="2" />
-          <input type="text" placeholder="MM" maxlength="2" />
-          <input type="text" placeholder="YYYY" maxlength="4" />
+          <input
+            type="text"
+            id="dob-day"
+            placeholder="DD"
+            maxlength="2"
+            required
+          />
+          <input
+            type="text"
+            id="dob-month"
+            placeholder="MM"
+            maxlength="2"
+            required
+          />
+          <input
+            type="text"
+            id="dob-year"
+            placeholder="YYYY"
+            maxlength="4"
+            required
+          />
         </div>
 
         <label for="mbti">
@@ -35,12 +48,14 @@
             <a
               href="https://www.16personalities.com/free-personality-test"
               target="_blank"
-              >Click here</a
             >
-            to take the Myers-Briggs Personality Test</span
-          >
+              Click here
+            </a>
+            to take the Myers-Briggs Personality Test
+          </span>
         </label>
-        <select id="mbti" name="mbti">
+        <select id="mbti" name="mbti" required>
+          <option value="">Select...</option>
           <option value="ESFJ">ESFJ</option>
           <option value="ESFP">ESFP</option>
           <option value="ESTJ">ESTJ</option>
@@ -69,4 +84,4 @@
 
     <script src="signup.js"></script>
   </body>
-</html>
+</html>;
