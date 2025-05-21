@@ -1,0 +1,146 @@
+/* Reset default spacing and box sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent scrolling and fit page to viewport */
+html,
+body {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'EB Garamond', serif;
+  background-color: #fff;
+}
+
+/* Full-width pink top bar */
+.top-bar {
+  background-color: #e3bcba;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+}
+
+.top-bar h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #7d4f50;
+}
+
+/* Centered form container */
+.container {
+  width: 600px;
+  background-color: white;
+  padding: 40px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  color: #7d4f50;
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 0px;
+  color: #7d4f50;
+}
+
+input[type='text'],
+input[type='password'],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #7d4f50;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  background-color: #fff;
+}
+
+.dob-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.dob-fields input {
+  width: 30%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid #7d4f50;
+  border-radius: 10px;
+  text-align: center; /* center placeholder text */
+  color: #7d4f50;
+}
+
+.dob-fields input:nth-child(1) {
+  /* DD */
+  width: 50px;
+}
+
+.dob-fields input:nth-child(2) {
+  /* MM */
+  width: 50px;
+}
+
+.dob-fields input:nth-child(3) {
+  /* YYYY */
+  width: 90px;
+}
+
+select {
+  background-color: #ed8839;
+  border-color: #e3bcba;
+  color: white;
+  width: 300px;
+}
+
+select:focus {
+  outline: none;
+  border: 2px solid #e3bcba;
+}
+
+button {
+  background-color: #ed8839;
+  border-color: #e3bcba;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 20px;
+  display: block;
+  width: 200px;
+}
+
+button:hover {
+  background-color: #d7732f;
+}
+
+.disclaimer {
+  display: block;
+  font-size: 0.85em;
+  color: #7d4f50;
+  margin-top: 5px;
+}
+
+.disclaimer a {
+  color: #ff6c6c;
+  text-decoration: underline;
+}
+
+.storage-note {
+  font-size: 0.8em;
+  margin-top: 15px;
+  color: #7d4f50;
+}

@@ -55,9 +55,9 @@
 
 ### Algorithmic Horoscope Reading Generation:
 
-- First, collect birth date and assign user to a Zodiac sign using a simple function with date ranges.
-- Create a table with readings for each sign for each day of the year, associated with each horoscope. This table can be stored in a database (e.g., SQL) with three columns: `date`, `sign`, `reading`.
-- Every day, fetch the reading for that date and that user's sign.
+- First, collect birth date and assign user to a Zodiac sign: can be done using a simple function with date ranges.
+- Next, create a table with readings for each sign for each day of the year, associated to each horoscope. Table can be database (e.g. SQL) with three columns (date, sign, reading).
+- Every day, fetch the reading for that date and for that user's sign.
 
 ---
 
@@ -70,9 +70,9 @@
 
 ### Partner Paul:
 
-- Simple reading based on sign.
-- One-click sharing with a partner.
-- Interested in compatibility readings with other signs.
+- No deep analysis required, simple reading based on sign
+- One-click sharing with his partner, minimal depth.
+- May enjoy compatibility readings with other signs
 
 ### Mindful Mark:
 
