@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="top-bar"></div>
+
+    <div class="container">
+      <h1>Sign up</h1>
+
+      <form id="signup-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label>Date of Birth</label>
+        <div class="dob-fields">
+          <input
+            type="text"
+            id="dob-day"
+            placeholder="DD"
+            maxlength="2"
+            required
+          />
+          <input
+            type="text"
+            id="dob-month"
+            placeholder="MM"
+            maxlength="2"
+            required
+          />
+          <input
+            type="text"
+            id="dob-year"
+            placeholder="YYYY"
+            maxlength="4"
+            required
+          />
+        </div>
+
+        <label for="mbti">
+          MBTI ⓘ
+          <span class="disclaimer">
+            Don’t know your MBTI?
+            <a
+              href="https://www.16personalities.com/free-personality-test"
+              target="_blank"
+            >
+              Click here
+            </a>
+            to take the Myers-Briggs Personality Test
+          </span>
+        </label>
+        <select id="mbti" name="mbti" required>
+          <option value="">Select...</option>
+          <option value="ESFJ">ESFJ</option>
+          <option value="ESFP">ESFP</option>
+          <option value="ESTJ">ESTJ</option>
+          <option value="ESTP">ESTP</option>
+          <option value="ENFJ">ENFJ</option>
+          <option value="ENFP">ENFP</option>
+          <option value="ENTJ">ENTJ</option>
+          <option value="ENTP">ENTP</option>
+          <option value="INFJ">INFJ</option>
+          <option value="INFP">INFP</option>
+          <option value="INTJ">INTJ</option>
+          <option value="INTP">INTP</option>
+          <option value="ISFJ">ISFJ</option>
+          <option value="ISFP">ISFP</option>
+          <option value="ISTJ">ISTJ</option>
+          <option value="ISTP">ISTP</option>
+        </select>
+
+        <button type="submit">Sign up</button>
+
+        <p class="storage-note">
+          Note: Your data is stored securely and used only for personalization.
+        </p>
+      </form>
+    </div>
+
+    <script src="signup.js"></script>
+  </body>
+</html>
+;
