@@ -1,11 +1,13 @@
 **Consider methods for determining MBTI information**
 
 - **Self-report questionnaire**
+
   - _Description:_ 8–12 forced-choice questions (condensed MBTI).
   - _Pros:_ High accuracy; no external dependency.
   - _Cons:_ Adds friction; survey fatigue; needs polished UX.
 
 - **Import existing MBTI result**
+
   - _Description:_ User enters their 4-letter code or uploads a result from a reputable test.
   - _Pros:_ Near-zero friction if the user already knows their type.
   - _Cons:_ Depends on prior testing; prone to typos.

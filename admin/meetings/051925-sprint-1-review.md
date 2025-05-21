@@ -16,6 +16,7 @@
 ## Sprint Reflection:
 
 - Open discussion on what went well during the last sprint:
+
   - Clear assignment of tasks amongst members - Each member knew what needed to be accomplished, by what date and time, and was able to give better stand-up updates as a result.
   - Stand-up meetings moved from every day to every 2 days, which allowed people to have more updates to share, rather than empty posts.
   - More brainstorming as a group: Beginning the sprint planning session with open brainstorming allowed all members to contribute equally, as well as provided an opportunity to ask questions and get clarification on topics they didn't understand — especially because our project idea requires some background knowledge.
