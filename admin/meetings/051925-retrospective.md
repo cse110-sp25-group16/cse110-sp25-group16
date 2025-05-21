@@ -34,8 +34,9 @@
   - Good to set-up pair programming, allows for greater efficiency in writing code, and encourages members to work together to share knowledge, especially because we have many programmers experienced in JavaScript/HTML/CSS, as well as a good number of individuals who are new to WebDev. This also allows for greater discussion so that any logic flaws or bugs in the code can get resolved quickly, creating better code pushes.
 
 - Longed For Items - things we desire for success/morale next sprint:
-  - Reminder messages for teams on what work needs to get done so that all teams are aware of deadlines coming up, as well as when they can begin working.
-  - Asking more questions in Slack for clarification well in advance to deadlines so we are able to help one another clear any confusion before issues arise. This will also ensure that the needs of all teams are met, since the tasks of one team tend to impact the timeline of another.
+
+  - Reminder messages for teams about upcoming deadlines and work that needs to get done.
+  - Ask more questions in Slack well ahead of deadlines to clear confusion early and avoid downstream delays caused by dependencies between teams.
 
 ## Concluding Thoughts
 

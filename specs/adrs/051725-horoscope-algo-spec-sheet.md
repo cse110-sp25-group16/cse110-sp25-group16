@@ -66,7 +66,7 @@
 ### Vibes Valerie:
 
 - Easy, daily horoscope access.
-- No deep analysis required, simple reading based on sign
+- No deep analysis required; simple reading based on sign.
 
 ### Partner Paul:
 
@@ -76,15 +76,15 @@
 
 ### Mindful Mark:
 
-- More complex horoscope reading, most likely based on elemental sign and/or astrological events
-- Journaling space for reflections on horoscope readings
+- More complex horoscope readings based on elemental sign and/or astrological events.
+- Journaling space for reflections on horoscope readings.
 
 ### Social Sarah:
 
-- Sharing options for group chats and text.
+- Sharing options for group chats and texts.
 - Compare & contrast readings with mutual users.
 
 ### Analytical Anna:
 
-- Historical data storage of daily readings
+- Historical data storage of daily readings.
 - Export options for further off-app analysis.
