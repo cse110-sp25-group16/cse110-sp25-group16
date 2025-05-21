@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('settings-form');
 
+  document.getElementById('clearButton').addEventListener('click', clearData);
+
   // Pre-fill from localStorage
   const userDataRaw = localStorage.getItem('tarotUserInfo');
   if (userDataRaw) {
