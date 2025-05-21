@@ -1,3 +1,18 @@
+# Sprint Retrospective Meeting
+
+- Date: 5/19/25
+- Purpose: Retrospective Meeting on Sprint 1
+
+## Attendees:
+
+- **Present:** Tyler Hoang, Anusha Rao, Minjoo O, Aiden Krueger, Leonard Shi, Ria Singhania, Angelica Cabusi, Nikhil Akiti, Dustin Nguyen, Anthony Georgis
+- **Excused:** None
+
+## Agenda:
+
+1. Sprint retrospective
+2. Discuss Sprint Status Video
+
 ## Sprint Retrospective:
 
 - We chose to hold the sprint retrospective in the format of the Four Ls method because we felt that it was the easiest way to gather feedback, as well as focus on fixes in preparation for our next sprint.
