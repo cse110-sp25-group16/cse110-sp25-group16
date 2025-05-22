@@ -97,12 +97,12 @@ class CardDeck {
 
     /**
      * 
-     * @param {number} cardCount Draw cardCount amount of cards, and return an array containing their ids.
+     * @param {number} cardCount Draw cardCount amount of cards, and return an array of those drawn cards.
      */
     drawing(cardCount) {
         let drawnCards = [];
         for(let i = 0; i < cardCount;i++) {
-             drawnCards.append(this.cards.pop());
+             drawnCards.append(this.removeTopCard());
         }
 
         return drawnCards;
