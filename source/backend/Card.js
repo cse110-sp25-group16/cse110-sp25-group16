@@ -2218,10 +2218,10 @@ class Card {
     this.id = id;
     this.faceup = faceup;
 
-    let coinflip = Math.floor(Math.random() * (2));
-    
+    let coinflip = Math.floor(Math.random() * 2);
+
     this.upsideDown = false;
-    if(coinflip == 1) this.upsideDown = true;
+    if (coinflip == 1) this.upsideDown = true;
   }
 
   /**
