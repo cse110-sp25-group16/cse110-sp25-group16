@@ -1,7 +1,7 @@
 /**
  * Card Component is a custom web component that creates a tarot-style card with a front/back flip animation
  * and collapsible subsections
- * 
+ *
  * Attributes:
  * - image: string - URL to card image
  * - title: string - Name of card
@@ -15,42 +15,44 @@
  */
 
 class CardComponent extends HTMLElement {
-   
-   constructor() {
-      super()
-   }
-   
-   /**
-    * The connectedCallback method is called after the element is attached to the DOM.
-    * This is so that we can set the attirbutes of the card-component element in dailyspread.js file
-    */
-   connectedCallback() {
-      this.attachShadow({ mode: "open" });
-      const shadow = this.shadowRoot;
-     
-      // create wrapper and card container
-      const wrapper = document.createElement("div");
-      wrapper.classList.add("card-wrapper");
+  constructor() {
+    super();
+  }
 
-      const card = document.createElement("div");
-      card.classList.add("card");
+  /**
+   * The connectedCallback method is called after the element is attached to the DOM.
+   * This is so that we can set the attirbutes of the card-component element in dailyspread.js file
+   */
+  connectedCallback() {
+    this.attachShadow({ mode: 'open' });
+    const shadow = this.shadowRoot;
 
-      // retrieve attributes
-      const image = this.getAttribute("image");
-      const title = this.getAttribute("name");
-      const arcana = this.getAttribute("arcana");
-      const suit = this.getAttribute("suit");
-      const uprightMeanings = JSON.parse(this.getAttribute("uprightMeanings") || "[]");
-      const reversedMeanings = JSON.parse(this.getAttribute('reversedMeanings') || "[]");
-      const keywords =  JSON.parse(this.getAttribute("keywords")|| "[]");
-      const description = this.getAttribute("description");
-      const numeral = this.getAttribute("numeral");
+    // create wrapper and card container
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('card-wrapper');
 
+    const card = document.createElement('div');
+    card.classList.add('card');
 
-      /**
-       * card.innerHtml defines the visual html structure of the card
-       */
-      card.innerHTML = `
+    // retrieve attributes
+    const image = this.getAttribute('image');
+    const title = this.getAttribute('name');
+    const arcana = this.getAttribute('arcana');
+    const suit = this.getAttribute('suit');
+    const uprightMeanings = JSON.parse(
+      this.getAttribute('uprightMeanings') || '[]'
+    );
+    const reversedMeanings = JSON.parse(
+      this.getAttribute('reversedMeanings') || '[]'
+    );
+    const keywords = JSON.parse(this.getAttribute('keywords') || '[]');
+    const description = this.getAttribute('description');
+    const numeral = this.getAttribute('numeral');
+
+    /**
+     * card.innerHtml defines the visual html structure of the card
+     */
+    card.innerHTML = `
          <div class="card-back">
 
          </div>
@@ -80,7 +82,7 @@ class CardComponent extends HTMLElement {
                   <button data-toggle="upright">-</button>
                </div>
                <ul data-content="upright">
-                  ${uprightMeanings.map(item => `<li>${item}</li>`).join('')}
+                  ${uprightMeanings.map((item) => `<li>${item}</li>`).join('')}
                </ul>
             </section>
             <section>
@@ -89,38 +91,38 @@ class CardComponent extends HTMLElement {
                   <button id="reversed">-</button>
                </div>
                <ul data-content="reversed">
-                  ${reversedMeanings.map(item => `<li>${item}</li>`).join('')}
+                  ${reversedMeanings.map((item) => `<li>${item}</li>`).join('')}
                </ul>
             </section>
          </div>
-      `
+      `;
 
-      /**
-       * Adds toggle behavior with data-attribute
-       */
-      const toggleButtons = card.querySelectorAll('button[data-toggle]');
-      toggleButtons.forEach((button) => {
-         const key = button.getAttribute('data-toggle');
-         const content = card.querySelector(`[data-content="${key}"]`);
-         let collapsed = false;
+    /**
+     * Adds toggle behavior with data-attribute
+     */
+    const toggleButtons = card.querySelectorAll('button[data-toggle]');
+    toggleButtons.forEach((button) => {
+      const key = button.getAttribute('data-toggle');
+      const content = card.querySelector(`[data-content="${key}"]`);
+      let collapsed = false;
 
-         button.addEventListener('click', (e) => {
-            e.stopPropagation(); 
-            collapsed = !collapsed;
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        collapsed = !collapsed;
 
-            if (collapsed) {
-               content.classList.add('collapsed');
-               button.textContent = '+';
-            } else {
-               content.classList.remove('collapsed');
-               button.textContent = '−';
-            }
-         });
+        if (collapsed) {
+          content.classList.add('collapsed');
+          button.textContent = '+';
+        } else {
+          content.classList.remove('collapsed');
+          button.textContent = '−';
+        }
       });
+    });
 
-      // create styles
-      const style = document.createElement("style");
-      style.textContent = `
+    // create styles
+    const style = document.createElement('style');
+    style.textContent = `
          .card-wrapper {
             width: 260px;
             height: 420px;
@@ -264,17 +266,17 @@ class CardComponent extends HTMLElement {
             margin-top: 10px;
             // text-align: justify;
          }
-      `
+      `;
 
-      //append to shadow layer
-      wrapper.appendChild(card);
-      shadow.append(style, wrapper);
+    //append to shadow layer
+    wrapper.appendChild(card);
+    shadow.append(style, wrapper);
 
-      // add event listener for card flipping on click
-      wrapper.addEventListener("click", () => {
-         card.classList.toggle("flip");
-      })
-   }
+    // add event listener for card flipping on click
+    wrapper.addEventListener('click', () => {
+      card.classList.toggle('flip');
+    });
+  }
 }
 
-customElements.define("card-component", CardComponent);
+customElements.define('card-component', CardComponent);
