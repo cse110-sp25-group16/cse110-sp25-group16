@@ -2214,10 +2214,14 @@ class Card {
    * @param {number} id ID number to initialize card with
    * @param {boolean} faceup Faceup boolean to initialize card with
    */
-  constructor(id, faceup = false, upsideDown = false) {
+  constructor(id, faceup = false) {
     this.id = id;
     this.faceup = faceup;
-    this.upsideDown = upsideDown;
+
+    let coinflip = Math.floor(Math.random() * 2);
+
+    this.upsideDown = false;
+    if (coinflip == 1) this.upsideDown = true;
   }
 
   /**
