@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Daily Spread</title>
+
+    <!-- Card Custom Web Component -->
+	<script src="/source/DailySpreadPage/dailyCards.js" type="module"></script>
+    
+    <!-- Main Script and Style Sheet -->
+    <script src="/source/DailySpreadPage/dailyspread.js" type="module"></script>
+    <link rel="stylesheet" href="/source/DailySpreadPage/dailyspread.css" />
+</head>
+<body>
+    <!-- This header bar still needs to be linked to the other pages -->
+    
+    <!-- * This header displays navigation bar to other pages of this application.* -->
+    <header>
+       <p>Daily Spread</p>
+       <a id="horoscope" href="">Horoscope</a>
+       <a id="tarot" href="">Tarot Answers</a>
+       <a id="account" href="">Account</a>
+    </header>
+    <br>
+    <br>
+
+    <!-- * This section displays the greeting and daily spread cards.* -->
+    <div class="daily-grid">
+        <!-- Get user's name from data -->
+        <div class="greeting">
+            <p id="username"> Hi [username], here's today's readings</p>
+        </div>
+        
+        
+    </div>
+</body>
+</html>
