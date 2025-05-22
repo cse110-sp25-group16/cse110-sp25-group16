@@ -27,13 +27,15 @@ window.addEventListener('DOMContentLoaded', init);
  * These cards are then added to the grid layout in the dailspread.html file
  */
 async function init() {
-    const grid = document.querySelector('.daily-grid');
+    const grid = document.querySelector('.cards-container');
     const data = await getCardsData();
     const pulledCards = getDailySpread(data);
+
 
     const cardGrid = ['card1', 'card2', 'card3'];
 
     for(let i = 0; i < pulledCards.length; i++){
+         console.log(pulledCards[i])
         const cardElement = document.createElement('card-component');
         cardElement.classList.add(cardGrid[i]);
         cardElement.setAttribute("image", `/source/cards/${pulledCards[i].img}`);

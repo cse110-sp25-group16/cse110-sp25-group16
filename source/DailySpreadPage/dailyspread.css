@@ -9,25 +9,26 @@
  *  (orange:) #ED8839
  */
 body{
-    font-family: 'EB Garamond', serif;
+    font-family: Arial;
 }
 
 header a{
     text-decoration: none;
     color: #7D4F50;
-    padding-left: 5dvh;
-    padding-right: 5dvh;
-    font-size: 2dvi;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    font-size: 3vh;
 }
 
 header{
-    position: absolute;
+    position: fixed;
     top: 0px;
     right: 0px;
     width: 100%;
-    height: 10dvh;
+    height: 10vh;
     background-color: #E3BCBA;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
     font-weight: bold;
     z-index: 1000;
@@ -36,40 +37,52 @@ header{
 header p{
     display: inline-block;
     color: #ED8839;
-    font-size: 2dvi;
-    padding-right: 5dvh;
+    font-size: 1.25rem;
+    padding-right: 2vw;
 }
 .daily-grid{
-    position: relative;
-    top: -5dvh;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     align-items: center;
+    margin-top: 20px
 }
 
 .greeting{
-    grid-area: 1 / 1 / 2 / 6;
+    grid-column: 1 / 9;
+    grid-row: 1 / 2;
     text-align: center;
     color: #7D4F50;
     font-size: 40px;
 }
 
-.card1 {
-    grid-area: 2 / 2 / 4 / 3;
+#username {
+   margin: 0
+}
+
+.cards-container {
+   grid-column: 2 / 8;
+   grid-row: 2 / 7;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center
+}
+
+/* .card1 {
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
     padding-right: 5dvh;
 }
 
 .card2 {
     grid-area: 2 / 3 / 4 / 4;
-    padding-left: 5dvh;
-    padding-right: 5dvh;
+    padding: 0 2vw
 }
 
 .card3 {
     grid-area: 2 / 4 / 4 / 5;
-    padding-left: 5dvh;
-    padding-right: 5dvh;
-}
+    padding: 0 2vw
+} */
