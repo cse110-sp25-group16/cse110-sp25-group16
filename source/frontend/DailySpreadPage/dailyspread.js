@@ -2,7 +2,9 @@
  * This function essentually fetches the contents of the cardsDataFinal.json file
  */
 async function getCardsData() {
-  const cardsData = await fetch('../../backend/data parsing/cardsDataFinal.json');
+  const cardsData = await fetch(
+    '../../backend/data parsing/cardsDataFinal.json'
+  );
   return await cardsData.json();
 }
 

@@ -1,4 +1,5 @@
 # Spring 2 Setup Meeting
+
 - Date: 5/22/25
 - Purpose: assign tasks for project development
 
@@ -18,7 +19,7 @@
 - Issues will be assigned [here](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues), specs for task are on issues
 - Please use PRs linked to the issue, create branch from issue (right sidebar -> Development -> Create a branch)
 - Pair programming - one person watches while the other codes, advise each other on what seems like good/bad code
-- Sprint Reflection: Stand-ups and reflection 
+- Sprint Reflection: Stand-ups and reflection
 
 ## Action Items (to-do):
 
@@ -37,6 +38,7 @@
 - **Ria Singhania:** [Navigation Bar](https://github.com/cse110-sp25-group16/cse110-sp25-group16/issues/67)
 
 ## Questions, Concerns, Ideas, Misc.
+
 - Daily spread page will be 3 landing pages that serve as a gateway onto different pages for daily tarot, daily horoscope, and MBTI. Navigation bar will also serve as an access point to these pages.
 - Drop down on daily spread page for 3, 5 or 10 card spread.
 - If time permits, create archive page where users can access past readings.
