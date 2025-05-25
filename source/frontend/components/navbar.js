@@ -3,10 +3,9 @@ class NavBar extends HTMLElement {
     super();
     this.innerHTML = `
         <nav>
-          <ul class="navbar">
-            <li><a href="tarot.html">Tarot</a></li>
-            <li><a href="horoscope.html">Horoscope</a></li>
-            <li><a href="mbti.html">MBTI</a></li>
+            <a href="../DailySpreadPage/dailyspread.html">Daily Spread</a>
+            <a href="horoscope.html">Horoscope</a>
+            <a href="mbti.html">MBTI</a>
           </ul>
         </nav>
       `;
