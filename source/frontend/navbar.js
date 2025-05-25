@@ -1,7 +1,7 @@
 class NavBar extends HTMLElement {
-    constructor() {
-      super();
-      this.innerHTML = `
+  constructor() {
+    super();
+    this.innerHTML = `
         <nav>
           <ul class="navbar">
             <li><a href="tarot.html">Tarot</a></li>
@@ -10,7 +10,7 @@ class NavBar extends HTMLElement {
           </ul>
         </nav>
       `;
-    }
   }
-  
-  customElements.define('nav-bar', NavBar);
+}
+
+customElements.define('nav-bar', NavBar);
