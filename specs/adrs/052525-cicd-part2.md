@@ -21,7 +21,7 @@
 - _nyc (Istanbul CLI)_
 
 **Decision**
-Since Jest has built in coverage reporting, to keep this project simple and avoid adding extra tools Jest would be best for coverage reporting for our project.
+Since Jest has built in coverage reporting, to keep this project simple and avoid adding extra tools Jest would be best for coverage reporting for our project. This has already been implemented.
 
 ### Packaging
 
@@ -33,8 +33,7 @@ Since Jest has built in coverage reporting, to keep this project simple and avoi
 - _Parcel_
 
 **Decision**
-After the consideration, the best option seems to be with Vite as it is the one most tailored to a small-medium vanilla JS project. It is also simple and has a very fast dev speed.
-Vite also provides minification.
+After the consideration, the best option seems to be with Vite as it is the one most tailored to a small-medium vanilla JS project. It is also simple and has a very fast dev speed. Currently not implemented yet but will be something to possibly implement in the future.
 
 ### Deployment
 
@@ -46,8 +45,8 @@ Vite also provides minification.
 
 **Decision**
 This one isn't an easy choice. This one is between Vercel and Github Pages. The reason it isn't an easy choice is because due to the labs, we already are pretty experienced with github pages.
-Vercel, on the other hand, is a good choice as it has a simple UI/UX, connects to GitHub, and also has auto-deployment when you push to your repo. This we would have to discuss further.
+Vercel, on the other hand, is a good choice as it has a simple UI/UX, connects to GitHub, and also has auto-deployment when you push to your repo. This could be something that we could use but we would have to discuss further.
 
 ### Minification
 
-As said earlier, Vite would be the best option for minification as it already includes Packaging and as we plan on keeping this project simple, the best option here is Vite.
+The one that would best suit our project would be esbuild as it would be a lot easier and simple to implement with since we can minify our files with github actions and select all of the files that we want to minify with the default being all of the .js files which was something that was a little more troublesome with using Vite.
