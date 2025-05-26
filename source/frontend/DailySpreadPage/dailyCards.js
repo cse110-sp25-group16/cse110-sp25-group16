@@ -24,12 +24,18 @@ class CardComponent extends HTMLElement {
    * This is so that we can set the attirbutes of the card-component element in dailyspread.js file
    */
   connectedCallback() {
+    let flipped = false
+    let focused = false;
+
     this.attachShadow({ mode: 'open' });
     const shadow = this.shadowRoot;
 
     // create wrapper and card container
-    const wrapper = document.createElement('div');
-    wrapper.classList.add('card-wrapper');
+      const container = document.createElement('div');
+      container.classList.add('card-container');
+
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('card-wrapper');
 
     const card = document.createElement('div');
     card.classList.add('card');
@@ -48,6 +54,12 @@ class CardComponent extends HTMLElement {
     const keywords = JSON.parse(this.getAttribute('keywords') || '[]');
     const description = this.getAttribute('description');
     const numeral = this.getAttribute('numeral');
+    const facing = this.getAttribute('facing')
+    if (facing === 'true') {
+      card.classList.add('flip');
+      flipped = true
+    }
+   //  const interpretation = this.getAttribute('interpretation')
 
     /**
      * card.innerHtml defines the visual html structure of the card
@@ -57,46 +69,50 @@ class CardComponent extends HTMLElement {
 
          </div>
          <div class="card-front"> 
-            <img src="${image}" alt="${title}"/>
-            <h3>${numeral}) ${title} </h3>
-            <strong>${arcana} - ${suit} </strong>
-            <section>
-               <div class="section-header">
-                  <h4>Description</h4>
-                  <button data-toggle="desc">-</button>
-               </div>
-               <p data-content="desc">${description}</p>
-            </section>
-            <section>
-               <div class="section-header">
-                  <h4>Keywords</h4>
-                  <button data-toggle="keywords">-</button>
-               </div>
-               <div class="keywords" data-content="keywords">
-                  ${keywords.join(', ')}
-               </div>
-            </section>
-            <section>
-               <div class="section-header">
-                  <h4>Upright Meanings</h4>
-                  <button data-toggle="upright">-</button>
-               </div>
-               <ul data-content="upright">
-                  ${uprightMeanings.map((item) => `<li>${item}</li>`).join('')}
-               </ul>
-            </section>
-            <section>
-               <div class="section-header">
-                  <h4>Reversed Meanings</h4>
-                  <button id="reversed">-</button>
-               </div>
-               <ul data-content="reversed">
-                  ${reversedMeanings.map((item) => `<li>${item}</li>`).join('')}
-               </ul>
-            </section>
+            <div class="summary">
+               <img src="${image}" alt="${title}"/>
+               <h3>${numeral}) ${title} </h3>
+               <strong>${arcana} - ${suit} </strong>
+            </div>
+            <div class="details hidden">
+               <section>
+                  <div class="section-header">
+                     <h4>Description</h4>
+                     <button data-toggle="desc">-</button>
+                  </div>
+                  <p data-content="desc">${description}</p>
+               </section>
+               <section>
+                  <div class="section-header">
+                     <h4>Keywords</h4>
+                     <button data-toggle="keywords">-</button>
+                  </div>
+                  <div class="keywords" data-content="keywords">
+                     ${keywords.join(', ')}
+                  </div>
+               </section>
+               ${facing == "false" ? `<section>
+                  <div class="section-header">
+                     <h4>Upright Meanings</h4>
+                     <button data-toggle="upright">-</button>
+                  </div>
+                  <ul data-content="upright">
+                     ${uprightMeanings.map((item) => `<li>${item}</li>`).join('')}
+                  </ul>
+               </section>`
+               :
+               `<section>
+                  <div class="section-header">
+                     <h4>Reversed Meanings</h4>
+                     <button id="reversed">-</button>
+                  </div>
+                  <ul data-content="reversed">
+                     ${reversedMeanings.map((item) => `<li>${item}</li>`).join('')}
+                  </ul>
+               </section>`}
+            </div>
          </div>
       `;
-
     /**
      * Adds toggle behavior with data-attribute
      */
@@ -132,6 +148,12 @@ class CardComponent extends HTMLElement {
             border-radius: 16px;
          }
 
+         .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+         }
+
          .card {
             width: 100%;
             height: 100%;
@@ -142,7 +164,6 @@ class CardComponent extends HTMLElement {
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
             background-color: #f9f5ec ;
             border: dashed gray 1px
-
          }
 
          .card.flip {
@@ -154,10 +175,10 @@ class CardComponent extends HTMLElement {
             height: 100%;
             position: absolute;
             backface-visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
+            // display: flex;
+            // flex-direction: column;
+            // align-items: center;
+            // justify-content: flex-start;
             border-radius: 16px;
             // background-color: white;
             overflow-y: auto;
@@ -171,6 +192,12 @@ class CardComponent extends HTMLElement {
 
          .card-front {
             transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            overflow-y: auto;
          }
 
          section {
@@ -266,15 +293,94 @@ class CardComponent extends HTMLElement {
             margin-top: 10px;
             // text-align: justify;
          }
+
+         .details.hidden {
+            display: none
+         }
+
+         .card.focused {
+            z-index: 10;
+            transform: scale(1.2) rotateY(180deg);
+            transition: transform 0.6s ease, z-index 0s;
+         }
+
+         .reversed-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #000;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+         }
+
+         .info-btn {
+         background: none;
+         border: none;
+         cursor: pointer;
+         font-size: 1rem;
+         padding: 0;
+         color: #555;
+         }
+
+         .info-btn:hover {
+         color: #000;
+         }
+
+         .summary {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center
+         }
+
+         .card.focused .summary {
+            display: none;
+         }
+         
+         .card.focused .card-front {
+            justify-content: flex-start;
+            align-items: center;
+         }
+
       `;
 
+
+
     //append to shadow layer
-    wrapper.appendChild(card);
-    shadow.append(style, wrapper);
+wrapper.appendChild(card);
+container.appendChild(wrapper);
+
+// if reversed, add label below the card
+if (facing === 'true') {
+  const reversedNote = document.createElement('div');
+  reversedNote.classList.add('reversed-note');
+  reversedNote.innerHTML = `
+    <span>Reversed</span>
+    <button class="info-btn" title="Reversed cards have different meanings from normal cards">ℹ️</button>
+  `;
+  container.appendChild(reversedNote);
+}
+
+shadow.append(style, container);
 
     // add event listener for card flipping on click
+
+
     wrapper.addEventListener('click', () => {
-      card.classList.toggle('flip');
+      if (!flipped) {
+         card.classList.add('flip')
+         flipped = true
+      } else if (!focused) {
+         card.classList.add('focused')
+         card.querySelector('.details').classList.remove('hidden')
+         focused = true
+      } else {
+         card.classList.remove('focused')
+         card.querySelector('.details').classList.add('hidden')
+         focused = false
+      }
     });
   }
 }

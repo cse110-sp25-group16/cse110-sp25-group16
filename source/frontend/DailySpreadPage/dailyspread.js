@@ -48,7 +48,8 @@ async function init() {
     /*For each card drew, create a card webcomponent to then append and display */
     for (let i = 0; i < event.target.value; i++) {
       const cardElement = document.createElement('card-component');
-
+      
+      cardElement.setAttribute('facing', Math.round(Math.random()) == 1)
       cardElement.setAttribute(
         'image',
         `/source/cards/${pulledCards[i].getImg()}`
@@ -71,6 +72,7 @@ async function init() {
       cardElement.setAttribute('symbolism', pulledCards[i].getSymbolism());
       cardElement.setAttribute('description', pulledCards[i].getDescription());
       cardElement.setAttribute('numeral', pulledCards[i].getNumeral());
+      // cardElement.setAttribute('interpretation', pulledCards[i].getInterpretation())
       grid.appendChild(cardElement);
     }
   });
