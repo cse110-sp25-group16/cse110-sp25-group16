@@ -1,61 +1,55 @@
+import CardDeck from '../../backend/CardDeck.js';
+
 /**
- * This function essentually fetches the contents of the cardsDataFinal.json file
+ * Upon page load, whenever the user changes the amount of cards to draw via dropdown menu,
+ * the init function is called.
  */
-async function getCardsData() {
-  const cardsData = await fetch('../../backend/data parsing/cardsDataFinal.json');
-  return await cardsData.json();
-}
+window.addEventListener('DOMContentLoaded', () => {
+   const selectedAmnt = document.querySelector('#card-amount');
+   selectedAmnt.addEventListener('change', init);
+  });
 
 /**
- * This function returns 3 selected cards from the cardsDataFinal.json file.
- * (***This function is randomly selecting cards, but this can be
- * changed to a specific algorithm in the future.***)
- * @param {Object} cardData data from the getCardsData function
- * @returns {Array} array of 3 random cards
- */
-function getDailySpread(cardData) {
-  let selectedCards = Object.keys(cardData);
-  selectedCards = selectedCards.sort(() => Math.random() - 0.5);
-  selectedCards = selectedCards.slice(0, 3);
-  return selectedCards.map((key) => cardData[key]);
-}
-
-window.addEventListener('DOMContentLoaded', init);
-
-/**
- * This function pulls 3 cards and creates a card-component element for each cards.
- * These cards are then added to the grid layout in the dailspread.html file
+ * This function serves as the main function for the Dail spread page.
  */
 async function init() {
+  /*Selects grid-container in html and clears the cards loaded from previous draw*/
   const grid = document.querySelector('.cards-container');
-  const data = await getCardsData();
-  const pulledCards = getDailySpread(data);
+  grid.innerHTML = '';
 
-  const cardGrid = ['card1', 'card2', 'card3'];
+  /*Selects cards and amount drawn depends on what option is picked */
+  const selectedAmnt = document.querySelector('#card-amount');
+  const deck = new CardDeck();
+  deck.fillDeck();
+  deck.shuffle();
+  const pulledCards = deck.drawing(parseInt(selectedAmnt.value));
 
+  /* (**BUG**) attempt to save to local storage */
+  localStorage.setItem('pulledCards', JSON.stringify(pulledCards));
+
+  /*For each card drew, create a card webcomponent to then append and display */
   for (let i = 0; i < pulledCards.length; i++) {
-    console.log(pulledCards[i]);
     const cardElement = document.createElement('card-component');
-    cardElement.classList.add(cardGrid[i]);
-    cardElement.setAttribute('image', `/source/cards/${pulledCards[i].img}`);
-    cardElement.setAttribute('name', pulledCards[i].name);
-    cardElement.setAttribute('arcana', pulledCards[i].arcana);
-    cardElement.setAttribute('suit', pulledCards[i].suit);
+
+    cardElement.setAttribute('image', `/source/cards/${pulledCards[i].getImg()}`);
+    cardElement.setAttribute('name', pulledCards[i].getCardName());
+    cardElement.setAttribute('arcana', pulledCards[i].getArcana());
+    cardElement.setAttribute('suit', pulledCards[i].getSuit());
     cardElement.setAttribute(
       'uprightMeanings',
-      JSON.stringify(pulledCards[i].uprightMeanings)
+      JSON.stringify(pulledCards[i].getUprightMeanings())
     );
     cardElement.setAttribute(
       'reversedMeanings',
-      JSON.stringify(pulledCards[i].reversedMeanings)
+      JSON.stringify(pulledCards[i].getReversedMeaning())
     );
     cardElement.setAttribute(
       'keywords',
-      JSON.stringify(pulledCards[i].keywords)
+      JSON.stringify(pulledCards[i].getKeywords())
     );
-    cardElement.setAttribute('symbolism', pulledCards[i].symbolism);
-    cardElement.setAttribute('description', pulledCards[i].description);
-    cardElement.setAttribute('numeral', pulledCards[i].numeral);
+    cardElement.setAttribute('symbolism', pulledCards[i].getSymbolism());
+    cardElement.setAttribute('description', pulledCards[i].getDescription());
+    cardElement.setAttribute('numeral', pulledCards[i].getNumeral());
     grid.appendChild(cardElement);
   }
 }

@@ -1,4 +1,4 @@
-import Card from './Card';
+import Card from './Card.js';
 
 const deckSize = 78;
 
@@ -100,7 +100,7 @@ class CardDeck {
   drawing(cardCount) {
     let drawnCards = [];
     for (let i = 0; i < cardCount; i++) {
-      drawnCards.append(this.removeTopCard());
+      drawnCards.push(this.removeTopCard());
     }
 
     return drawnCards;

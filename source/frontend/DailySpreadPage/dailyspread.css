@@ -56,6 +56,12 @@ header p {
   text-align: center;
   color: #7d4f50;
   font-size: 40px;
+  padding-top: 2dvh;
+}
+
+.greeting select {
+  text-align: center;
+  font-size: 3dvh;
 }
 
 #username {
@@ -69,6 +75,8 @@ header p {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  top: -5dvh;
 }
 
 /* .card1 {
