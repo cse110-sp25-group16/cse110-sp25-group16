@@ -1,4 +1,4 @@
-# Spring 2 Setup Meeting
+# Sprint 2 Setup Meeting
 - Date: 5/22/25
 - Purpose: assign tasks for project development
 
