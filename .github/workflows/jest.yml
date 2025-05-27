@@ -2,9 +2,9 @@ name: Run Jest Tests
 
 on:
   push:
-    branches: [Unit-testing-framework]
+    branches: [main]
   pull_request:
-    branches: [main, stage]
+    branches: [main]
 
 jobs:
   test:
