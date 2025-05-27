@@ -1,4 +1,4 @@
-const cardDictionary = require('./Card.js');
+const cardDictionary = require('./CardDictionary');
 
 describe('Card.js Tarot Data', () => {
   test('should export an object', () => {

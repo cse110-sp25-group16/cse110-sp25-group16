@@ -1,5 +1,5 @@
 // Mock Card constructor for testing
-jest.mock('./CardClass', () => {
+jest.mock('./Card', () => {
   return jest.fn().mockImplementation((id, reversed) => ({
     id,
     reversed,
@@ -7,7 +7,7 @@ jest.mock('./CardClass', () => {
 });
 
 const CardDeck = require('./CardDeck');
-const Card = require('./CardClass');
+const Card = require('./Card');
 
 describe('CardDeck Class', () => {
   let deck;

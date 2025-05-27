@@ -1,4 +1,4 @@
-const Card = require('./CardClass');
+const Card = require('./Card');
 
 const deckSize = 78;
 

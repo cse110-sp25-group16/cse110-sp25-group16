@@ -4,6 +4,7 @@ import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
+    // Base config for all JS files
     files: ['**/*.{js,mjs,cjs}'],
     plugins: { js },
     extends: ['js/recommended'],
@@ -16,7 +17,20 @@ export default defineConfig([
     ],
   },
   {
+    // Frontend/browser code
     files: ['**/*.{js,mjs,cjs}'],
-    languageOptions: { globals: globals.browser },
+    languageOptions: {
+      globals: globals.browser,
+    },
+  },
+  {
+    // Backend and test code: Node + Jest
+    files: ['source/backend/**/*.js', '**/*.test.js'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.jest,
+      },
+    },
   },
 ]);
