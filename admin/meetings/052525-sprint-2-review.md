@@ -28,7 +28,7 @@
 
 ## Concluding Thoughts
 
-- Overall, successful sprint. Most all of the spec sheets are completed, allowing for a lot of background work to be clarified, making implementation easier. Wireframes, ADRs, and spec sheets reviewed with team so any misconceptions are clarified, or new features are brainstormed. 
+- Overall, successful sprint. Most all of the spec sheets are completed, allowing for a lot of background work to be clarified, making implementation easier. Wireframes, ADRs, and spec sheets reviewed with team so any misconceptions are clarified, or new features are brainstormed.
 
 ## Questions, Concerns, Ideas, Misc.
 
