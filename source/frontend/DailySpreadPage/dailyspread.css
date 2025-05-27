@@ -46,7 +46,7 @@ header p {
   grid-template-rows: repeat(6, auto);
   gap: 0;
   padding-top: 6vh;
-  padding-bottom: 2vh
+  padding-bottom: 2vh;
 }
 
 .greeting {
@@ -86,7 +86,9 @@ header p {
   cursor: pointer;
   appearance: none;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
   margin-top: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }

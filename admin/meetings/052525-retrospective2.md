@@ -31,12 +31,12 @@
 - Learned Items - lessons learned:
 
   - Staying up-to-date on class deadlines and projects, such as when Sprint Reflections and Retrospectives are due, as well as more information on the CI/CD pipeline.
-  
+
 - Longed For Items - things we desire for success/morale next sprint:
 
   - Reminder messages for teams about upcoming deadlines and work that needs to get done.
   - More detailed slack updates on progress, more frequent pushes so there is a clear understanding of where each task stands
- 
+
 ## Concluding Thoughts
 
 - Will attempt to implement the learned items to resolve any lacking items. Longed for items can be resolved through the fixes we have come up with, or are resolved by the learned items brainstorming. We will implement these solutions and once again touch base after the next/upcoming sprint.

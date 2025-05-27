@@ -24,18 +24,18 @@ class CardComponent extends HTMLElement {
    * This is so that we can set the attirbutes of the card-component element in dailyspread.js file
    */
   connectedCallback() {
-    let flipped = false
+    let flipped = false;
     let focused = false;
 
     this.attachShadow({ mode: 'open' });
     const shadow = this.shadowRoot;
 
     // create wrapper and card container
-      const container = document.createElement('div');
-      container.classList.add('card-container');
+    const container = document.createElement('div');
+    container.classList.add('card-container');
 
-      const wrapper = document.createElement('div');
-      wrapper.classList.add('card-wrapper');
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('card-wrapper');
 
     const card = document.createElement('div');
     card.classList.add('card');
@@ -54,12 +54,12 @@ class CardComponent extends HTMLElement {
     const keywords = JSON.parse(this.getAttribute('keywords') || '[]');
     const description = this.getAttribute('description');
     const numeral = this.getAttribute('numeral');
-    const facing = this.getAttribute('facing')
+    const facing = this.getAttribute('facing');
     if (facing === 'true') {
       card.classList.add('flip');
-      flipped = true
+      flipped = true;
     }
-   //  const interpretation = this.getAttribute('interpretation')
+    //  const interpretation = this.getAttribute('interpretation')
 
     /**
      * card.innerHtml defines the visual html structure of the card
@@ -91,7 +91,9 @@ class CardComponent extends HTMLElement {
                      ${keywords.join(', ')}
                   </div>
                </section>
-               ${facing == "false" ? `<section>
+               ${
+                 facing == 'false'
+                   ? `<section>
                   <div class="section-header">
                      <h4>Upright Meanings</h4>
                      <button data-toggle="upright">-</button>
@@ -100,8 +102,7 @@ class CardComponent extends HTMLElement {
                      ${uprightMeanings.map((item) => `<li>${item}</li>`).join('')}
                   </ul>
                </section>`
-               :
-               `<section>
+                   : `<section>
                   <div class="section-header">
                      <h4>Reversed Meanings</h4>
                      <button id="reversed">-</button>
@@ -109,7 +110,8 @@ class CardComponent extends HTMLElement {
                   <ul data-content="reversed">
                      ${reversedMeanings.map((item) => `<li>${item}</li>`).join('')}
                   </ul>
-               </section>`}
+               </section>`
+               }
             </div>
          </div>
       `;
@@ -346,40 +348,37 @@ class CardComponent extends HTMLElement {
 
       `;
 
-
-
     //append to shadow layer
-wrapper.appendChild(card);
-container.appendChild(wrapper);
+    wrapper.appendChild(card);
+    container.appendChild(wrapper);
 
-// if reversed, add label below the card
-if (facing === 'true') {
-  const reversedNote = document.createElement('div');
-  reversedNote.classList.add('reversed-note');
-  reversedNote.innerHTML = `
+    // if reversed, add label below the card
+    if (facing === 'true') {
+      const reversedNote = document.createElement('div');
+      reversedNote.classList.add('reversed-note');
+      reversedNote.innerHTML = `
     <span>Reversed</span>
     <button class="info-btn" title="Reversed cards have different meanings from normal cards">ℹ️</button>
   `;
-  container.appendChild(reversedNote);
-}
+      container.appendChild(reversedNote);
+    }
 
-shadow.append(style, container);
+    shadow.append(style, container);
 
     // add event listener for card flipping on click
 
-
     wrapper.addEventListener('click', () => {
       if (!flipped) {
-         card.classList.add('flip')
-         flipped = true
+        card.classList.add('flip');
+        flipped = true;
       } else if (!focused) {
-         card.classList.add('focused')
-         card.querySelector('.details').classList.remove('hidden')
-         focused = true
+        card.classList.add('focused');
+        card.querySelector('.details').classList.remove('hidden');
+        focused = true;
       } else {
-         card.classList.remove('focused')
-         card.querySelector('.details').classList.add('hidden')
-         focused = false
+        card.classList.remove('focused');
+        card.querySelector('.details').classList.add('hidden');
+        focused = false;
       }
     });
   }
