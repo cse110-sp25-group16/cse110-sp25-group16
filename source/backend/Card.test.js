@@ -6,12 +6,14 @@ describe('Card.js Tarot Data', () => {
   });
 
   test('should contain Major Arcana cards', () => {
-    const majorArcanaCards = Object.values(cardDictionary).filter(card => card.arcana === 'Major Arcana');
+    const majorArcanaCards = Object.values(cardDictionary).filter(
+      (card) => card.arcana === 'Major Arcana'
+    );
     expect(majorArcanaCards.length).toBeGreaterThan(0);
   });
 
   test('each card should have all required properties', () => {
-    Object.values(cardDictionary).forEach(card => {
+    Object.values(cardDictionary).forEach((card) => {
       expect(card).toHaveProperty('name');
       expect(card).toHaveProperty('arcana');
       expect(card).toHaveProperty('uprightMeanings');
@@ -37,20 +39,20 @@ describe('Card.js Tarot Data', () => {
   });
 
   test('no duplicate card names', () => {
-    const names = Object.values(cardDictionary).map(card => card.name);
+    const names = Object.values(cardDictionary).map((card) => card.name);
     const uniqueNames = new Set(names);
     expect(uniqueNames.size).toBe(names.length);
   });
 
   test('all image filenames are non-empty and end with .jpg', () => {
-    Object.values(cardDictionary).forEach(card => {
+    Object.values(cardDictionary).forEach((card) => {
       expect(card.img).not.toBe('');
       expect(card.img.endsWith('.jpg')).toBe(true);
     });
   });
 
   test('numerals are valid string representations of numbers', () => {
-    Object.values(cardDictionary).forEach(card => {
+    Object.values(cardDictionary).forEach((card) => {
       expect(isNaN(Number(card.numeral))).toBe(false);
     });
   });
