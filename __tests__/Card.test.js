@@ -1,4 +1,4 @@
-const cardDictionary = require('./CardDictionary');
+const cardDictionary = require('../source/backend/CardDictionary');
 
 describe('Card.js Tarot Data', () => {
   test('should export an object', () => {

@@ -1,13 +1,13 @@
 // Mock Card constructor for testing
-jest.mock('./Card', () => {
+jest.mock('../source/backend/Card', () => {
   return jest.fn().mockImplementation((id, reversed) => ({
     id,
     reversed,
   }));
 });
 
-const CardDeck = require('./CardDeck');
-const Card = require('./Card');
+const CardDeck = require('../source/backend/CardDeck');
+const Card = require('../source/backend/Card');
 
 describe('CardDeck Class', () => {
   let deck;
