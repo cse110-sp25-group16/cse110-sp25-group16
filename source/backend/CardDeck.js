@@ -1,5 +1,3 @@
-import Card from './Card.js';
-
 const deckSize = 78;
 
 class CardDeck {
