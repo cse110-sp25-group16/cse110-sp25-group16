@@ -6,9 +6,10 @@ class CardDeck {
   /**
    * Initializes an empty deck of cards
    */
-  constructor() {
+  constructor(CardClass) {
     this.cards = [];
     this.displayCards = [];
+    this.Card = CardClass;
   }
 
   /**
@@ -32,7 +33,7 @@ class CardDeck {
    */
   fillDeck() {
     for (let i = 0; i < deckSize; i++) {
-      this.cards.push(new Card(i, false));
+      this.cards.push(new this.Card(i, false));
     }
   }
 
@@ -73,6 +74,7 @@ class CardDeck {
     for (let i = 0; i < max; i++) {
       if (this.cards[i].id == id) {
         this.cards.splice(i, 1);
+        break; // avoid looping after modifying array
       }
     }
   }
@@ -90,7 +92,7 @@ class CardDeck {
    * @param {number} id Adds card of provided id to top of deck
    */
   addCard(id) {
-    this.cards.push(new Card(id, false));
+    this.cards.push(new this.Card(id, false));
   }
 
   /**
