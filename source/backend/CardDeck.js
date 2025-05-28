@@ -73,6 +73,7 @@ class CardDeck {
     for (let i = 0; i < max; i++) {
       if (this.cards[i].id == id) {
         this.cards.splice(i, 1);
+        break; // avoid looping after modifying array
       }
     }
   }
@@ -107,4 +108,4 @@ class CardDeck {
   }
 }
 
-export default CardDeck;
+module.exports = CardDeck;

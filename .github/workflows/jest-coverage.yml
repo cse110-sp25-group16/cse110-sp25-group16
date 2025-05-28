@@ -1,10 +1,10 @@
-name: Run Jest Tests
+name: Run Jest Coverage Tests
 
 on:
   push:
-    branches: [Unit-testing-framework]
+    branches: [main]
   pull_request:
-    branches: [main, stage]
+    branches: [main]
 
 jobs:
   test:
@@ -23,4 +23,4 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npm test
+        run: npm run test:coverage
