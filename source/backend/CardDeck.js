@@ -1,4 +1,4 @@
-import Card from './Card';
+const Card = require('./Card');
 
 const deckSize = 78;
 
@@ -73,6 +73,7 @@ class CardDeck {
     for (let i = 0; i < max; i++) {
       if (this.cards[i].id == id) {
         this.cards.splice(i, 1);
+        break; // avoid looping after modifying array
       }
     }
   }
@@ -100,11 +101,11 @@ class CardDeck {
   drawing(cardCount) {
     let drawnCards = [];
     for (let i = 0; i < cardCount; i++) {
-      drawnCards.append(this.removeTopCard());
+      drawnCards.push(this.removeTopCard());
     }
 
     return drawnCards;
   }
 }
 
-export default CardDeck;
+module.exports = CardDeck;
