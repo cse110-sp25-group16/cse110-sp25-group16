@@ -6,7 +6,7 @@
 ## Attendees:
 
 - **Present:**
-- **Excused:** Nikhil Akiti
+- **Excused:** Nikhil Akiti, Angelica Cabusi
 
 ## Agenda:
 
