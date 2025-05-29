@@ -5,8 +5,8 @@
 
 ## Attendees:
 
-- **Present:**
-- **Excused:** Nikhil Akiti, Angelica Cabusi
+- **Present:** Tyler Hoang, Minjoo O, Anthony Georgis, Dustin Nguyen, Leonard Shi, Ria Singhania, Aiden Krueger
+- **Excused:** Nikhil Akiti, Angelica Cabusi, Anusha Rao
 
 ## Agenda:
 
