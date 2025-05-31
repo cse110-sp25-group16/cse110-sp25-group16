@@ -21,7 +21,7 @@ class Card {
    * @returns {string} The corresponding string name of the card
    */
   getCardName() {
-    return cardDictionary[0][this.id].name;
+    return cardDictionary[this.id].name;
   }
 
   /**
@@ -46,21 +46,21 @@ class Card {
    * @returns {string} The suit of the card
    */
   getSuit() {
-    return cardDictionary[0][this.id].suit;
+    return cardDictionary[this.id].suit;
   }
 
   /**
    * @returns {string} The arcana of the card (major/minor)
    */
   getArcana() {
-    return cardDictionary[0][this.id].arcana;
+    return cardDictionary[this.id].arcana;
   }
 
   /**
    * @returns {Array<string>} An array of strings containing the upright meanings of the card.
    */
   getUprightMeanings() {
-    return cardDictionary[0][this.id].uprightMeanings;
+    return cardDictionary[this.id].uprightMeanings;
   }
 
   /**
@@ -68,7 +68,7 @@ class Card {
    * @returns {Array<string>} An array of strings containing the reversed meanings of this card.
    */
   getReversedMeaning() {
-    return cardDictionary[0][this.id].reversedMeanings;
+    return cardDictionary[this.id].reversedMeanings;
   }
 
   /**
@@ -76,14 +76,14 @@ class Card {
    * @returns {Array<string>} An array of strings of keywords associated to the card.
    */
   getKeywords() {
-    return cardDictionary[0][this.id].keywords;
+    return cardDictionary[this.id].keywords;
   }
 
   /**
    * @returns {string} Filname of image of associated card.
    */
   getImg() {
-    return cardDictionary[0][this.id].img;
+    return cardDictionary[this.id].img;
   }
 
   /**
@@ -91,14 +91,14 @@ class Card {
    * @returns
    */
   getSymbolism() {
-    return cardDictionary[0][this.id].symbolism;
+    return cardDictionary[this.id].symbolism;
   }
 
   /**
    * @returns {string} A short paragrpah explaining the backstory and description of the card.
    */
   getDescription() {
-    return cardDictionary[0][this.id].description;
+    return cardDictionary[this.id].description;
   }
 
   /**
@@ -106,7 +106,7 @@ class Card {
    * @returns {number} The corresponding numeral of that card in its family
    */
   getNumeral() {
-    return cardDictionary[0][this.id].numeral;
+    return cardDictionary[this.id].numeral;
   }
 
   /**
