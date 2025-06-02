@@ -74,6 +74,14 @@ async function init() {
       cardElement.setAttribute('symbolism', pulledCards[i].getSymbolism());
       cardElement.setAttribute('description', pulledCards[i].getDescription());
       cardElement.setAttribute('numeral', pulledCards[i].getNumeral());
+
+      const facing = Math.round(Math.random())
+      if (facing == 0) {
+         cardElement.setAttribute('facing', false)
+      } else if (facing == 1) {
+         cardElement.setAttribute('facing', true)
+      }
+
       grid.appendChild(cardElement);
     }
   });
