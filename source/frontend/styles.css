@@ -5,7 +5,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   font-family: 'EB Garamond', serif;
   background-color: #fff;
   overflow: hidden;
@@ -83,4 +84,3 @@ button {
 button:hover {
   background-color: #d7732f;
 }
-
