@@ -144,3 +144,9 @@ button:hover {
   margin-top: 15px;
   color: #7d4f50;
 }
+
+.dob-fields {
+  width: 1000%;
+  display: flex;
+  max-width: 300px;
+}
