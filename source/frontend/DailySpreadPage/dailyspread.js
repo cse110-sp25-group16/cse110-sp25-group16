@@ -14,11 +14,12 @@ async function init() {
   const grid = document.querySelector('.cards-container');
   const selectedAmnt = document.querySelector('#card-amount');
 
-
   /*Selects cards and amount drawn depends on what option is picked */
   selectedAmnt.addEventListener('change', (event) => {
     const currDate = new Date().toLocaleDateString();
-    const savedCards = JSON.parse(localStorage.getItem(`dailyCards_${event.target.value}`));
+    const savedCards = JSON.parse(
+      localStorage.getItem(`dailyCards_${event.target.value}`)
+    );
     let pulledCards;
 
     /**
@@ -43,13 +44,12 @@ async function init() {
       );
     }
 
-
     /*Clears amount of card displayed from previous selection */
     grid.innerHTML = '';
 
     /*For each card drawn, create a card webcomponent to then append and display in dailspread.html file */
     for (let i = 0; i < event.target.value; i++) {
-      if(!pulledCards[i]) continue;
+      if (!pulledCards[i]) continue;
       const cardElement = document.createElement('card-component');
 
       cardElement.setAttribute(
@@ -75,15 +75,14 @@ async function init() {
       cardElement.setAttribute('description', pulledCards[i].getDescription());
       cardElement.setAttribute('numeral', pulledCards[i].getNumeral());
 
-      const facing = Math.round(Math.random())
+      const facing = Math.round(Math.random());
       if (facing == 0) {
-         cardElement.setAttribute('facing', false)
+        cardElement.setAttribute('facing', false);
       } else if (facing == 1) {
-         cardElement.setAttribute('facing', true)
+        cardElement.setAttribute('facing', true);
       }
 
       grid.appendChild(cardElement);
     }
   });
-
 }
