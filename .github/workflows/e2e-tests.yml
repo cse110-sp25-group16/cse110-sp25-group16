@@ -29,5 +29,8 @@ jobs:
         run: |
           live-server . --port=8080 --quiet &
           npx wait-on http://127.0.0.1:8080/source/frontend/DailySpreadPage/dailyspread.html
+          echo "✅ Server is up, dumping directory for inspection..."
+          ls -R source/frontend/DailySpreadPage || echo "❌ Page folder not found"
+          curl -I http://127.0.0.1:8080/source/frontend/DailySpreadPage/dailyspread.html || echo "❌ Page not reachable"
           sleep 5
           npx jest

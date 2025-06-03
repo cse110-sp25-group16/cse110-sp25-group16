@@ -1,6 +1,8 @@
 describe('Daily Spread Page', () => {
   beforeAll(async () => {
-    await page.goto('http://127.0.0.1:8080/source/frontend/DailySpreadPage/dailyspread.html');
+    await page.goto(
+      'http://127.0.0.1:8080/source/frontend/DailySpreadPage/dailyspread.html'
+    );
   });
 
   it('should greet the user with a message', async () => {
