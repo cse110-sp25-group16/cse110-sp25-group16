@@ -25,11 +25,8 @@ jobs:
       - name: Install live-server and wait-on
         run: npm install -g live-server wait-on
 
-      - name: Start live-server in background
-        run: live-server source/frontend --port=8080 --quiet &
-
-      - name: Wait for live-server to be ready
-        run: wait-on http://127.0.0.1:8080/source/frontend/DailySpreadPage/dailyspread.html
-
-      - name: Run E2E Tests
-        run: npx jest
+      - name: Start server and run tests
+        run: |
+          live-server source/frontend --port=8080 --quiet &
+          npx wait-on http://127.0.0.1:8080/source/frontend/DailySpreadPage/dailyspread.html
+          npx jest
