@@ -44,7 +44,7 @@ export default defineConfig([
   },
   {
     // Node.js config files using CommonJS
-    files: ['jest.config.js', 'jest-puppeteer.config.js'],
+    files: ['jest.config.js', 'jest-puppeteer.config.js','jest.e2e.config.js'],
     languageOptions: {
       globals: {
         ...globals.node,
