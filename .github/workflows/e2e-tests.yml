@@ -28,5 +28,5 @@ jobs:
       - name: Start server and run tests
         run: |
           live-server source/frontend --port=8080 --quiet &
-          npx wait-on http://127.0.0.1:8080/source/frontend/DailySpreadPage/dailyspread.html
+          npx wait-on http://127.0.0.1:8080/DailySpreadPage/dailyspread.html
           npx jest
