@@ -31,4 +31,3 @@ jobs:
           npx wait-on http://127.0.0.1:8080/source/frontend/DailySpreadPage/dailyspread.html
           sleep 5
           npx jest --config=jest.e2e.config.js
-
