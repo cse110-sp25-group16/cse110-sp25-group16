@@ -27,6 +27,6 @@ jobs:
 
       - name: Run tests with live-server and Jest
         run: |
-          live-server source/frontend --port=8080 --quiet &
+          live-server . --port=8080 --quiet &
           sleep 3
           npx jest
