@@ -2,22 +2,22 @@ class CardComponent extends HTMLElement {
   constructor() {
     super();
 
-    const shadow = this.attachShadow({ mode: 'open' });
-    const wrapper = document.createElement('div');
-    wrapper.classList.add('card-wrapper');
+    const shadow = this.attachShadow({ mode: "open" });
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("card-wrapper");
 
-    const card = document.createElement('div');
-    card.classList.add('card');
+    const card = document.createElement("div");
+    card.classList.add("card");
 
-    const image = this.getAttribute('image');
-    const title = this.getAttribute('name');
-    const arcana = this.getAttribute('arcana');
-    const suit = this.getAttribute('suit');
-    const uprightMeanings = JSON.parse(this.getAttribute('uprightMeanings'));
-    const reversedMeanings = JSON.parse(this.getAttribute('reversedMeanings'));
-    const keywords = JSON.parse(this.getAttribute('keywords'));
-    const description = this.getAttribute('description');
-    const numeral = this.getAttribute('numeral');
+    const image = this.getAttribute("image");
+    const title = this.getAttribute("name");
+    const arcana = this.getAttribute("arcana");
+    const suit = this.getAttribute("suit");
+    const uprightMeanings = JSON.parse(this.getAttribute("uprightMeanings"));
+    const reversedMeanings = JSON.parse(this.getAttribute("reversedMeanings"));
+    const keywords = JSON.parse(this.getAttribute("keywords"));
+    const description = this.getAttribute("description");
+    const numeral = this.getAttribute("numeral");
 
     card.innerHTML = `
          <div class="card-back">
@@ -28,25 +28,25 @@ class CardComponent extends HTMLElement {
             <h3>${numeral} - ${title} </h3>
             <strong>${arcana} - ${suit} </strong>
             <div class="keywords">
-               Keywords: ${keywords.join(', ')}
+               Keywords: ${keywords.join(", ")}
             </div>
             <div>
                <h4>Upright Meanings:</h4>
                <ul>
-                  ${uprightMeanings.map((item) => `<li>${item}</li>`).join('')}
+                  ${uprightMeanings.map((item) => `<li>${item}</li>`).join("")}
                </ul>
             </div>
             <div>
                <h4>Reversed Meanings:</h4>
                <ul>
-                  ${reversedMeanings.map((item) => `<li>${item}</li>`).join('')}
+                  ${reversedMeanings.map((item) => `<li>${item}</li>`).join("")}
                </ul>
             </div>
             <p>${description}</p>
          </div>
       `;
 
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.textContent = `
          .card-wrapper {
             width: 250px;
@@ -115,10 +115,10 @@ class CardComponent extends HTMLElement {
     wrapper.appendChild(card);
     shadow.append(style, wrapper);
 
-    wrapper.addEventListener('click', () => {
-      card.classList.toggle('flip');
+    wrapper.addEventListener("click", () => {
+      card.classList.toggle("flip");
     });
   }
 }
 
-customElements.define('card-component', CardComponent);
+customElements.define("card-component", CardComponent);

@@ -7,7 +7,7 @@
 
 html,
 body {
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
   background-color: #fff;
   overflow: hidden;
   width: 100vw;
@@ -44,8 +44,8 @@ label {
 }
 
 /* Inputs & Buttons */
-input[type='text'],
-input[type='password'],
+input[type="text"],
+input[type="password"],
 select {
   width: 100%;
   padding: 10px;

@@ -17,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
         run: npm ci
@@ -30,4 +30,4 @@ jobs:
           live-server . --port=8080 --quiet &
           npx wait-on http://127.0.0.1:8080/source/frontend/DailySpreadPage/dailyspread.html
           sleep 5
-          npx jest --config=config/jest.e2e.config.js
+          node --experimental-vm-modules ./node_modules/.bin/jest --config=config/jest.e2e.config.js

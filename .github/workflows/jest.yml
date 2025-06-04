@@ -1,4 +1,4 @@
-name: Run Jest Tests
+name: Run Jest Unit Tests
 
 on:
   push:
@@ -17,10 +17,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install dependencies
         run: npm install
 
       - name: Run unit tests (excluding E2E)
-        run: npx jest __tests__
+        run: node --experimental-vm-modules ./node_modules/.bin/jest --config=config/jest.config.mjs

@@ -1,5 +1,6 @@
 export default {
   transform: {},
+  extensionsToTreatAsEsm: ['.js'],
   testEnvironment: 'node',
-  verbose: true,
+  testMatch: ['**/__tests__/**/*.test.js'],
 };
