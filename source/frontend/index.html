@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pocket Diviner</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="./images/logo.png" />
+  </head>
+  <body>
+    <h1 id="title">Pocket Diviner</h1>
+    <h2 id="welcome-msg"></h2>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const welcomeMsg = document.getElementById("welcome-msg");
+        const userName = localStorage.getItem("userName") || "Guest";
+        welcomeMsg.textContent = `Welcome, ${userName}! Explore your divination options below.`;
+      });
+    </script>
+    <div class="card-container">
+      <app-card
+        title="Tarot Cards"
+        description="Tarot Reading"
+        icon="./images/tarot.jpg"
+        link="./DailySpreadPage/dailyspread.html"
+      ></app-card>
+      <app-card
+        id="horoscope"
+        title="Horoscopes"
+        description="Daily Horoscope"
+        icon="./images/zodiacs.webp"
+        link="./DailySpreadPage/dailyspread.html"
+      ></app-card>
+    </div>
+    <script src="./components/AppCard.js"></script>
+  </body>
+</html>

@@ -27,38 +27,35 @@ class CardComponent extends HTMLElement {
     let flipped = false;
     let focused = false;
 
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: "open" });
     const shadow = this.shadowRoot;
 
     // create wrapper and card container
-    const container = document.createElement('div');
-    container.classList.add('card-container');
+    const container = document.createElement("div");
+    container.classList.add("card-container");
 
-    const wrapper = document.createElement('div');
-    wrapper.classList.add('card-wrapper');
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("card-wrapper");
 
-    const card = document.createElement('div');
-    card.classList.add('card');
+    const card = document.createElement("div");
+    card.classList.add("card");
 
     // retrieve attributes
-    const image = this.getAttribute('image');
-    const title = this.getAttribute('name');
-    const arcana = this.getAttribute('arcana');
-    const suit = this.getAttribute('suit');
+    const image = this.getAttribute("image");
+    const title = this.getAttribute("name");
+    const arcana = this.getAttribute("arcana");
+    const suit = this.getAttribute("suit");
     const uprightMeanings = JSON.parse(
-      this.getAttribute('uprightMeanings') || '[]'
+      this.getAttribute("uprightMeanings") || "[]"
     );
     const reversedMeanings = JSON.parse(
-      this.getAttribute('reversedMeanings') || '[]'
+      this.getAttribute("reversedMeanings") || "[]"
     );
-    const keywords = JSON.parse(this.getAttribute('keywords') || '[]');
-    const description = this.getAttribute('description');
-    const numeral = this.getAttribute('numeral');
-    const facing = this.getAttribute('facing');
-    if (facing === 'true') {
-      card.classList.add('flip');
-      flipped = true;
-    }
+    const keywords = JSON.parse(this.getAttribute("keywords") || "[]");
+    const description = this.getAttribute("description");
+    const numeral = this.getAttribute("numeral");
+    const facing = this.getAttribute("facing");
+    const upsideDown = this.getAttribute("upsideDown");
     //  const interpretation = this.getAttribute('interpretation')
 
     /**
@@ -88,18 +85,18 @@ class CardComponent extends HTMLElement {
                      <button data-toggle="keywords">-</button>
                   </div>
                   <div class="keywords" data-content="keywords">
-                     ${keywords.join(', ')}
+                     ${keywords.join(", ")}
                   </div>
                </section>
                ${
-                 facing == 'false'
+                 facing == "false"
                    ? `<section>
                   <div class="section-header">
                      <h4>Upright Meanings</h4>
                      <button data-toggle="upright">-</button>
                   </div>
                   <ul data-content="upright">
-                     ${uprightMeanings.map((item) => `<li>${item}</li>`).join('')}
+                     ${uprightMeanings.map((item) => `<li>${item}</li>`).join("")}
                   </ul>
                </section>`
                    : `<section>
@@ -108,7 +105,7 @@ class CardComponent extends HTMLElement {
                      <button id="reversed">-</button>
                   </div>
                   <ul data-content="reversed">
-                     ${reversedMeanings.map((item) => `<li>${item}</li>`).join('')}
+                     ${reversedMeanings.map((item) => `<li>${item}</li>`).join("")}
                   </ul>
                </section>`
                }
@@ -118,28 +115,28 @@ class CardComponent extends HTMLElement {
     /**
      * Adds toggle behavior with data-attribute
      */
-    const toggleButtons = card.querySelectorAll('button[data-toggle]');
+    const toggleButtons = card.querySelectorAll("button[data-toggle]");
     toggleButtons.forEach((button) => {
-      const key = button.getAttribute('data-toggle');
+      const key = button.getAttribute("data-toggle");
       const content = card.querySelector(`[data-content="${key}"]`);
       let collapsed = false;
 
-      button.addEventListener('click', (e) => {
+      button.addEventListener("click", (e) => {
         e.stopPropagation();
         collapsed = !collapsed;
 
         if (collapsed) {
-          content.classList.add('collapsed');
-          button.textContent = '+';
+          content.classList.add("collapsed");
+          button.textContent = "+";
         } else {
-          content.classList.remove('collapsed');
-          button.textContent = '−';
+          content.classList.remove("collapsed");
+          button.textContent = "−";
         }
       });
     });
 
     // create styles
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.textContent = `
          .card-wrapper {
             width: 260px;
@@ -189,7 +186,7 @@ class CardComponent extends HTMLElement {
          }
 
          .card-back {
-            background: url('https://media.istockphoto.com/id/1395693302/vector/space-sunburst-stars-design-background.jpg?s=612x612&w=0&k=20&c=1C4RjsIP5yjpSr4_wasj6nY-QRyl0a0w88pOmUtAuV8=') center/cover no-repeat;
+            background: url('../images/cardback.jpg') center/cover no-repeat;
          }
 
          .card-front {
@@ -251,7 +248,7 @@ class CardComponent extends HTMLElement {
          }
 
          img {
-            max-width: 120px;
+            height: 80%;
             margin-bottom: 12px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -334,7 +331,12 @@ class CardComponent extends HTMLElement {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center
+            align-items: center;
+            height: 100%;
+         }
+
+         .card.upsidedown .card-front .summary img {
+            transform: rotateX(180deg);
          }
 
          .card.focused .summary {
@@ -353,35 +355,36 @@ class CardComponent extends HTMLElement {
     container.appendChild(wrapper);
 
     // if reversed, add label below the card
-    if (facing === 'true') {
-      const reversedNote = document.createElement('div');
-      reversedNote.classList.add('reversed-note');
-      reversedNote.innerHTML = `
-    <span>Reversed</span>
-    <button class="info-btn" title="Reversed cards have different meanings from normal cards">ℹ️</button>
-  `;
-      container.appendChild(reversedNote);
+    if (upsideDown === "true" || facing === "true") {
+      //       const reversedNote = document.createElement("div");
+      //       reversedNote.classList.add("reversed-note");
+      //       reversedNote.innerHTML = `
+      //     <span>Reversed</span>
+      //     <button class="info-btn" title="Reversed cards have different meanings from normal cards">ℹ️</button>
+      //   `;
+      //       container.appendChild(reversedNote);
+      card.classList.add("upsidedown");
     }
 
     shadow.append(style, container);
 
     // add event listener for card flipping on click
 
-    wrapper.addEventListener('click', () => {
+    wrapper.addEventListener("click", () => {
       if (!flipped) {
-        card.classList.add('flip');
+        card.classList.add("flip");
         flipped = true;
       } else if (!focused) {
-        card.classList.add('focused');
-        card.querySelector('.details').classList.remove('hidden');
+        card.classList.add("focused");
+        card.querySelector(".details").classList.remove("hidden");
         focused = true;
       } else {
-        card.classList.remove('focused');
-        card.querySelector('.details').classList.add('hidden');
+        card.classList.remove("focused");
+        card.querySelector(".details").classList.add("hidden");
         focused = false;
       }
     });
   }
 }
 
-customElements.define('card-component', CardComponent);
+customElements.define("card-component", CardComponent);
