@@ -45,5 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('tarotUserInfo', JSON.stringify(userData));
 
     alert('Sign up successful!');
+
+    window.location = './index.html';
   });
 });
