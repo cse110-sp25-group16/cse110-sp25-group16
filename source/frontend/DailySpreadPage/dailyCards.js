@@ -89,7 +89,7 @@ class CardComponent extends HTMLElement {
                   </div>
                </section>
                ${
-                 facing == 'false'
+                 upsideDown == 'false'
                    ? `<section>
                   <div class="section-header">
                      <h4>Upright Meanings</h4>
