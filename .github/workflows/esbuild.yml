@@ -4,11 +4,11 @@ on:
   push:
     branches: [main]
     paths:
-      - "**/*.js"
+      - '**/*.js'
   pull_request:
     branches: [main]
     paths:
-      - "**/*.js"
+      - '**/*.js'
 
 jobs:
   build:
