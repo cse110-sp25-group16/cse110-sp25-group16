@@ -1,19 +1,19 @@
 class AppCard extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
     const shadow = this.shadowRoot;
 
-    const icon = this.getAttribute('icon') || '';
-    const title = this.getAttribute('title') || 'App Title';
+    const icon = this.getAttribute("icon") || "";
+    const title = this.getAttribute("title") || "App Title";
     const description =
-      this.getAttribute('description') || 'App description goes here.';
-    const link = this.getAttribute('link') || '#';
+      this.getAttribute("description") || "App description goes here.";
+    const link = this.getAttribute("link") || "#";
 
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.textContent = `
       .app-card {
         display: flex;
@@ -70,11 +70,11 @@ class AppCard extends HTMLElement {
       }
     `;
 
-    const wrapper = document.createElement('a');
-    wrapper.classList.add('app-card');
+    const wrapper = document.createElement("a");
+    wrapper.classList.add("app-card");
     wrapper.href = link;
-    wrapper.target = '_self';
-    wrapper.rel = 'noopener';
+    wrapper.target = "_self";
+    wrapper.rel = "noopener";
 
     wrapper.innerHTML = `
       <img src="${icon}" alt="App icon">
@@ -82,10 +82,10 @@ class AppCard extends HTMLElement {
       <p>${description}</p>
     `;
 
-    shadow.innerHTML = ''; // clear if reconnected
+    shadow.innerHTML = ""; // clear if reconnected
     shadow.appendChild(style);
     shadow.appendChild(wrapper);
   }
 }
-console.log('app-card defined');
-customElements.define('app-card', AppCard);
+console.log("app-card defined");
+customElements.define("app-card", AppCard);

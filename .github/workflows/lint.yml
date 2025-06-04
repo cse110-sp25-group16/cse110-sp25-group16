@@ -4,15 +4,15 @@ on:
   push:
     branches: [main]
     paths:
-      - '**/*.html'
-      - '**/*.css'
-      - '**/*.js'
+      - "**/*.html"
+      - "**/*.css"
+      - "**/*.js"
   pull_request:
     branches: [main]
     paths:
-      - '**/*.html'
-      - '**/*.css'
-      - '**/*.js'
+      - "**/*.html"
+      - "**/*.css"
+      - "**/*.js"
 
 jobs:
   lint:
@@ -23,7 +23,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "18"
 
       - run: npm ci
 

@@ -2,7 +2,8 @@ const path = require('path');
 
 module.exports = {
   preset: 'jest-puppeteer',
+  rootDir: path.join(__dirname, '..'),
   testEnvironment: 'jest-environment-puppeteer',
-  testMatch: [path.join(__dirname, '..', '__e2e__', '**', '*.test.js')],
-  testTimeout: 30000
+  testMatch: ['<rootDir>/__e2e__/**/*.test.js'],
+  testTimeout: 30000,
 };
