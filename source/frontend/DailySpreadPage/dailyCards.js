@@ -55,10 +55,7 @@ class CardComponent extends HTMLElement {
     const description = this.getAttribute('description');
     const numeral = this.getAttribute('numeral');
     const facing = this.getAttribute('facing');
-    if (facing === 'true') {
-      card.classList.add('flip');
-      flipped = true;
-    }
+    const upsideDown = this.getAttribute('upsideDown');
     //  const interpretation = this.getAttribute('interpretation')
 
     /**
@@ -189,7 +186,7 @@ class CardComponent extends HTMLElement {
          }
 
          .card-back {
-            background: url('https://media.istockphoto.com/id/1395693302/vector/space-sunburst-stars-design-background.jpg?s=612x612&w=0&k=20&c=1C4RjsIP5yjpSr4_wasj6nY-QRyl0a0w88pOmUtAuV8=') center/cover no-repeat;
+            background: url('../images/cardback.jpg') center/cover no-repeat;
          }
 
          .card-front {
@@ -251,7 +248,7 @@ class CardComponent extends HTMLElement {
          }
 
          img {
-            max-width: 120px;
+            height: 80%;
             margin-bottom: 12px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -334,7 +331,12 @@ class CardComponent extends HTMLElement {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center
+            align-items: center;
+            height: 100%;
+         }
+
+         .card.upsidedown .card-front .summary img {
+            transform: rotateX(180deg);
          }
 
          .card.focused .summary {
@@ -353,14 +355,15 @@ class CardComponent extends HTMLElement {
     container.appendChild(wrapper);
 
     // if reversed, add label below the card
-    if (facing === 'true') {
-      const reversedNote = document.createElement('div');
-      reversedNote.classList.add('reversed-note');
-      reversedNote.innerHTML = `
-    <span>Reversed</span>
-    <button class="info-btn" title="Reversed cards have different meanings from normal cards">ℹ️</button>
-  `;
-      container.appendChild(reversedNote);
+    if (upsideDown === 'true' || facing === 'true') {
+      //       const reversedNote = document.createElement("div");
+      //       reversedNote.classList.add("reversed-note");
+      //       reversedNote.innerHTML = `
+      //     <span>Reversed</span>
+      //     <button class="info-btn" title="Reversed cards have different meanings from normal cards">ℹ️</button>
+      //   `;
+      //       container.appendChild(reversedNote);
+      card.classList.add('upsidedown');
     }
 
     shadow.append(style, container);

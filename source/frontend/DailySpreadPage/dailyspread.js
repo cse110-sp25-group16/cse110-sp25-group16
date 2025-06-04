@@ -28,7 +28,10 @@ async function init() {
      * Saved cards are under the name "dailyCards_3", "dailyCards_5", or "dailyCards_10"
      */
     if (savedCards && savedCards.date === currDate) {
-      pulledCards = savedCards.cards.map((id) => new Card(id, false));
+      pulledCards = savedCards.cards.map((cardString) => {
+        let card = JSON.parse(cardString);
+        return new Card(card.id, card.faceup, card.upsideDown);
+      });
     } else {
       const deck = new CardDeck(Card);
       deck.fillDeck();
@@ -39,7 +42,7 @@ async function init() {
         `dailyCards_${event.target.value}`,
         JSON.stringify({
           date: currDate,
-          cards: pulledCards.map((card) => card.id),
+          cards: pulledCards.map((card) => JSON.stringify(card)),
         })
       );
     }
@@ -74,13 +77,8 @@ async function init() {
       cardElement.setAttribute('symbolism', pulledCards[i].getSymbolism());
       cardElement.setAttribute('description', pulledCards[i].getDescription());
       cardElement.setAttribute('numeral', pulledCards[i].getNumeral());
-
-      const facing = Math.round(Math.random());
-      if (facing == 0) {
-        cardElement.setAttribute('facing', false);
-      } else if (facing == 1) {
-        cardElement.setAttribute('facing', true);
-      }
+      cardElement.setAttribute('facing', pulledCards[i].isFaceUp());
+      cardElement.setAttribute('upsideDown', pulledCards[i].isUpsideDown());
 
       grid.appendChild(cardElement);
     }
