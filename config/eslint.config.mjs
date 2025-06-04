@@ -4,6 +4,9 @@ import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
+    ignores: ['coverage/**'],
+  },
+  {
     // Base config for all JS files
     files: ['**/*.{js,mjs,cjs}'],
     plugins: { js },
@@ -49,9 +52,12 @@ export default defineConfig([
   },
   {
     // Node-based config files
-    files: ['config/*.js'],
+    files: ['config/*.js', 'config/*.cjs'],
     languageOptions: {
-      globals: globals.node,
+      globals: {
+        ...globals.node,
+        __dirname: true,
+      },
     },
   },
 ]);

@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/.bin/jest",
-    "test:coverage": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --config=config/jest.config.mjs",
+    "test:coverage": "node --experimental-vm-modules node_modules/.bin/jest --config=config/jest.config.mjs --coverage",
     "test:e2e": "jest --config config/jest.e2e.config.cjs",
     "lint": "eslint --config config/eslint.config.mjs .",
     "format": "prettier --config config/.prettierrc --write .",

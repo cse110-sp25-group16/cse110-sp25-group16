@@ -11,21 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Start local server
         run: |
-          npx live-server source --port=8080 --quiet &
-          sleep 5
+          npm install
+          npm install --save-dev wait-on
 
-      - name: Run E2E Tests
-        run: npm run test:e2e
+      - name: Start live-server and run E2E tests
+        run: |
+          npx live-server . --port=8080 --quiet &
+          npx wait-on http://127.0.0.1:8080/source/frontend/DailySpreadPage/dailyspread.html
+          sleep 5
+          npm run test:e2e
