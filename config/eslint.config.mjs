@@ -30,7 +30,28 @@ export default defineConfig([
       globals: {
         ...globals.node,
         ...globals.jest,
+        page: true,
       },
+    },
+  },
+  {
+    // E2E Puppeteer test files
+    files: ['__e2e__/**/*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.jest,
+        page: true,
+        browser: true,
+        context: true,
+      },
+    },
+  },
+  {
+    // Node-based config files
+    files: ['config/*.js'],
+    languageOptions: {
+      globals: globals.node,
     },
   },
 ]);
