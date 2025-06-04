@@ -1,13 +1,14 @@
-/* Reset default spacing and box sizing */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Prevent scrolling and fit page to viewport */
 html,
 body {
+  font-family: 'EB Garamond', serif;
+  background-color: #fff;
   overflow: hidden;
   width: 100vw;
   height: 100vh;
@@ -15,7 +16,7 @@ body {
   background-color: #fff;
 }
 
-/* Full-width pink top bar */
+/* Global Header */
 .top-bar {
   background-color: #e3bcba;
   height: 60px;
@@ -31,22 +32,11 @@ body {
   color: #7d4f50;
 }
 
-/* Centered form container */
-.container {
-  width: 600px;
-  background-color: white;
-  padding: 40px;
-  margin: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
+/* Global Typography */
 h1 {
   color: #7d4f50;
-  margin-bottom: 20px;
   font-size: 40px;
+  margin-bottom: 20px;
 }
 
 label {
@@ -57,6 +47,9 @@ label {
 
 input[type="text"],
 input[type="password"],
+/* Inputs & Buttons */
+input[type='text'],
+input[type='password'],
 select {
   width: 100%;
   padding: 10px;
@@ -65,37 +58,6 @@ select {
   box-sizing: border-box;
   margin-bottom: 5px;
   background-color: #fff;
-}
-
-.dob-fields {
-  display: flex;
-  gap: 10px;
-}
-
-.dob-fields input {
-  width: 30%;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  border: 2px solid #7d4f50;
-  border-radius: 10px;
-  text-align: center; /* center placeholder text */
-  color: #7d4f50;
-}
-
-.dob-fields input:nth-child(1) {
-  /* DD */
-  width: 50px;
-}
-
-.dob-fields input:nth-child(2) {
-  /* MM */
-  width: 50px;
-}
-
-.dob-fields input:nth-child(3) {
-  /* YYYY */
-  width: 90px;
 }
 
 select {
@@ -125,22 +87,4 @@ button {
 
 button:hover {
   background-color: #d7732f;
-}
-
-.disclaimer {
-  display: block;
-  font-size: 0.85em;
-  color: #7d4f50;
-  margin-top: 5px;
-}
-
-.disclaimer a {
-  color: #ff6c6c;
-  text-decoration: underline;
-}
-
-.storage-note {
-  font-size: 0.8em;
-  margin-top: 15px;
-  color: #7d4f50;
 }
