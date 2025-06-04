@@ -1,4 +1,4 @@
-const cardDictionary = require('./cardDictionary');
+import cardDictionary from './CardDictionary.js';
 
 class Card {
   /**
@@ -127,4 +127,4 @@ class Card {
   }
 }
 
-module.exports = Card;
+export default Card;

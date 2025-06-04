@@ -2200,4 +2200,4 @@ var cardDictionary = {
 //     cardDictionary = await response.json();
 // }
 
-module.exports = cardDictionary;
+export default cardDictionary;
