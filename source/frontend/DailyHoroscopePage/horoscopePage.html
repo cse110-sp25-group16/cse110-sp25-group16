@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./horoscopePage.js" type="module"></script>
+    <title>Daily Spread</title>
+    <link rel="stylesheet" href="./horoscopePage.css" />
+  </head>
+  <body>
+    <!-- This header bar still needs to be linked to the other pages -->
+
+    <!-- * This header displays navigation bar to other pages of this application.* -->
+    <header>
+      <a id="daily-spread" href="">Daily Spread</a>
+      <a id="horoscope" href="">Horoscope</a>
+      <a id="tarot" href="">Tarot Answers</a>
+      <a id="account" href="">Account</a>
+    </header>
+    <br />
+    <br />
+
+    <!-- * This section displays the greeting and daily spread cards.* -->
+    <div class="daily-grid">
+      <!-- Get user's name from data -->
+      <div class="greeting">
+        <h2 id="username">Hi [username], here's today's horoscope</h2>
+        <div class="sign-container">
+          <label class="sign-label">Your Sign:</label>
+          <p class="sign-text"></p>
+        </div>
+      </div>
+      <div class="content">
+        <div class="item-container">
+          <label class="item-label"></label>
+          <p class="item-text"></p>
+        </div>
+        <div class="item-container">
+          <label class="item-label"></label>
+          <p class="item-text"></p>
+        </div>
+        <div class="item-container">
+          <label class="item-label"></label>
+          <p class="item-text"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
