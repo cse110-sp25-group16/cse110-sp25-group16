@@ -7,13 +7,16 @@
 
 html,
 body {
-  font-family: 'EB Garamond', serif;
-  background-color: #fff;
-  overflow: hidden;
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  background-image: url('./images/paul-volkmer-stars.jpg');
+  background-position: center;
+  background-size: cover;
+  background-color: #141a33;
+  overflow-x: hidden;
   width: 100vw;
-  height: 100vh;
-  font-family: 'EB Garamond', serif;
-  background-color: #fff;
+  height: 90vh;
+  margin-top: 5vh;
 }
 
 /* Global Header */
@@ -34,9 +37,13 @@ body {
 
 /* Global Typography */
 h1 {
-  color: #7d4f50;
+  color: #d8b76e;
   font-size: 40px;
   margin-bottom: 20px;
+}
+
+h2 {
+  color: white;
 }
 
 label {
@@ -45,8 +52,10 @@ label {
   color: #7d4f50;
 }
 
-input[type="text"],
-input[type="password"],
+p {
+  color: white;
+}
+
 /* Inputs & Buttons */
 input[type='text'],
 input[type='password'],
@@ -61,7 +70,7 @@ select {
 }
 
 select {
-  background-color: #ed8839;
+  background-color: #d8b76e;
   border-color: #e3bcba;
   color: white;
   width: 300px;
@@ -73,7 +82,7 @@ select:focus {
 }
 
 button {
-  background-color: #ed8839;
+  background-color: #d8b76e;
   border-color: #e3bcba;
   color: white;
   padding: 10px 15px;

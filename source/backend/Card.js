@@ -6,14 +6,18 @@ class Card {
    * @param {number} id ID number to initialize card with
    * @param {boolean} faceup Faceup boolean to initialize card with
    */
-  constructor(id, faceup = false) {
+  constructor(id, faceup = false, upsideDown) {
     this.id = id;
     this.faceup = faceup;
 
-    let coinflip = Math.floor(Math.random() * 2);
+    if (upsideDown !== undefined) {
+      this.upsideDown = upsideDown;
+    } else {
+      let coinflip = Math.floor(Math.random() * 2);
 
-    this.upsideDown = false;
-    if (coinflip == 1) this.upsideDown = true;
+      this.upsideDown = false;
+      if (coinflip == 1) this.upsideDown = true;
+    }
   }
 
   /**
