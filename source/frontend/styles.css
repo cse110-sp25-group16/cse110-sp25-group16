@@ -7,7 +7,8 @@
 
 html,
 body {
-  font-family: "EB Garamond", serif;
+  font-family: "Noto Serif", serif;
+  font-weight: bold;
   background-image: url("./images/paul-volkmer-stars.jpg");
   background-position: center;
   background-size: cover;
@@ -36,7 +37,7 @@ body {
 
 /* Global Typography */
 h1 {
-  color: #c1a361;
+  color: #d8b76e;
   font-size: 40px;
   margin-bottom: 20px;
 }
@@ -69,7 +70,7 @@ select {
 }
 
 select {
-  background-color: #ed8839;
+  background-color: #d8b76e;
   border-color: #e3bcba;
   color: white;
   width: 300px;
@@ -81,7 +82,7 @@ select:focus {
 }
 
 button {
-  background-color: #ed8839;
+  background-color: #d8b76e;
   border-color: #e3bcba;
   color: white;
   padding: 10px 15px;

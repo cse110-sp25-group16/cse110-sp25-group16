@@ -38,7 +38,6 @@ class AppCard extends HTMLElement {
         text-decoration: none;
         color: inherit;
         transition: transform 0.2s, box-shadow 0.2s;
-        font-family: sans-serif;
       }
 
       .app-card:hover {
