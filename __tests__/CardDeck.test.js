@@ -1,19 +1,18 @@
 // Mock Card constructor for testing
-jest.mock('../source/backend/Card', () => {
-  return jest.fn().mockImplementation((id, reversed) => ({
-    id,
-    reversed,
-  }));
-});
 
-const CardDeck = require('../source/backend/CardDeck');
-const Card = require('../source/backend/Card');
+import { jest } from '@jest/globals';
+import CardDeck from '../source/backend/CardDeck.js';
+
+const MockCard = jest.fn().mockImplementation((id, reversed) => ({
+  id,
+  reversed,
+}));
 
 describe('CardDeck Class', () => {
   let deck;
 
   beforeEach(() => {
-    deck = new CardDeck();
+    deck = new CardDeck(MockCard);
   });
 
   test('should initialize with empty cards and displayCards', () => {
@@ -24,7 +23,7 @@ describe('CardDeck Class', () => {
   test('fillDeck should add 78 cards', () => {
     deck.fillDeck();
     expect(deck.getCardCount()).toBe(78);
-    expect(Card).toHaveBeenCalledTimes(78);
+    expect(MockCard).toHaveBeenCalledTimes(78);
     expect(deck.getCards()[0]).toHaveProperty('id', 0);
   });
 

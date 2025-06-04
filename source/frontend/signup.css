@@ -1,0 +1,57 @@
+.container {
+  width: 600px;
+  background-color: white;
+  padding: 40px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dob-fields {
+  display: flex;
+  gap: 10px;
+  max-width: 300px;
+}
+
+.dob-fields input {
+  width: 30%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid #7d4f50;
+  border-radius: 10px;
+  text-align: center;
+  color: #7d4f50;
+}
+
+.dob-fields input:nth-child(1) {
+  width: 50px; /* Day */
+}
+
+.dob-fields input:nth-child(2) {
+  width: 50px; /* Month */
+}
+
+.dob-fields input:nth-child(3) {
+  width: 90px; /* Year */
+}
+
+.storage-note {
+  font-size: 0.8em;
+  margin-top: 15px;
+  color: #7d4f50;
+}
+
+.disclaimer {
+  display: block;
+  font-size: 0.85em;
+  color: #7d4f50;
+  margin-top: 5px;
+}
+
+.disclaimer a {
+  color: #ff6c6c;
+  text-decoration: underline;
+}

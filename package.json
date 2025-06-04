@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "## [Meet our team!](/admin/team.md)",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --coverage",
-    "lint": "eslint .",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test:coverage": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
+    "lint": "eslint --config config/eslint.config.mjs .",
+    "format": "prettier --config config/.prettierrc --write .",
+    "format:check": "prettier --config config/.prettierrc --check .",
     "docs": "jsdoc src --destination docs",
     "build": "esbuild source/frontend/*.js --bundle --minify --outdir=dist"
   },
