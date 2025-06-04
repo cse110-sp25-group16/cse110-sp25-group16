@@ -86,7 +86,7 @@ class Horoscope {
     readingOutput.push(Horoscope.advice[hashValue % Horoscope.advice.length]);
 
     return readingOutput;
-  }
+  } 
 
   static themes = [
     'love',
