@@ -50,7 +50,7 @@ header p {
 }
 
 #username {
-   margin: 0
+  margin: 0;
 }
 
 .greeting {
@@ -61,7 +61,7 @@ header p {
 }
 
 .greeting h2 {
-   font-size: 40px;
+  font-size: 40px;
 }
 
 .sign-container {
@@ -96,9 +96,9 @@ header p {
   background-color: #ffbfb7;
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   width: 200px;
-  text-align: center
+  text-align: center;
 }
 
 .item-label {

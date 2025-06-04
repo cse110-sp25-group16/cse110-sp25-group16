@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
   display: flex;
   flex-direction: column;
   padding-top: 10px;
@@ -20,7 +20,7 @@ label {
   color: #7d4f50;
 }
 
-input[type='text'],
+input[type="text"],
 select {
   width: 100%;
   padding: 10px;
