@@ -4,6 +4,9 @@ import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
+    ignores: ['coverage/**'],
+  },
+  {
     // Base config for all JS files
     files: ['**/*.{js,mjs,cjs}'],
     plugins: { js },
@@ -30,6 +33,30 @@ export default defineConfig([
       globals: {
         ...globals.node,
         ...globals.jest,
+        page: true,
+      },
+    },
+  },
+  {
+    // E2E Puppeteer test files
+    files: ['__e2e__/**/*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.jest,
+        page: true,
+        browser: true,
+        context: true,
+      },
+    },
+  },
+  {
+    // Node-based config files
+    files: ['config/*.js', 'config/*.cjs'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        __dirname: true,
       },
     },
   },

@@ -1,0 +1,32 @@
+name: Run Puppeteer E2E Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  e2e-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install --save-dev wait-on
+
+      - name: Start live-server and run E2E tests
+        run: |
+          npx live-server . --port=8080 --quiet &
+          npx wait-on http://127.0.0.1:8080/source/frontend/DailySpreadPage/dailyspread.html
+          sleep 5
+          npm run test:e2e
