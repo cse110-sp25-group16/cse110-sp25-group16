@@ -75,7 +75,7 @@ class NavigationBar extends HTMLElement {
           links.appendChild(a);
         });
       } catch (err) {
-        console.error('Invalid links JSON:', rawLinks);
+        console.error('Invalid links JSON:', rawLinks, err);
       }
     }
 
