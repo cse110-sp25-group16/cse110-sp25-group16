@@ -14,6 +14,12 @@
     <link rel="icon" href="./images/logo.png" />
   </head>
   <body>
+    <header>
+      <navigation-bar
+        bgImg="./images/paint-navbar.jpg"
+        links='[{"href": "./index.html", "label": "Home"},{"href": "./DailySpreadPage/dailyspread.html", "label": "Tarot Cards"},{"href": "./DailyHoroscopePage/horoscopePage.html", "label": "Horoscope"}, {"href": "./settings.html", "label": "Profile"}]'
+      ></navigation-bar>
+    </header>
     <h1 id="title">Pocket Diviner</h1>
     <h2 id="welcome-msg"></h2>
     <script>
@@ -39,5 +45,6 @@
       ></app-card>
     </div>
     <script src="./components/AppCard.js"></script>
+    <script src="./components/NavigationBar.js"></script>
   </body>
 </html>

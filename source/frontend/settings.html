@@ -3,12 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Settings</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="settings.css" />
   </head>
 
   <body>
+    <header>
+      <navigation-bar
+        bgImg="./images/paint-navbar.jpg"
+        links='[{"href": "./index.html", "label": "Home"},{"href": "./DailySpreadPage/dailyspread.html", "label": "Tarot Cards"},{"href": "./DailyHoroscopePage/horoscopePage.html", "label": "Horoscope"}, {"href": "./settings.html", "label": "Profile"}]'
+      ></navigation-bar>
+    </header>
     <h1>Settings</h1>
 
     <form id="settings-form">
@@ -51,5 +63,6 @@
     </form>
 
     <script src="settings.js"></script>
+    <script src="./components/NavigationBar.js"></script>
   </body>
 </html>

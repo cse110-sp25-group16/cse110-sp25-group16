@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <script src="./horoscopePage.js" type="module"></script>
     <title>Pocket Diviner</title>
     
@@ -15,10 +21,10 @@
 
     <!-- * This header displays navigation bar to other pages of this application.* -->
     <header>
-      <a id="daily-spread" href="">Daily Spread</a>
-      <a id="horoscope" href="">Horoscope</a>
-      <a id="tarot" href="">Tarot Answers</a>
-      <a id="account" href="">Account</a>
+      <navigation-bar
+        bgImg="../images/paint-navbar.jpg"
+        links='[{"href": "../index.html", "label": "Home"},{"href": "../DailySpreadPage/dailyspread.html", "label": "Tarot Cards"},{"href": "./horoscopePage.html", "label": "Horoscope"}, {"href": "../settings.html", "label": "Profile"}]'
+      ></navigation-bar>
     </header>
     <br />
     <br />
@@ -48,5 +54,7 @@
         </div>
       </div>
     </div>
+
+    <script src="../components/NavigationBar.js"></script>
   </body>
 </html>
