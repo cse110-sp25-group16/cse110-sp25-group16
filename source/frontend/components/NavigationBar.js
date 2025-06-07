@@ -10,7 +10,6 @@ class NavigationBar extends HTMLElement {
     const style = document.createElement("style");
     style.textContent = `
       nav {
-        background-color: #FFF00;
         background-image: url("${bgImg}");
         color: white;
         padding-left: 1.5em;
