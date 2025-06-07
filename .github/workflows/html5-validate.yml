@@ -1,0 +1,23 @@
+name: "HTML5 Syntax Check"
+
+on:
+  push:
+    paths:
+      - "**/*.html"
+  pull_request:
+    paths:
+      - "**/*.html"
+
+jobs:
+  html_lint:
+    name: Validate HTML5
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run HTML5 validator
+        uses: validator/validator-action@v1
+        with:
+          files: "**/*.html"
