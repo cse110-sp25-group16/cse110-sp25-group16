@@ -26,5 +26,11 @@ async function init() {
 }
 
 function getArchived(active, date) {
-   
+   if (active == "tarot") {
+
+
+   } else {
+
+      
+   }
 }
