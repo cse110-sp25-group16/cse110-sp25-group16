@@ -19,9 +19,9 @@ describe('Integration: CardDeck and CardDictionary', () => {
   it('shuffles deck and maintains same cards', () => {
     const deck = new CardDeck(Card);
     deck.fillDeck();
-    const beforeShuffle = deck.cards.map(c => c.id);
+    const beforeShuffle = deck.cards.map((c) => c.id);
     deck.shuffle();
-    const afterShuffle = deck.cards.map(c => c.id);
+    const afterShuffle = deck.cards.map((c) => c.id);
 
     expect(beforeShuffle).toHaveLength(afterShuffle.length);
     expect(afterShuffle.sort()).toEqual(beforeShuffle.sort());

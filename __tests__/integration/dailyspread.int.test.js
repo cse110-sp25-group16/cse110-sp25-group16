@@ -13,7 +13,7 @@ describe('Integration: Daily Spread Logic', () => {
     expect(pulledCards).toHaveLength(3);
 
     // Validate card structure and data linkage
-    pulledCards.forEach(card => {
+    pulledCards.forEach((card) => {
       const dict = CardDictionary[card.id];
       expect(dict).toBeDefined();
       expect(card.getCardName()).toBe(dict.name);
@@ -29,7 +29,7 @@ describe('Integration: Daily Spread Logic', () => {
     deck.fillDeck();
     deck.shuffle();
     const pulledCards = deck.drawing(5);
-    const ids = pulledCards.map(c => c.id);
+    const ids = pulledCards.map((c) => c.id);
     const uniqueIds = new Set(ids);
 
     expect(uniqueIds.size).toBe(ids.length);
