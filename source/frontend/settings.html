@@ -3,66 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
     <title>Settings</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="settings.css" />
+    <script src="./components/NavigationBar.js" type="module"></script>
   </head>
 
   <body>
-    <header>
-      <navigation-bar
-        bgImg="./images/paint-navbar.jpg"
-        links='[{"href": "./index.html", "label": "Home"},{"href": "./DailySpreadPage/dailyspread.html", "label": "Tarot Cards"},{"href": "./DailyHoroscopePage/horoscopePage.html", "label": "Horoscope"}, {"href": "./settings.html", "label": "Profile"}]'
-      ></navigation-bar>
-    </header>
-    <h1>Settings</h1>
+    <navigation-bar
+      bgImg="./images/paint-navbar.jpg"
+      links='[{"href": "./index.html", "label": "Home"},{"href": "./DailySpreadPage/dailyspread.html", "label": "Tarot Cards"},{"href": "./DailyHoroscopePage/horoscopePage.html", "label": "Horoscope"}, {"href": "./settings.html", "label": "Profile"}]'
+    ></navigation-bar>
 
-    <form id="settings-form">
-      <label for="name">Name</label>
-      <input type="text" id="name" />
+    <div class="settings-container">
+      <h1>Settings</h1>
+      <form id="settings-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" />
 
-      <label for="mbti">MBTI</label>
-      <select id="mbti" name="mbti">
-        <option disabled selected value></option>
-        <option value="ESFJ">ESFJ</option>
-        <option value="ESFP">ESFP</option>
-        <option value="ESTJ">ESTJ</option>
-        <option value="ESTP">ESTP</option>
-        <option value="ENFJ">ENFJ</option>
-        <option value="ENFP">ENFP</option>
-        <option value="ENTJ">ENTJ</option>
-        <option value="ENTP">ENTP</option>
-        <option value="INFJ">INFJ</option>
-        <option value="INFP">INFP</option>
-        <option value="INTJ">INTJ</option>
-        <option value="INTP">INTP</option>
-        <option value="ISFJ">ISFJ</option>
-        <option value="ISFP">ISFP</option>
-        <option value="ISTJ">ISTJ</option>
-        <option value="ISTP">ISTP</option>
-      </select>
+        <label for="mbti">MBTI</label>
+        <select id="mbti" name="mbti">
+          <option disabled selected value></option>
+          <option value="ESFJ">ESFJ</option>
+          <option value="ESFP">ESFP</option>
+          <option value="ESTJ">ESTJ</option>
+          <option value="ESTP">ESTP</option>
+          <option value="ENFJ">ENFJ</option>
+          <option value="ENFP">ENFP</option>
+          <option value="ENTJ">ENTJ</option>
+          <option value="ENTP">ENTP</option>
+          <option value="INFJ">INFJ</option>
+          <option value="INFP">INFP</option>
+          <option value="INTJ">INTJ</option>
+          <option value="INTP">INTP</option>
+          <option value="ISFJ">ISFJ</option>
+          <option value="ISFP">ISFP</option>
+          <option value="ISTJ">ISTJ</option>
+          <option value="ISTP">ISTP</option>
+        </select>
 
-      <label>Birthday</label>
-      <div class="dob-fields">
-        <input type="text" maxlength="2" placeholder="MM" />
-        <input type="text" maxlength="2" placeholder="DD" />
+        <label>Birthday</label>
+        <div class="dob-fields">
+          <input type="text" maxlength="2" placeholder="MM" />
+          <input type="text" maxlength="2" placeholder="DD" />
+          <input type="text" maxlength="4" placeholder="YYYY" />
+        </div>
 
-        <input type="text" maxlength="4" placeholder="YYYY" />
-      </div>
-
-      <div class="button-group">
-        <button type="submit" class="save-btn">Save</button>
-        <button type="button" id="clearButton">Clear All Data</button>
-      </div>
-    </form>
+        <div class="button-group">
+          <button type="submit" class="save-btn">Save</button>
+          <button type="button" id="clearButton">Clear All Data</button>
+        </div>
+      </form>
+    </div>
 
     <script src="settings.js"></script>
-    <script src="./components/NavigationBar.js"></script>
   </body>
 </html>

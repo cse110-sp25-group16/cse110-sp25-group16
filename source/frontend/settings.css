@@ -1,50 +1,61 @@
+.settings-container {
+  max-width: 600px;
+  margin: 120px auto;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  border: 2px solid #e3bcba;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
 h1 {
-  color: #7d4f50;
-  margin-bottom: 20px;
-  font-size: 40px;
+  text-align: center;
+  color: #d8b76e;
+  margin-bottom: 25px;
 }
 
 label {
-  display: block;
-  margin: 10px 0 0px;
   color: #7d4f50;
+  margin-top: 15px;
+  display: block;
 }
 
-input[type='text'],
+input,
 select {
   width: 100%;
   padding: 10px;
   border: 2px solid #7d4f50;
   border-radius: 10px;
-  box-sizing: border-box;
-  margin-bottom: 5px;
+  margin-top: 5px;
   background-color: #fff;
-  max-width: 500px;
+  font-family: 'Noto Serif', serif;
 }
 
 .dob-fields {
-  width: 1000%;
   display: flex;
-  max-width: 300px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 button {
-  background-color: #ed8839;
-  border-color: #e3bcba;
+  background-color: #d8b76e;
   color: white;
-  padding: 10px 15px;
+  border: none;
+  padding: 12px;
+  margin-top: 25px;
   border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  margin-top: 20px;
-  font-size: 20px;
-  display: block;
-  width: 200px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #d7732f;
 }
 
 #clearButton {
   background-color: rgb(237, 68, 68);
-  width: 150px;
-  font-size: 17px;
 }
 
 #clearButton:hover {

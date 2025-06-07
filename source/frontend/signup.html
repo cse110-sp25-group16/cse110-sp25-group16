@@ -6,16 +6,19 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="signup.css" />
+    <script src="./components/NavigationBar.js" type="module"></script>
   </head>
   <body>
-    <h1 style="color: white; text-align: center; font-weight: bold">
-      Pocket Diviner
-    </h1>
+    <navigation-bar
+      bgImg="./images/paint-navbar.jpg"
+      links='[{"href": "./index.html", "label": "Home"},{"href": "./DailySpreadPage/dailyspread.html", "label": "Tarot Cards"},{"href": "./DailyHoroscopePage/horoscopePage.html", "label": "Horoscope"}, {"href": "./settings.html", "label": "Profile"}]'
+    ></navigation-bar>
+
     <div class="container">
-      <h1>Sign up</h1>
+      <h1>Sign Up</h1>
 
       <form id="signup-form">
-        <label for="name">Name:</label>
+        <label for="name">Name</label>
         <input type="text" id="name" name="name" required />
 
         <label>Date of Birth</label>
@@ -43,19 +46,16 @@
           />
         </div>
 
-        <label for="mbti">
-          MBTI ⓘ
-          <span class="disclaimer">
-            Don’t know your MBTI?
-            <a
-              href="https://www.16personalities.com/free-personality-test"
-              target="_blank"
-            >
-              Click here
-            </a>
-            to take the Myers-Briggs Personality Test
-          </span>
-        </label>
+        <label for="mbti">MBTI ⓘ</label>
+        <span class="disclaimer">
+          Don’t know your MBTI?
+          <a
+            href="https://www.16personalities.com/free-personality-test"
+            target="_blank"
+          >
+            Click here
+          </a>
+        </span>
         <select id="mbti" name="mbti" required>
           <option value="">Select...</option>
           <option value="ESFJ">ESFJ</option>
@@ -77,7 +77,6 @@
         </select>
 
         <button type="submit">Sign up</button>
-
         <p class="storage-note">
           Note: Your data is stored securely and used only for personalization.
         </p>
@@ -87,4 +86,3 @@
     <script src="signup.js"></script>
   </body>
 </html>
-;
