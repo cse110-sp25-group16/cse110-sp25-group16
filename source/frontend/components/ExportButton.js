@@ -70,13 +70,11 @@ async function generateImageCards(data) {
 
   await document.fonts.ready;
 
-  // Load images
+  // background image
   const bgImg = await loadImage(backgroundImageURL);
   const itemImages = await Promise.all(
     data.map((item) => loadImage("../../cards/" + item.image))
   );
-
-  // Draw background
   ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
 
   ctx.font = "52px 'Noto Serif'";
@@ -198,6 +196,53 @@ function loadImage(src) {
   });
 }
 
+
+async function generateImageHoroscope() {
+  const sign = document.querySelector(".sign-text")?.textContent || "";
+  console.log("Sign: " + sign);
+  const itemContainers = document.querySelectorAll(".item-container");
+
+  const items = Array.from(itemContainers).map(container => {
+    const label = container.querySelector(".item-label")?.textContent || "";
+    const text = container.querySelector(".item-text")?.textContent || "";
+    return { label, text };
+  });
+
+
+  const canvasWidth = 800;
+  const canvasHeight = 600;
+  const canvas = document.createElement("canvas");
+  canvas.width = canvasWidth;
+  canvas.height = canvasHeight;
+  const ctx = canvas.getContext("2d");
+
+  const bgImg = await loadImage(backgroundImageURL);
+  ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+
+
+  ctx.font = "24px 'Noto Serif'";
+  ctx.fillText(`Sign: ${sign}`, canvasWidth / 2, 110);
+  ctx.fillStyle = "#fff";
+
+  // Draw the three items
+  let y = 180;
+  ctx.textAlign = "left";
+  items.forEach((item, i) => {
+    ctx.font = "bold 20px 'Noto Serif'";
+    ctx.fillText(item.label, 80, y);
+    ctx.fillStyle = "#fff";
+    ctx.font = "18px 'Noto Serif'";
+    wrapText(ctx, item.text, 80, y + 30, 640, 28, "", "");
+    y += 110; // space between items
+  });
+
+  // Export as PNG and trigger download
+  const link = document.createElement("a");
+  link.download = "horoscope.png";
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("generateBtn")
@@ -205,6 +250,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("getCardsBtn").addEventListener("click", () => {
     const data = getStoredCards(3);
   });
+  document
+    .getElementById("generateHoroscopeBtn")
+    .addEventListener("click", generateImageHoroscope);
 });
 
 export default getStoredCards;
+export { generateImageHoroscope };
