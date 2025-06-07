@@ -16,19 +16,16 @@ async function init() {
 
   /*Selects cards and amount drawn depends on what option is picked */
   selectedAmnt.addEventListener('change', (event) => {
-    const currDate = new Date().toLocaleDateString();
-    const savedCards = JSON.parse(
-      localStorage.getItem(`dailyCards_${event.target.value}`)
-    );
+    const currDate = new Date().toISOString().split("T")[0] // gets date in YYYY-MM-DD format
+    const exisitngData = JSON.parse(localStorage.getItem("dailyCards")) || {}
     let pulledCards;
 
     /**
      * Checks if have cards already drawn and saved today and uses those cards to display.
      * Otherwise, draw selected amount of cards, assign a today's date, and save to localStorage using date as key.
      */
-    if (savedCards && savedCards.date === currDate) {
-      pulledCards = savedCards.cards.map((cardString) => {
-        let card = JSON.parse(cardString);
+    if (exisitngData[currDate]) {
+      pulledCards = exisitngData[currDate].map((card) => {
         return new Card(card.id, card.faceup, card.upsideDown);
       });
     } else {
@@ -36,11 +33,6 @@ async function init() {
       deck.fillDeck();
       deck.shuffle();
       pulledCards = deck.drawing(event.target.value);
-
-      const currDate = new Date().toISOString().split("T")[0] // gets date in YYYY-MM-DD format
-      console.log(localStorage.getItem("dailyCards"))
-
-      const exisitngData = JSON.parse(localStorage.getItem("dailyCards")) || {} //loads existing data 
 
       exisitngData[currDate] = pulledCards.map((card) => ({
          id: card.id,
