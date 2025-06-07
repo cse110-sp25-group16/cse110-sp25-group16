@@ -4,10 +4,12 @@
 
 Accepted
 
-##  Core issue
+## Core issue
+
 - - How will we export easily shareable images for users?
 
-## User stories: 
+## User stories:
+
 - - Partner Paul will want a simple share button storing easily sendable (small filesizes, probably < 2MB)
 
 ## Candidates
