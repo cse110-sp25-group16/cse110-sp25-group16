@@ -23,9 +23,9 @@
     <h1 id="title">Pocket Diviner</h1>
     <h2 id="welcome-msg"></h2>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const welcomeMsg = document.getElementById('welcome-msg');
-        const userName = localStorage.getItem('userName') || 'Guest';
+      document.addEventListener("DOMContentLoaded", () => {
+        const welcomeMsg = document.getElementById("welcome-msg");
+        const userName = localStorage.getItem("userName") || "Guest";
         welcomeMsg.textContent = `Welcome, ${userName}! Explore your divination options below.`;
       });
     </script>

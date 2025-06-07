@@ -1,54 +1,117 @@
+import Card from "../../backend/Card.js";
+import Horoscope from "../../backend/horoscope.js";
 
-window.addEventListener('DOMContentLoaded', init);
-
+window.addEventListener("DOMContentLoaded", init);
 
 /**
- * Gets archived tarot/horoscope for particular date based on active state 
+ * Gets archived tarot/horoscope for particular date based on active state
  */
 async function init() {
-   let active = "tarot"
-   let date = Date.now()
+  let active = "tarot";
+  let date = new Date().toISOString().split("T")[0];
 
-   const tarotButton = document.getElementById("tarot")
-   const horoscopeButton = document.getElementById("horoscope")
-   const dateInput = document.getElementById("date")
+  const tarotButton = document.getElementById("tarot");
+  const horoscopeButton = document.getElementById("horoscope");
+  const dateInput = document.getElementById("date");
+  dateInput.value = date;
 
-   const updateActiveButton = () => {
-      tarotButton.classList.remove("active")
-      horoscopeButton.classList.remove("active")
+  const updateActiveButton = () => {
+    tarotButton.classList.remove("active");
+    horoscopeButton.classList.remove("active");
+    console.log(active);
 
-      if (active === "tarot") {
-         tarotButton.classList.add("active")
-      } else {
-         horoscopeButton.classList.add("active")
-      }
-   };
+    const cardsContainer = document.querySelector(".cards-container");
+    const horoscopeContainer = document.querySelector(".horoscope-container");
 
-   tarotButton.addEventListener("click", () => {
-      active = "tarot"
-      updateActiveButton()
-      getArchived(active, date)
-   })
+    if (active === "tarot") {
+      tarotButton.classList.add("active");
+      cardsContainer.style.display = "grid";
+      horoscopeContainer.style.display = "none";
+    } else {
+      horoscopeButton.classList.add("active");
+      cardsContainer.style.display = "none";
+      horoscopeContainer.style.display = "flex";
+    }
+  };
+  updateActiveButton();
+  getArchived(active, date);
 
-   horoscopeButton.addEventListener("click", () => {
-      active = "horoscope"
-      updateActiveButton()
-      getArchived(active, date)
-   })
+  tarotButton.addEventListener("click", () => {
+    active = "tarot";
+    updateActiveButton();
+    console.log(active, date);
+    getArchived(active, date);
+  });
 
-   dateInput.addEventListener("change", (e) => {
-      date = e.target.value
-      getArchived(active, date)
-   })
+  horoscopeButton.addEventListener("click", () => {
+    active = "horoscope";
+    updateActiveButton();
+    getArchived(active, date);
+  });
 
+  dateInput.addEventListener("change", (e) => {
+    date = e.target.value;
+    getArchived(active, date);
+  });
 }
 
 function getArchived(active, date) {
-   if (active == "tarot") {
+  if (active == "tarot") {
+    const allData = JSON.parse(localStorage.getItem("dailyCards")) || {};
+    if (!allData[date] || allData[date].length === 0) {
+      const tarotContainer = document.querySelector(".cards-container");
+      tarotContainer.innerHTML =
+        "<p style='text-align: center;'>No cards drawn for this date.</p>";
+      return;
+    }
 
+    const cards = allData[date].map((card) => {
+      return new Card(card.id, card.faceup, card.upsideDown);
+    });
 
-   } else {
+    console.log(cards);
+    const tarotContainer = document.querySelector(".cards-container");
+    tarotContainer.innerHTML = "";
 
-      
-   }
+    cards.map((card) => {
+      const cardElement = document.createElement("card-component");
+      cardElement.setAttribute("image", `/source/cards/${card.getImg()}`);
+      cardElement.setAttribute("name", card.getCardName());
+      cardElement.setAttribute("arcana", card.getArcana());
+      cardElement.setAttribute("suit", card.getSuit());
+      cardElement.setAttribute(
+        "uprightMeanings",
+        JSON.stringify(card.getUprightMeanings()),
+      );
+      cardElement.setAttribute(
+        "reversedMeanings",
+        JSON.stringify(card.getReversedMeaning()),
+      );
+      cardElement.setAttribute("keywords", JSON.stringify(card.getKeywords()));
+      cardElement.setAttribute("symbolism", card.getSymbolism());
+      cardElement.setAttribute("description", card.getDescription());
+      cardElement.setAttribute("numeral", card.getNumeral());
+      cardElement.setAttribute("facing", card.isFaceUp());
+      cardElement.setAttribute("upsideDown", card.isUpsideDown());
+
+      tarotContainer.appendChild(cardElement);
+    });
+  } else {
+    const userInfo = JSON.parse(localStorage.getItem("tarotUserInfo"));
+    const birthDate = Horoscope.getDate(userInfo.dob);
+    const horoscope = Horoscope.getHoroscope(birthDate);
+    const [theme, mood, advice] = Horoscope.generateReading(
+      horoscope,
+      new Date(date),
+    );
+    const values = [theme, mood, advice];
+
+    console.log(values);
+    const items = document.querySelectorAll(".item-container");
+
+    for (let i = 0; i < values.length; i++) {
+      const text = items[i].querySelector(".item-text");
+      text.textContent = values[i];
+    }
+  }
 }

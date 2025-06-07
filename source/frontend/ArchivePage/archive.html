@@ -1,15 +1,4 @@
 <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    
-</body>
-</html>
-
-<!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
@@ -24,36 +13,44 @@
     <link rel="icon" href="./images/logo.png" />
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="./archive.css" />
+    <script src="./archive.js" type="module"></script>
 
+    <!-- Card Custom Web Component -->
+    <script src="../DailySpreadPage/dailyCards.js" type="module"></script>
   </head>
 
   <body>
-   
-   
-   <nav>
-
-   </nav>
-   <main>
+    <nav></nav>
+    <main>
       <h1>Your Archive</h1>
       <!-- <h2>See your tarot and horoscope readings from the past</h2> -->
 
       <div class="buttons-container">
-         <button id="tarot">Tarots</button>
-         <button id="horoscope">Horoscopes</button>
+        <button id="tarot">Tarots</button>
+        <button id="horoscope">Horoscopes</button>
       </div>
 
       <div class="date-container">
-         <label>Pick a Date</label>
-         <input 
-            type="date"
-            id="date"
-         />
+        <label>Pick a Date</label>
+        <input type="date" id="date" />
       </div>
 
-      <div class="cards-container">
+      <div class="cards-container"></div>
 
+      <div class="horoscope-container">
+        <div class="item-container">
+          <label class="item-label">Theme</label>
+          <p class="item-text"></p>
+        </div>
+        <div class="item-container">
+          <label class="item-label">Mood</label>
+          <p class="item-text"></p>
+        </div>
+        <div class="item-container">
+          <label class="item-label">Advice</label>
+          <p class="item-text"></p>
+        </div>
       </div>
-   </main>
-
+    </main>
   </body>
 </html>
