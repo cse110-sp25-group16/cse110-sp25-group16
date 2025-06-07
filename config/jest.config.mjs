@@ -3,7 +3,9 @@ export default {
   transform: {},
   testEnvironment: 'node',
   verbose: true,
-  testPathIgnorePatterns: ['__e2e__/'],
-  coveragePathIgnorePatterns: ['__e2e__/'],
+
+  testPathIgnorePatterns: ['__tests__/e2e/'],
+  coveragePathIgnorePatterns: ['__tests__/e2e/'],
+
   testMatch: ['<rootDir>/__tests__/**/*.test.js'],
 };
