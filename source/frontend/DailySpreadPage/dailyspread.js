@@ -25,7 +25,6 @@ async function init() {
     /**
      * Checks if have cards already drawn and saved today and uses those cards to display.
      * Otherwise, draw selected amount of cards, assign a today's date, and save to localStorage using date as key.
-     * Saved cards are under the name "dailyCards_3", "dailyCards_5", or "dailyCards_10"
      */
     if (savedCards && savedCards.date === currDate) {
       pulledCards = savedCards.cards.map((cardString) => {
@@ -38,13 +37,18 @@ async function init() {
       deck.shuffle();
       pulledCards = deck.drawing(event.target.value);
 
-      localStorage.setItem(
-        `dailyCards_${event.target.value}`,
-        JSON.stringify({
-          date: currDate,
-          cards: pulledCards.map((card) => JSON.stringify(card)),
-        })
-      );
+      const currDate = new Date().toISOString().split("T")[0] // gets date in YYYY-MM-DD format
+      console.log(localStorage.getItem("dailyCards"))
+
+      const exisitngData = JSON.parse(localStorage.getItem("dailyCards")) || {} //loads existing data 
+
+      exisitngData[currDate] = pulledCards.map((card) => ({
+         id: card.id,
+         faceup: card.faceup,
+         upsideDown: card.upsideDown
+      }))
+
+      localStorage.setItem("dailyCards", JSON.stringify(exisitngData)) // save back to localStorage
     }
 
     /*Clears amount of card displayed from previous selection */
