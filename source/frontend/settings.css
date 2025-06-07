@@ -1,13 +1,3 @@
-body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  display: flex;
-  flex-direction: column;
-  padding-top: 10px;
-  height: 100vh;
-  padding-left: 3%;
-}
-
 h1 {
   color: #7d4f50;
   margin-bottom: 20px;
