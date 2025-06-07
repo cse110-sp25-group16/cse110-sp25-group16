@@ -37,31 +37,33 @@ function getStoredCards(amount) {
 }
 
 async function generateImageCards(data) {
-  // SPECIFICALLY FOR 3-SPREAD
-  // MAKE CARDS IMAGE UPSIDE DOWN IF UPSIDE DOWN
-  const canvas = document.createElement("canvas");
-  canvas.width = 1250;
-  canvas.height = 1100;
-  const ctx = canvas.getContext("2d");
-
-  const rowWidth = 350;
   const cardWidth = 350;
   const cardHeight = 600;
   const padding = 50;
+  const maxCols = 5;
 
-  const date = data[data.length - 1]; // FIX
+  // Calculate number of rows and columns based on data length
+  const totalCards = data.length - 1;
+  const rows = Math.ceil(totalCards / maxCols);
+  const cols = totalCards > maxCols ? maxCols : totalCards;
+
+  const textBoxOffset = 625; // distance from imageY to nameY
+  const textBoxHeight = 235 + 90; // height from nameY-20 to meaningY+235
+  const cardAndBoxHeight = cardHeight + textBoxOffset + textBoxHeight - 625 + 36; // full height from imageY to end of box
+
+  // Calculate canvas size
+  const canvasWidth = cols * cardWidth + (cols + 1) * padding;
+  const canvasHeight = rows * cardAndBoxHeight + (rows + 1) * padding + 80; // 80 for date at the top
+
+  const canvas = document.createElement("canvas");
+  canvas.width = canvasWidth;
+  canvas.height = canvasHeight;
+  const ctx = canvas.getContext("2d");
+
+  const date = data[data.length - 1];
   data.pop();
-  console.log("the date: " + date);
 
   const dateY = 50;
-  const imageY = dateY + 40;
-  const nameY = imageY + 625;
-  const keywordsY = nameY + 40;
-  const meaningY = keywordsY + 90;
-  const meaningMaxWidth = cardWidth;
-  const keywordsMaxWidth = cardWidth;
-  const lineHeight = 24;
-
   ctx.textBaseline = "middle";
   ctx.fillStyle = "#fff";
   ctx.textAlign = "center";
@@ -77,14 +79,33 @@ async function generateImageCards(data) {
   // Draw background
   ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
 
-  ctx.font = "48px 'Noto Serif'";
+  ctx.font = "52px 'Noto Serif'";
   ctx.fillText(`${date}`, canvas.width / 2, dateY);
 
-  // Draw data rows
+  // Draw cards in two rows of 5, with text boxes below each card
   data.forEach((item, index) => {
-    const x = index * rowWidth + padding * (index + 1);
-    ctx.font = "32px 'Noto Serif'";
+    const row = Math.floor(index / maxCols);
+    const col = index % maxCols;
+    let x = padding + col * (cardWidth + padding);
+    if (cols == 3) {
+      // Center the cards if there are only 3 columns (i.e. 3 cards in one row)
+      x = index * 350 + padding * (index + 1);
+    }
 
+    // Calculate y for this row
+    // 80 for date, then padding, then row * (card+box+padding)
+    const baseY = 80 + padding + row * (cardAndBoxHeight + padding);
+
+    const imageY = baseY;
+    const nameY = imageY + 625;
+    const keywordsY = nameY + 40;
+    const meaningY = keywordsY + 90;
+    const boxX = x;
+    const boxY = nameY - 20;
+    const boxWidth = cardWidth;
+    const boxHeight = meaningY + 235 - boxY;
+
+    ctx.font = "32px 'Noto Serif'";
     if (item.upsideDown) {
       ctx.save();
       ctx.translate(x + cardWidth / 2, imageY + cardHeight / 2);
@@ -101,20 +122,17 @@ async function generateImageCards(data) {
       ctx.drawImage(itemImages[index], x, imageY, cardWidth, cardHeight);
     }
 
-    const boxX = x;
-    const boxY = nameY - 20; // a bit above the name text
-    const boxWidth = cardWidth;
-    const boxHeight = meaningY + 235 - boxY; // 90 is ~ how tall 3 wrapped text lines might be
-
+    // Draw text box below card
     ctx.lineWidth = 2;
     ctx.strokeStyle = "#fff";
     ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
 
+    ctx.font = "28px 'Noto Serif'";
     ctx.fillText(item.name, x + cardWidth / 2, nameY);
 
     ctx.beginPath();
-    ctx.moveTo(x, nameY + 18); // 10 pixels below the name text
-    ctx.lineTo(x + cardWidth, nameY + 18); // full width of the box
+    ctx.moveTo(x, nameY + 18);
+    ctx.lineTo(x + cardWidth, nameY + 18);
     ctx.lineWidth = 2;
     ctx.strokeStyle = "#fff";
     ctx.stroke();
@@ -125,8 +143,8 @@ async function generateImageCards(data) {
       item.keywords,
       x + cardWidth / 2,
       keywordsY,
-      keywordsMaxWidth,
-      lineHeight,
+      cardWidth,
+      24,
       "keywords: ",
       ""
     );
@@ -135,12 +153,13 @@ async function generateImageCards(data) {
       item.meaning,
       x + cardWidth / 2,
       meaningY,
-      meaningMaxWidth,
-      lineHeight,
+      cardWidth,
+      24,
       "meanings: ",
       "."
     );
   });
+
 
   // Export as PNG and trigger download
   const link = document.createElement("a");
@@ -182,7 +201,7 @@ function loadImage(src) {
 document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("generateBtn")
-    .addEventListener("click", () => generateImageCards(getStoredCards(3)));
+    .addEventListener("click", () => generateImageCards(getStoredCards(10)));
   document.getElementById("getCardsBtn").addEventListener("click", () => {
     const data = getStoredCards(3);
   });
