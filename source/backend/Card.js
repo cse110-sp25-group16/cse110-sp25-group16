@@ -1,4 +1,4 @@
-import cardDictionary from './CardDictionary.js';
+import cardDictionary from "./CardDictionary.js";
 
 class Card {
   /**

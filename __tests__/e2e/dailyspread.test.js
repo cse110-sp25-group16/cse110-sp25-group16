@@ -1,21 +1,21 @@
-describe('Daily Spread Page', () => {
+describe("Daily Spread Page", () => {
   beforeAll(async () => {
     // First go to the real page, but block the scripts from running
     await page.goto(
-      'http://localhost:8080/source/frontend/DailySpreadPage/dailyspread.html',
-      { waitUntil: 'domcontentloaded' } // don't let scripts run yet
+      "http://localhost:8080/source/frontend/DailySpreadPage/dailyspread.html",
+      { waitUntil: "domcontentloaded" }, // don't let scripts run yet
     );
 
     await page.evaluate(() => {
       localStorage.setItem(
-        'tarotUserInfo',
-        JSON.stringify({ name: 'TestUser' })
+        "tarotUserInfo",
+        JSON.stringify({ name: "TestUser" }),
       );
 
       localStorage.setItem(
-        'dailyCards',
+        "dailyCards",
         JSON.stringify({
-          '2025-06-08': {
+          "2025-06-08": {
             3: [
               { id: 1, faceup: false, upsideDown: false },
               { id: 27, faceup: false, upsideDown: false },
@@ -41,11 +41,11 @@ describe('Daily Spread Page', () => {
               { id: 53, faceup: false, upsideDown: false },
             ],
           },
-        })
+        }),
       );
     });
 
-    await page.reload({ waitUntil: 'networkidle0' });
+    await page.reload({ waitUntil: "networkidle0" });
   });
 
   // Your test cases here — no commas between them
@@ -55,20 +55,20 @@ describe('Daily Spread Page', () => {
   //   expect(greetingText).toMatch(/Hi .* here's today's readings/i);
   // });
 
-  it('should render tarot cards when an amount is selected', async () => {
-    await page.select('#card-amount', '3');
-    await page.waitForSelector('card-component');
+  it("should render tarot cards when an amount is selected", async () => {
+    await page.select("#card-amount", "3");
+    await page.waitForSelector("card-component");
     const cardCount = await page.$$eval(
-      'card-component',
-      (cards) => cards.length
+      "card-component",
+      (cards) => cards.length,
     );
     expect(cardCount).toBeGreaterThanOrEqual(1);
   }, 70000);
 
-  it('each tarot card should render key attributes in shadow DOM', async () => {
-    const cards = await page.$$('card-component');
+  it("each tarot card should render key attributes in shadow DOM", async () => {
+    const cards = await page.$$("card-component");
     expect(cards.length).toBeGreaterThan(0); // guard against empty array
-    const shadow = await cards[0].getProperty('shadowRoot');
+    const shadow = await cards[0].getProperty("shadowRoot");
     expect(shadow).toBeTruthy();
   });
 });

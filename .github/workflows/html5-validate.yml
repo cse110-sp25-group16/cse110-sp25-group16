@@ -1,12 +1,12 @@
-name: 'HTML5 Syntax Check'
+name: "HTML5 Syntax Check"
 
 on:
   push:
     paths:
-      - '**/*.html'
+      - "**/*.html"
   pull_request:
     paths:
-      - '**/*.html'
+      - "**/*.html"
 
 jobs:
   html_lint:

@@ -1,9 +1,9 @@
-import Card from '../../source/backend/Card.js';
-import CardDeck from '../../source/backend/CardDeck.js';
-import CardDictionary from '../../source/backend/CardDictionary.js';
+import Card from "../../source/backend/Card.js";
+import CardDeck from "../../source/backend/CardDeck.js";
+import CardDictionary from "../../source/backend/CardDictionary.js";
 
-describe('Integration: Daily Spread Logic', () => {
-  it('draws 3 cards with correct structure and data', () => {
+describe("Integration: Daily Spread Logic", () => {
+  it("draws 3 cards with correct structure and data", () => {
     const deck = new CardDeck(Card);
     deck.fillDeck();
     deck.shuffle();
@@ -24,7 +24,7 @@ describe('Integration: Daily Spread Logic', () => {
     });
   });
 
-  it('drawn cards are unique (no duplicates)', () => {
+  it("drawn cards are unique (no duplicates)", () => {
     const deck = new CardDeck(Card);
     deck.fillDeck();
     deck.shuffle();
