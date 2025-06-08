@@ -47,6 +47,8 @@ describe('Daily Spread Page', () => {
 
     await page.reload({ waitUntil: 'networkidle0' });
 
+  },
+
     // it('should greet the user with a message', async () => {
     //   await page.waitForSelector('#username');
     //   const greetingText = await page.$eval('#username', (el) => el.textContent);
@@ -69,4 +71,3 @@ describe('Daily Spread Page', () => {
       expect(shadow).toBeTruthy();
     });
   });
-});
