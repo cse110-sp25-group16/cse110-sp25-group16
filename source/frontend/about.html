@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About Us - Pocket Diviner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./about.css" />
+    <link rel="icon" href="./images/logo.png" />
+  </head>
+
+  <body>
+    <header>
+      <navigation-bar
+        bgImg="./images/paint-navbar.jpg"
+        links='[
+          {"href": "./index.html", "label": "Home"},
+          {"href": "./DailySpreadPage/dailyspread.html", "label": "Tarot Cards"},
+          {"href": "./DailyHoroscopePage/horoscopePage.html", "label": "Horoscope"},
+          {"href": "./settings.html", "label": "Profile"}
+        ]'
+      ></navigation-bar>
+    </header>
+
+    <main>
+      <h1 id="title">About Pocket Diviner</h1>
+
+      <section class="section">
+        <h2>Our Product</h2>
+        <p>
+          Pocket Diviner is your personalized spiritual companion, combining the
+          mystical power of Tarot readings, daily horoscopes, and MBTI
+          personality insights. Unlike traditional apps that separate these
+          tools, we bring them together into one dynamic platform — for
+          introspection, connection, and fun.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Our Mission</h2>
+        <p>
+          We believe in the power of self-discovery through symbolism,
+          storytelling, and reflection. Our mission is to provide a calm, cosmic
+          space where users can engage with spiritual tools, understand their
+          personality, and share meaningful insights with friends — all through
+          a beautifully crafted, accessible interface.
+        </p>
+      </section>
+
+      <img
+        src="./images/sweet16_bw.png"
+        alt="Sweet 16 Logo"
+        class="sweet-logo"
+      />
+
+      <h2 id="welcome-msg" style="text-align: center">Meet the Team</h2>
+      <div class="card-container">
+        <app-card
+          title="Tyler Hoang"
+          description="Backend SWE | 3rd Year CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/Tylody"
+        ></app-card>
+        <app-card
+          title="Anusha Rao"
+          description="Full Stack | 3rd Year CE"
+          icon="./images/tarot.jpg"
+          link="https://github.com/anushaprao"
+        ></app-card>
+        <app-card
+          title="Ria Singhania"
+          description="Frontend | 3rd Year IB + CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/riasinghania"
+        ></app-card>
+        <app-card
+          title="Angelica Cabusi"
+          description="Frontend | 2nd Year CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/Lyka717"
+        ></app-card>
+        <app-card
+          title="Anthony Georgis"
+          description="Backend | 3rd Year CE"
+          icon="./images/tarot.jpg"
+          link="https://github.com/Malakelis"
+        ></app-card>
+        <app-card
+          title="Aiden Krueger"
+          description="Fullstack | 3rd Year CE"
+          icon="./images/tarot.jpg"
+          link="https://github.com/aidenkrew"
+        ></app-card>
+        <app-card
+          title="Minjoo O"
+          description="Full Stack | 2nd Year CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/ominjoo"
+        ></app-card>
+        <app-card
+          title="Nikhil Akiti"
+          description="Full Stack | 2nd Year CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/Nakiti"
+        ></app-card>
+        <app-card
+          title="Dustin Nguyen"
+          description="Full Stack | 3rd Year CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/dustinnguyen012"
+        ></app-card>
+        <app-card
+          title="Leonard Shi"
+          description="Full Stack | 4th Year MATH CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/leonardshi058"
+        ></app-card>
+      </div>
+    </main>
+
+    <script src="./components/AppCard.js"></script>
+    <script src="./components/NavigationBar.js"></script>
+  </body>
+</html>

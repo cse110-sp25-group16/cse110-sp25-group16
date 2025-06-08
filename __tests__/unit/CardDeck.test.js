@@ -1,7 +1,7 @@
 // Mock Card constructor for testing
 
 import { jest } from '@jest/globals';
-import CardDeck from '../source/backend/CardDeck.js';
+import CardDeck from '../../source/backend/CardDeck.js';
 
 const MockCard = jest.fn().mockImplementation((id, reversed) => ({
   id,
