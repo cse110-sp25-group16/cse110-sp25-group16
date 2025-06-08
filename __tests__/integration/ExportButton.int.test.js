@@ -14,16 +14,21 @@ const createMockCanvas = () => {
   return canvas;
 };
 
-// Mock the module BEFORE importing anything from it
 jest.mock('../../source/frontend/components/ExportButton.js', async () => {
   const actual = await jest.importActual(
     '../../source/frontend/components/ExportButton.js'
   );
 
+  // Simulate a real Image object with width/height
+  const mockImage = new Image();
+  mockImage.width = 100;
+  mockImage.height = 100;
+  mockImage.src = 'data:image/png;base64,...'; // optional, can be a dummy
+
   return {
     __esModule: true,
     ...actual,
-    loadImage: jest.fn(() => Promise.resolve(createMockCanvas())),
+    loadImage: jest.fn(() => Promise.resolve(mockImage)),
   };
 });
 
