@@ -97,3 +97,41 @@ button:hover {
   background-color: #d7732f;
   border-color: #d7732f;
 }
+
+/* Footer */
+footer {
+  background-color: rgba(20, 26, 51, 0.9); 
+  border-top: 2px solid #d8b76e;
+  color: white;
+  text-align: center;
+  padding: 2vh 1rem;
+  margin-top: 5vh;
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+footer a {
+  color: #d8b76e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #d7732f;
+  text-decoration: underline;
+}
+
+.sweet-logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 3px #d8b76e88);
+}

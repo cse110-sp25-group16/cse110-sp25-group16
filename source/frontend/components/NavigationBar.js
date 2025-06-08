@@ -90,7 +90,7 @@ class NavigationBar extends HTMLElement {
             label: 'Horoscope',
           },
           { href: './settings.html', label: 'Profile' },
-          { href: './about.html', label: 'About Us' },
+         
         ];
         linkArray.forEach((link) => {
           const a = document.createElement('a');
