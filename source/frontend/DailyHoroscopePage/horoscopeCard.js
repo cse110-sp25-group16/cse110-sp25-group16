@@ -1,16 +1,16 @@
 class HoroscopeCard extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: "open" });
 
-    const wrapper = document.createElement('div');
-    wrapper.classList.add('card-container');
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("card-container");
 
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.textContent = `
       .card-container {
-        width: 25vh;
-        height: 40vh;
+        width: 240px;
+        height: 370px;
         perspective: 1000px;
         cursor: pointer;
 
@@ -31,6 +31,8 @@ class HoroscopeCard extends HTMLElement {
         transform: rotateY(180deg);
       }
       .card-face {
+        box-sizing: border-box;
+        padding: 10px;
         position: absolute;
         width: 100%;
         height: 100%;
@@ -83,13 +85,13 @@ class HoroscopeCard extends HTMLElement {
       }
     `;
 
-    const frontImg = this.getAttribute('front-img');
-    const frontTitle = this.getAttribute('front-title');
-    const frontDesc = this.getAttribute('front-desc');
+    const frontImg = this.getAttribute("front-img");
+    const frontTitle = this.getAttribute("front-title");
+    const frontDesc = this.getAttribute("front-desc");
 
-    const backImg = this.getAttribute('back-img');
-    const backTitle = this.getAttribute('back-title');
-    const backDesc = this.getAttribute('back-desc');
+    const backImg = this.getAttribute("back-img");
+    const backTitle = this.getAttribute("back-title");
+    const backDesc = this.getAttribute("back-desc");
 
     wrapper.innerHTML = `
       <div class="card">
@@ -108,18 +110,18 @@ class HoroscopeCard extends HTMLElement {
 
     this.shadowRoot.append(style, wrapper);
     this.wrapper = wrapper;
-    this.card = wrapper.querySelector('.card');
+    this.card = wrapper.querySelector(".card");
 
-    this.frontImg = this.card.querySelector('.card-front img');
-    this.frontTitle = this.card.querySelector('.card-front h2');
-    this.frontDesc = this.card.querySelector('.card-front p');
+    this.frontImg = this.card.querySelector(".card-front img");
+    this.frontTitle = this.card.querySelector(".card-front h2");
+    this.frontDesc = this.card.querySelector(".card-front p");
 
-    this.backImg = this.card.querySelector('.card-back img');
-    this.backTitle = this.card.querySelector('.card-back h2');
-    this.backDesc = this.card.querySelector('.card-back p');
+    this.backImg = this.card.querySelector(".card-back img");
+    this.backTitle = this.card.querySelector(".card-back h2");
+    this.backDesc = this.card.querySelector(".card-back p");
 
-    this.card.addEventListener('click', () => {
-      this.card.classList.toggle('is-flipped');
+    this.card.addEventListener("click", () => {
+      this.card.classList.toggle("is-flipped");
     });
 
     this.updateContent();
@@ -127,12 +129,12 @@ class HoroscopeCard extends HTMLElement {
 
   static get observedAttributes() {
     return [
-      'front-img',
-      'front-title',
-      'front-desc',
-      'back-img',
-      'back-title',
-      'back-desc',
+      "front-img",
+      "front-title",
+      "front-desc",
+      "back-img",
+      "back-title",
+      "back-desc",
     ];
   }
 
@@ -143,14 +145,14 @@ class HoroscopeCard extends HTMLElement {
   }
 
   updateContent() {
-    this.frontImg.src = this.getAttribute('front-img') || '';
-    this.frontTitle.textContent = this.getAttribute('front-title') || '';
-    this.frontDesc.textContent = this.getAttribute('front-desc') || '';
+    this.frontImg.src = this.getAttribute("front-img") || "";
+    this.frontTitle.textContent = this.getAttribute("front-title") || "";
+    this.frontDesc.textContent = this.getAttribute("front-desc") || "";
 
-    this.backImg.src = this.getAttribute('back-img') || '';
-    this.backTitle.textContent = this.getAttribute('back-title') || '';
-    this.backDesc.textContent = this.getAttribute('back-desc') || '';
+    this.backImg.src = this.getAttribute("back-img") || "";
+    this.backTitle.textContent = this.getAttribute("back-title") || "";
+    this.backDesc.textContent = this.getAttribute("back-desc") || "";
   }
 }
 
-customElements.define('horoscope-card', HoroscopeCard);
+customElements.define("horoscope-card", HoroscopeCard);
