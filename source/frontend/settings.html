@@ -15,12 +15,7 @@
   </head>
 
   <body>
-    <header>
-      <navigation-bar
-        bgImg="./images/paint-navbar.jpg"
-        links='[{"href": "./index.html", "label": "Home"},{"href": "./DailySpreadPage/dailyspread.html", "label": "Tarot Cards"},{"href": "./DailyHoroscopePage/horoscopePage.html", "label": "Horoscope"}, {"href": "./settings.html", "label": "Profile"}]'
-      ></navigation-bar>
-    </header>
+    <header><navigation-bar></navigation-bar></header>
     <h1>Settings</h1>
 
     <form id="settings-form">
@@ -29,7 +24,7 @@
 
       <label for="mbti">MBTI</label>
       <select id="mbti" name="mbti">
-        <option disabled selected value></option>
+        <option disabled selected value label="disabled"></option>
         <option value="ESFJ">ESFJ</option>
         <option value="ESFP">ESFP</option>
         <option value="ESTJ">ESTJ</option>

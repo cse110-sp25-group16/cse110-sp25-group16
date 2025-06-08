@@ -1,5 +1,7 @@
 import CardDeck from '../../backend/CardDeck.js';
 import Card from '../../backend/Card.js';
+import { generateImageCards } from '../components/ExportButton.js';
+import { getStoredCards } from '../components/ExportButton.js';
 
 /**
  * Upon page load, call the init() function
@@ -10,22 +12,36 @@ window.addEventListener('DOMContentLoaded', init);
  * This function serves as the main function for the Dail spread page.
  */
 async function init() {
+  const userData = JSON.parse(localStorage.getItem('tarotUserInfo'));
+  const name = userData?.name || 'User';
+  document.querySelector('#username').textContent = `Hi ${name}!`;
+
   /*Selects grid-container in html and clears the cards loaded from previous draw*/
   const grid = document.querySelector('.cards-container');
   const selectedAmnt = document.querySelector('#card-amount');
+  console.log('selectedAmnt: ' + selectedAmnt.value);
+
+  document
+    .getElementById('generateTarotCardsBtn')
+    .addEventListener('click', () =>
+      generateImageCards(getStoredCards(selectedAmnt.value))
+    );
 
   /*Selects cards and amount drawn depends on what option is picked */
   selectedAmnt.addEventListener('change', (event) => {
     const currDate = new Date().toISOString().split('T')[0]; // gets date in YYYY-MM-DD format
-    const exisitngData = JSON.parse(localStorage.getItem('dailyCards')) || {};
+    const existingData = JSON.parse(localStorage.getItem('dailyCards')) || {};
     let pulledCards;
 
     /**
      * Checks if have cards already drawn and saved today and uses those cards to display.
      * Otherwise, draw selected amount of cards, assign a today's date, and save to localStorage using date as key.
      */
-    if (exisitngData[currDate]) {
-      pulledCards = exisitngData[currDate].map((card) => {
+    if (!existingData[currDate]) {
+      existingData[currDate] = {};
+    }
+    if (existingData[currDate][event.target.value]) {
+      pulledCards = existingData[currDate][event.target.value].map((card) => {
         return new Card(card.id, card.faceup, card.upsideDown);
       });
     } else {
@@ -34,20 +50,20 @@ async function init() {
       deck.shuffle();
       pulledCards = deck.drawing(event.target.value);
 
-      exisitngData[currDate] = pulledCards.map((card) => ({
+      existingData[currDate][event.target.value] = pulledCards.map((card) => ({
         id: card.id,
         faceup: card.faceup,
         upsideDown: card.upsideDown,
       }));
 
-      localStorage.setItem('dailyCards', JSON.stringify(exisitngData)); // save back to localStorage
+      localStorage.setItem('dailyCards', JSON.stringify(existingData)); // save back to localStorage
     }
 
     /*Clears amount of card displayed from previous selection */
     grid.innerHTML = '';
 
     /*For each card drawn, create a card webcomponent to then append and display in dailspread.html file */
-    for (let i = 0; i < event.target.value; i++) {
+    for (let i = 0; i < pulledCards.length; i++) {
       if (!pulledCards[i]) continue;
       const cardElement = document.createElement('card-component');
 

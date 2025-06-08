@@ -10,7 +10,6 @@ class NavigationBar extends HTMLElement {
     const style = document.createElement('style');
     style.textContent = `
       nav {
-        background-color: #0f101c;
         background-image: url("${bgImg}");
         color: white;
         padding-left: 1.5em;
@@ -26,9 +25,9 @@ class NavigationBar extends HTMLElement {
       .brand {
         font-weight: bold;
         font-size: 2em;
-        padding: 0.15em;
+        padding: 0em;
         font-family: "Noto Serif", serif;
-        background-color: #0f101c;
+        background-color: rgba(15, 16, 28, 0.52);
       }
     
       .links {
@@ -40,10 +39,10 @@ class NavigationBar extends HTMLElement {
         color: white;
         font-size: 1.5em;
         margin-left: 1.5em;
-        padding: 0.15em;
+        padding: 0em;
         text-decoration: none;
         font-family: "Noto Serif", serif;
-        background-color: #0f101c;
+        background-color:rgba(15, 16, 28, 0.52);
       }
 
       .links a:hover {
@@ -63,6 +62,10 @@ class NavigationBar extends HTMLElement {
 
     const rawLinks = this.getAttribute('links');
 
+    let prefix = this.getAttribute('prefix');
+
+    if (!prefix) prefix = '';
+
     console.log('rawlinks:' + rawLinks);
 
     if (rawLinks) {
@@ -71,6 +74,27 @@ class NavigationBar extends HTMLElement {
         linkArray.forEach((link) => {
           const a = document.createElement('a');
           a.href = link.href;
+          a.textContent = link.label;
+          links.appendChild(a);
+        });
+      } catch (err) {
+        console.error('Invalid links JSON:', rawLinks, err);
+      }
+    } else {
+      try {
+        const linkArray = [
+          { href: './index.html', label: 'Home' },
+          { href: './DailySpreadPage/dailyspread.html', label: 'Tarot Cards' },
+          {
+            href: './DailyHoroscopePage/horoscopePage.html',
+            label: 'Horoscope',
+          },
+          { href: './settings.html', label: 'Profile' },
+          { href: './about.html', label: 'About Us' },
+        ];
+        linkArray.forEach((link) => {
+          const a = document.createElement('a');
+          a.href = prefix + link.href;
           a.textContent = link.label;
           links.appendChild(a);
         });

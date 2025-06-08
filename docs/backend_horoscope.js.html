@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSDoc: Source: backend/horoscope.js</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/prettify-tomorrow.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <h1 class="page-title">Source: backend/horoscope.js</h1>
+
+      <section>
+        <article>
+          <pre class="prettyprint source linenums"><code>class Horoscope {
+  static getDate(birthday) {
+    const parts = birthday.split(/-|\//);
+
+    const formatParts = ['dd', 'mm', 'yyyy'];
+
+    // 31/10/2004 -> [31, 10, 2004]
+
+    const dateObj = {};
+    for (let i = 0; i &lt; parts.length; i++) {
+      dateObj[formatParts[i]] = parseInt(parts[i]);
+    }
+
+    return new Date(dateObj.yyyy, dateObj.mm - 1, dateObj.dd);
+  }
+
+  static getHoroscope(date) {
+    const day = date.getDate();
+    const month = date.getMonth() + 1; // getMonth() is 0-based
+    switch (month) {
+      case 1:
+        return day &lt; 20 ? 'Capricorn' : 'Aquarius';
+      case 2:
+        return day &lt; 19 ? 'Aquarius' : 'Pisces';
+      case 3:
+        return day &lt; 21 ? 'Pisces' : 'Aries';
+      case 4:
+        return day &lt; 20 ? 'Aries' : 'Taurus';
+      case 5:
+        return day &lt; 21 ? 'Taurus' : 'Gemini';
+      case 6:
+        return day &lt; 21 ? 'Gemini' : 'Cancer';
+      case 7:
+        return day &lt; 23 ? 'Cancer' : 'Leo';
+      case 8:
+        return day &lt; 23 ? 'Leo' : 'Virgo';
+      case 9:
+        return day &lt; 23 ? 'Virgo' : 'Libra';
+      case 10:
+        return day &lt; 23 ? 'Libra' : 'Scorpio';
+      case 11:
+        return day &lt; 22 ? 'Scorpio' : 'Sagittarius';
+      case 12:
+        return day &lt; 22 ? 'Sagittarius' : 'Capricorn';
+      default:
+        return null;
+    }
+  }
+
+  /**
+   * Returns a hash code from a string
+   * @param  {String} str The string to hash.
+   * @return {Number}    A 32bit integer
+   * @see http://werxltd.com/wp/2010/05/13/javascript-implementation-of-javas-string-hashcode-method/
+   */
+  static hashCode(str) {
+    let hash = 0;
+    for (let i = 0, len = str.length; i &lt; len; i++) {
+      let chr = str.charCodeAt(i);
+      hash = (hash &lt;&lt; 5) - hash + chr;
+      hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
+  }
+
+  static generateReadingFromCurrentUser() {
+    const userInfo = JSON.parse(localStorage.getItem('tarotUserInfo'));
+    const dob = userInfo['dob'];
+    const horoscope = Horoscope.getHoroscope(Horoscope.getDate(dob));
+
+    const currentDate = new Date();
+
+    return Horoscope.generateReading(horoscope, currentDate);
+  }
+
+  static generateReading(horoscope, date) {
+    const dateString = date.toDateString();
+    const fullText = horoscope + dateString;
+
+    const hashValue = Math.abs(Horoscope.hashCode(fullText));
+    console.log(hashValue);
+    const readingOutput = [];
+
+    readingOutput.push(Horoscope.themes[hashValue % Horoscope.themes.length]);
+    readingOutput.push(Horoscope.moods[hashValue % Horoscope.moods.length]);
+    readingOutput.push(Horoscope.advice[hashValue % Horoscope.advice.length]);
+
+    return readingOutput;
+  }
+
+  static themes = [
+    'love',
+    'career',
+    'health',
+    'finances',
+    'self-reflection',
+    'growth',
+    'relationships',
+    'communication',
+    'creativity',
+    'spirituality',
+    'adventure',
+    'balance',
+  ];
+
+  static moods = [
+    'optimistic',
+    'pessimistic',
+    'neutral',
+    'excited',
+    'anxious',
+    'calm',
+    'curious',
+    'hopeful',
+    'reflective',
+    'content',
+    'inspired',
+    'determined',
+    'adventurous',
+    'thoughtful',
+    'passionate',
+  ];
+
+  static advice = [
+    'trust your instincts',
+    'be open to change',
+    'focus on self-care',
+    'embrace new opportunities',
+    'nurture relationships',
+    'stay grounded',
+    'seek balance',
+    'pursue your passions',
+    'take risks',
+    'practice gratitude',
+    'cultivate patience',
+    'find joy in the little things',
+    'explore new horizons',
+    'reflect on your journey',
+    'reach out to someone you have been thinking about',
+    'take a moment to breathe and relax',
+    'set clear intentions for the future',
+    'embrace the present moment',
+    'let go of past regrets',
+    'trust the process of life',
+    'find beauty in simplicity',
+    'connect with nature',
+    'listen to your inner voice',
+  ];
+}
+
+export default Horoscope;
+</code></pre>
+        </article>
+      </section>
+    </div>
+
+    <nav>
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Classes</h3>
+      <ul>
+        <li><a href="Card.html">Card</a></li>
+        <li><a href="CardComponent.html">CardComponent</a></li>
+        <li><a href="CardDeck.html">CardDeck</a></li>
+      </ul>
+      <h3>Global</h3>
+      <ul>
+        <li><a href="global.html#init">init</a></li>
+      </ul>
+    </nav>
+
+    <br class="clear" />
+
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sat Jun 07
+      2025 22:21:18 GMT-0700 (Pacific Daylight Time)
+    </footer>
+
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+  </body>
+</html>

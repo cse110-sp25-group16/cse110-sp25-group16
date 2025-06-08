@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pocket Diviner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="./images/logo.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./archive.css" />
+    <script src="./archive.js" type="module"></script>
+
+    <!-- Card Custom Web Component -->
+    <script src="../DailySpreadPage/dailyCards.js" type="module"></script>
+  </head>
+
+  <body>
+    <nav></nav>
+    <main>
+      <h1>Your Archive</h1>
+      <!-- <h2>See your tarot and horoscope readings from the past</h2> -->
+
+      <div class="buttons-container">
+        <button id="tarot">Tarots</button>
+        <button id="horoscope">Horoscopes</button>
+      </div>
+
+      <div class="date-container">
+        <label>Pick a Date</label>
+        <input type="date" id="date" />
+      </div>
+
+      <div class="all-cards-container">
+        <div class="cards-group">
+          <div class="dropdown-container">
+            <label class="dropdown-label">3-card draw</label>
+            <button class="dropdown-button" id="3-dropdown-button">Open</button>
+          </div>
+          <div class="cards-container hidden-group" id="3-card-container"></div>
+        </div>
+        <div class="cards-group">
+          <div class="dropdown-container">
+            <label class="dropdown-label">5-card draw</label>
+            <button class="dropdown-button" id="5-dropdown-button">Open</button>
+          </div>
+          <div class="cards-container hidden-group" id="5-card-container"></div>
+        </div>
+        <div class="cards-group">
+          <div class="dropdown-container">
+            <label class="dropdown-label">10-card draw</label>
+            <button class="dropdown-button" id="10-dropdown-button">
+              Open
+            </button>
+          </div>
+          <div
+            class="cards-container hidden-group"
+            id="10-card-container"
+          ></div>
+        </div>
+      </div>
+
+      <div class="horoscope-container">
+        <div class="item-container">
+          <label class="item-label">Theme</label>
+          <p class="item-text"></p>
+        </div>
+        <div class="item-container">
+          <label class="item-label">Mood</label>
+          <p class="item-text"></p>
+        </div>
+        <div class="item-container">
+          <label class="item-label">Advice</label>
+          <p class="item-text"></p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

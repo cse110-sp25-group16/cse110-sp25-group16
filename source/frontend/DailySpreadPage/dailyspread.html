@@ -19,16 +19,14 @@
     <script src="./dailyspread.js" type="module"></script>
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="dailyspread.css" />
+    <link rel="icon" href="../images/logo.png" />
   </head>
   <body>
     <!-- This header bar still needs to be linked to the other pages -->
 
     <!-- * This header displays navigation bar to other pages of this application.* -->
     <header>
-      <navigation-bar
-        bgImg="../images/paint-navbar.jpg"
-        links='[{"href": "../index.html", "label": "Home"},{"href": "./dailyspread.html", "label": "Tarot Cards"},{"href": "../HoroscopePage/horoscopePage.html", "label": "Horoscope"}, {"href": "../settings.html", "label": "Profile"}]'
-      ></navigation-bar>
+      <navigation-bar prefix="../"></navigation-bar>
     </header>
     <br />
     <br />
@@ -37,7 +35,8 @@
     <div class="daily-grid">
       <!-- Get user's name from data -->
       <div class="greeting">
-        <p id="username">Hi [username], here's today's readings</p>
+        <p id="username">Hi [username]!</p>
+        <p>Today's readings:</p>
         <select id="card-amount">
           <option value="select" disabled selected>
             Select # of Cards to Read:
@@ -49,6 +48,7 @@
       </div>
       <div class="cards-container"></div>
     </div>
+    <button id="generateTarotCardsBtn">Share Spread</button>
     <script src="../components/NavigationBar.js"></script>
   </body>
 </html>
