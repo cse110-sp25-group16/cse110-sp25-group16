@@ -17,18 +17,10 @@
 
   <body>
     <header>
-      <navigation-bar
-        bgImg="./images/paint-navbar.jpg"
-        links='[
-          {"href": "./index.html", "label": "Home"},
-          {"href": "./DailySpreadPage/dailyspread.html", "label": "Tarot Cards"},
-          {"href": "./DailyHoroscopePage/horoscopePage.html", "label": "Horoscope"},
-          {"href": "./settings.html", "label": "Profile"}
-        ]'
-      ></navigation-bar>
+      <navigation-bar></navigation-bar>
     </header>
 
-    <main>
+    <main class="page-wrapper">
       <h1 id="title">About Pocket Diviner</h1>
 
       <section class="section">
@@ -56,7 +48,7 @@
       <img
         src="./images/sweet16_bw.png"
         alt="Sweet 16 Logo"
-        class="sweet-logo"
+        class="sweet-logo-page"
       />
 
       <h2 id="welcome-msg" style="text-align: center">Meet the Team</h2>
@@ -126,5 +118,17 @@
 
     <script src="./components/AppCard.js"></script>
     <script src="./components/NavigationBar.js"></script>
+
+    <footer>
+      <div class="footer-content">
+        <img
+          src="./images/sweet16_bw.png"
+          alt="Sweet 16 Logo"
+          class="sweet-logo"
+        />
+        <p>© 2025 Sweet 16, Inc. | All rights reserved | Powered by dreams</p>
+        <a href="./about.html">About</a>
+      </div>
+    </footer>
   </body>
 </html>
