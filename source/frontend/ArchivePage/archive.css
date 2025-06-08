@@ -46,19 +46,7 @@ h2 {
   margin-right: auto;
 }
 
-/* Wider on small screens */
-@media (max-width: 600px) {
-  .date-container {
-    width: 95%;
-  }
-}
 
-/* Skinnier on very wide screens (optional) */
-@media (min-width: 1200px) {
-  .date-container {
-    width: 50%;
-  }
-}
 
 .date-container label {
   font-weight: bold;
@@ -169,4 +157,25 @@ button.active {
 
 .dropdown-button:hover {
   background-color: #d5bea3;
+}
+
+@media (max-width: 600px) {
+   .horoscope-container {
+      flex-direction: column;
+      align-items: center;
+   }
+}
+
+/* Wider on small screens */
+@media (max-width: 600px) {
+  .date-container {
+    width: 95%;
+  }
+}
+
+/* Skinnier on very wide screens (optional) */
+@media (min-width: 1200px) {
+  .date-container {
+    width: 50%;
+  }
 }
