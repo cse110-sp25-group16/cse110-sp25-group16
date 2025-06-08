@@ -34,5 +34,8 @@
     "jsdoc": "^4.0.0",
     "prettier": "^3.5.3",
     "puppeteer": "^24.10.0"
+  },
+  "dependencies": {
+    "html-to-image": "^1.11.13"
   }
 }
