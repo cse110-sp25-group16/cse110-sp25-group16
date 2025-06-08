@@ -2,12 +2,12 @@ class NavigationBar extends HTMLElement {
   constructor() {
     super();
 
-    const shadow = this.attachShadow({ mode: "open" });
+    const shadow = this.attachShadow({ mode: 'open' });
 
-    const bgImg = this.getAttribute("bgImg");
+    const bgImg = this.getAttribute('bgImg');
 
     // Style
-    const style = document.createElement("style");
+    const style = document.createElement('style');
     style.textContent = `
       nav {
         background-image: url("${bgImg}");
@@ -51,55 +51,55 @@ class NavigationBar extends HTMLElement {
     `;
 
     // Template
-    const nav = document.createElement("nav");
+    const nav = document.createElement('nav');
 
-    const brand = document.createElement("div");
-    brand.classList.add("brand");
-    brand.textContent = "Pocket Diviner";
+    const brand = document.createElement('div');
+    brand.classList.add('brand');
+    brand.textContent = 'Pocket Diviner';
 
-    const links = document.createElement("div");
-    links.classList.add("links");
+    const links = document.createElement('div');
+    links.classList.add('links');
 
-    const rawLinks = this.getAttribute("links");
+    const rawLinks = this.getAttribute('links');
 
-    let prefix = this.getAttribute("prefix");
+    let prefix = this.getAttribute('prefix');
 
-    if (!prefix) prefix = "";
+    if (!prefix) prefix = '';
 
-    console.log("rawlinks:" + rawLinks);
+    console.log('rawlinks:' + rawLinks);
 
     if (rawLinks) {
       try {
         const linkArray = JSON.parse(rawLinks);
         linkArray.forEach((link) => {
-          const a = document.createElement("a");
+          const a = document.createElement('a');
           a.href = link.href;
           a.textContent = link.label;
           links.appendChild(a);
         });
       } catch (err) {
-        console.error("Invalid links JSON:", rawLinks, err);
+        console.error('Invalid links JSON:', rawLinks, err);
       }
     } else {
       try {
         const linkArray = [
-          { href: "./index.html", label: "Home" },
-          { href: "./DailySpreadPage/dailyspread.html", label: "Tarot Cards" },
+          { href: './index.html', label: 'Home' },
+          { href: './DailySpreadPage/dailyspread.html', label: 'Tarot Cards' },
           {
-            href: "./DailyHoroscopePage/horoscopePage.html",
-            label: "Horoscope",
+            href: './DailyHoroscopePage/horoscopePage.html',
+            label: 'Horoscope',
           },
-          { href: "./settings.html", label: "Profile" },
-          { href: "./about.html", label: "About Us" },
+          { href: './settings.html', label: 'Profile' },
+          { href: './about.html', label: 'About Us' },
         ];
         linkArray.forEach((link) => {
-          const a = document.createElement("a");
+          const a = document.createElement('a');
           a.href = prefix + link.href;
           a.textContent = link.label;
           links.appendChild(a);
         });
       } catch (err) {
-        console.error("Invalid links JSON:", rawLinks, err);
+        console.error('Invalid links JSON:', rawLinks, err);
       }
     }
 
@@ -110,4 +110,4 @@ class NavigationBar extends HTMLElement {
   }
 }
 
-customElements.define("navigation-bar", NavigationBar);
+customElements.define('navigation-bar', NavigationBar);

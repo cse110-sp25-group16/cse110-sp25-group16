@@ -1,9 +1,9 @@
-import CardDeck from "../../source/backend/CardDeck.js";
-import Card from "../../source/backend/Card.js";
-import CardDictionary from "../../source/backend/CardDictionary.js";
+import CardDeck from '../../source/backend/CardDeck.js';
+import Card from '../../source/backend/Card.js';
+import CardDictionary from '../../source/backend/CardDictionary.js';
 
-describe("Integration: CardDeck and CardDictionary", () => {
-  it("fills the deck with 78 cards using data from CardDictionary", () => {
+describe('Integration: CardDeck and CardDictionary', () => {
+  it('fills the deck with 78 cards using data from CardDictionary', () => {
     const deck = new CardDeck(Card);
     deck.fillDeck();
 
@@ -16,7 +16,7 @@ describe("Integration: CardDeck and CardDictionary", () => {
     }
   });
 
-  it("shuffles deck and maintains same cards", () => {
+  it('shuffles deck and maintains same cards', () => {
     const deck = new CardDeck(Card);
     deck.fillDeck();
     const beforeShuffle = deck.cards.map((c) => c.id);

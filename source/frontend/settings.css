@@ -30,7 +30,7 @@ select {
   margin-top: 5px;
   background-color: #fff;
   color: #1e2a52;
-  font-family: "Noto Serif", serif;
+  font-family: 'Noto Serif', serif;
 }
 
 .dob-fields {
@@ -39,7 +39,7 @@ select {
   margin-top: 10px;
 }
 
-input[type="text"],
+input[type='text'],
 .dob-fields input {
   border: 2px solid #d8b76e;
   color: #1e2a52;
