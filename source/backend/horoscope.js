@@ -2,7 +2,7 @@ class Horoscope {
   static getDate(birthday) {
     const parts = birthday.split(/-|\//);
 
-    const formatParts = ["dd", "mm", "yyyy"];
+    const formatParts = ['dd', 'mm', 'yyyy'];
 
     // 31/10/2004 -> [31, 10, 2004]
 
@@ -19,29 +19,29 @@ class Horoscope {
     const month = date.getMonth() + 1; // getMonth() is 0-based
     switch (month) {
       case 1:
-        return day < 20 ? "Capricorn" : "Aquarius";
+        return day < 20 ? 'Capricorn' : 'Aquarius';
       case 2:
-        return day < 19 ? "Aquarius" : "Pisces";
+        return day < 19 ? 'Aquarius' : 'Pisces';
       case 3:
-        return day < 21 ? "Pisces" : "Aries";
+        return day < 21 ? 'Pisces' : 'Aries';
       case 4:
-        return day < 20 ? "Aries" : "Taurus";
+        return day < 20 ? 'Aries' : 'Taurus';
       case 5:
-        return day < 21 ? "Taurus" : "Gemini";
+        return day < 21 ? 'Taurus' : 'Gemini';
       case 6:
-        return day < 21 ? "Gemini" : "Cancer";
+        return day < 21 ? 'Gemini' : 'Cancer';
       case 7:
-        return day < 23 ? "Cancer" : "Leo";
+        return day < 23 ? 'Cancer' : 'Leo';
       case 8:
-        return day < 23 ? "Leo" : "Virgo";
+        return day < 23 ? 'Leo' : 'Virgo';
       case 9:
-        return day < 23 ? "Virgo" : "Libra";
+        return day < 23 ? 'Virgo' : 'Libra';
       case 10:
-        return day < 23 ? "Libra" : "Scorpio";
+        return day < 23 ? 'Libra' : 'Scorpio';
       case 11:
-        return day < 22 ? "Scorpio" : "Sagittarius";
+        return day < 22 ? 'Scorpio' : 'Sagittarius';
       case 12:
-        return day < 22 ? "Sagittarius" : "Capricorn";
+        return day < 22 ? 'Sagittarius' : 'Capricorn';
       default:
         return null;
     }
@@ -64,8 +64,8 @@ class Horoscope {
   }
 
   static generateReadingFromCurrentUser() {
-    const userInfo = JSON.parse(localStorage.getItem("tarotUserInfo"));
-    const dob = userInfo["dob"];
+    const userInfo = JSON.parse(localStorage.getItem('tarotUserInfo'));
+    const dob = userInfo['dob'];
     const horoscope = Horoscope.getHoroscope(Horoscope.getDate(dob));
 
     const currentDate = new Date();
@@ -89,62 +89,62 @@ class Horoscope {
   }
 
   static themes = [
-    "love",
-    "career",
-    "health",
-    "finances",
-    "self-reflection",
-    "growth",
-    "relationships",
-    "communication",
-    "creativity",
-    "spirituality",
-    "adventure",
-    "balance",
+    'love',
+    'career',
+    'health',
+    'finances',
+    'self-reflection',
+    'growth',
+    'relationships',
+    'communication',
+    'creativity',
+    'spirituality',
+    'adventure',
+    'balance',
   ];
 
   static moods = [
-    "optimistic",
-    "pessimistic",
-    "neutral",
-    "excited",
-    "anxious",
-    "calm",
-    "curious",
-    "hopeful",
-    "reflective",
-    "content",
-    "inspired",
-    "determined",
-    "adventurous",
-    "thoughtful",
-    "passionate",
+    'optimistic',
+    'pessimistic',
+    'neutral',
+    'excited',
+    'anxious',
+    'calm',
+    'curious',
+    'hopeful',
+    'reflective',
+    'content',
+    'inspired',
+    'determined',
+    'adventurous',
+    'thoughtful',
+    'passionate',
   ];
 
   static advice = [
-    "trust your instincts",
-    "be open to change",
-    "focus on self-care",
-    "embrace new opportunities",
-    "nurture relationships",
-    "stay grounded",
-    "seek balance",
-    "pursue your passions",
-    "take risks",
-    "practice gratitude",
-    "cultivate patience",
-    "find joy in the little things",
-    "explore new horizons",
-    "reflect on your journey",
-    "reach out to someone you have been thinking about",
-    "take a moment to breathe and relax",
-    "set clear intentions for the future",
-    "embrace the present moment",
-    "let go of past regrets",
-    "trust the process of life",
-    "find beauty in simplicity",
-    "connect with nature",
-    "listen to your inner voice",
+    'trust your instincts',
+    'be open to change',
+    'focus on self-care',
+    'embrace new opportunities',
+    'nurture relationships',
+    'stay grounded',
+    'seek balance',
+    'pursue your passions',
+    'take risks',
+    'practice gratitude',
+    'cultivate patience',
+    'find joy in the little things',
+    'explore new horizons',
+    'reflect on your journey',
+    'reach out to someone you have been thinking about',
+    'take a moment to breathe and relax',
+    'set clear intentions for the future',
+    'embrace the present moment',
+    'let go of past regrets',
+    'trust the process of life',
+    'find beauty in simplicity',
+    'connect with nature',
+    'listen to your inner voice',
   ];
 }
 

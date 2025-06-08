@@ -24,12 +24,13 @@ async function init() {
      * Checks if have cards already drawn and saved today and uses those cards to display.
      * Otherwise, draw selected amount of cards, assign a today's date, and save to localStorage using date as key.
      */
-    if(!existingData[currDate]){
+    if (!existingData[currDate]) {
       existingData[currDate] = {};
     }
     if (existingData[currDate][event.target.value]) {
-      pulledCards = existingData[currDate][event.target.value].map((card) =>  {
-        return new Card(card.id, card.faceup, card.upsideDown)});
+      pulledCards = existingData[currDate][event.target.value].map((card) => {
+        return new Card(card.id, card.faceup, card.upsideDown);
+      });
     } else {
       const deck = new CardDeck(Card);
       deck.fillDeck();

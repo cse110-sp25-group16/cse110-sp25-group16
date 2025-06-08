@@ -1,29 +1,29 @@
 @font-face {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-weight: normal;
   font-style: normal;
-  src: url("../fonts/OpenSans-Regular-webfont.eot");
+  src: url('../fonts/OpenSans-Regular-webfont.eot');
   src:
-    local("Open Sans"),
-    local("OpenSans"),
-    url("../fonts/OpenSans-Regular-webfont.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/OpenSans-Regular-webfont.woff") format("woff"),
-    url("../fonts/OpenSans-Regular-webfont.svg#open_sansregular") format("svg");
+    local('Open Sans'),
+    local('OpenSans'),
+    url('../fonts/OpenSans-Regular-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/OpenSans-Regular-webfont.woff') format('woff'),
+    url('../fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
 }
 
 @font-face {
-  font-family: "Open Sans Light";
+  font-family: 'Open Sans Light';
   font-weight: normal;
   font-style: normal;
-  src: url("../fonts/OpenSans-Light-webfont.eot");
+  src: url('../fonts/OpenSans-Light-webfont.eot');
   src:
-    local("Open Sans Light"),
-    local("OpenSans Light"),
-    url("../fonts/OpenSans-Light-webfont.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/OpenSans-Light-webfont.woff") format("woff"),
-    url("../fonts/OpenSans-Light-webfont.svg#open_sanslight") format("svg");
+    local('Open Sans Light'),
+    local('OpenSans Light'),
+    url('../fonts/OpenSans-Light-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/OpenSans-Light-webfont.woff') format('woff'),
+    url('../fonts/OpenSans-Light-webfont.svg#open_sanslight') format('svg');
 }
 
 html {
@@ -33,7 +33,7 @@ html {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   line-height: 1.5;
   color: #4d4e53;
   background-color: white;
@@ -59,7 +59,7 @@ tt,
 code,
 kbd,
 samp {
-  font-family: Consolas, Monaco, "Andale Mono", monospace;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
 }
 
 .class-description {
@@ -116,7 +116,7 @@ nav {
 }
 
 nav ul {
-  font-family: "Lucida Grande", "Lucida Sans Unicode", arial, sans-serif;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;
   font-size: 100%;
   line-height: 17px;
   padding: 0;
@@ -127,7 +127,7 @@ nav ul {
 nav ul a,
 nav ul a:visited,
 nav ul a:active {
-  font-family: Consolas, Monaco, "Andale Mono", monospace;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
   line-height: 18px;
   color: #4d4e53;
 }
@@ -157,7 +157,7 @@ h4 {
 }
 
 h1 {
-  font-family: "Open Sans Light", sans-serif;
+  font-family: 'Open Sans Light', sans-serif;
   font-size: 48px;
   letter-spacing: -2px;
   margin: 12px 24px 20px;
@@ -256,7 +256,7 @@ tr > th:last-child {
 
 .name,
 .signature {
-  font-family: Consolas, Monaco, "Andale Mono", monospace;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
 }
 
 .details {
@@ -356,7 +356,7 @@ tr > th:last-child {
 .props .name,
 .name code {
   color: #4d4e53;
-  font-family: Consolas, Monaco, "Andale Mono", monospace;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
   font-size: 100%;
 }
 

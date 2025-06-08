@@ -10,7 +10,7 @@ label {
   color: #7d4f50;
 }
 
-input[type="text"],
+input[type='text'],
 select {
   width: 100%;
   padding: 10px;
