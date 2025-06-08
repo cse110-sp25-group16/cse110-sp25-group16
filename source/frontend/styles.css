@@ -16,6 +16,13 @@ body {
   overflow-x: hidden;
   width: 100vw;
   margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+main.page-wrapper {
+  flex: 1;
 }
 
 header {
@@ -96,4 +103,48 @@ button {
 button:hover {
   background-color: #d7732f;
   border-color: #d7732f;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(20, 26, 51, 0.158);
+  border-top: 2px solid rgba(17, 23, 46, 0.9);
+  color: white;
+  text-align: center;
+  padding: 1vh 1rem;
+  margin-top: 3vh;
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  width: 100%;
+}
+
+footer p {
+  color: lightslategray;
+  font-weight: normal;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: #52452a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #361d0c;
+  text-decoration: underline;
+}
+
+.sweet-logo {
+  width: 40px;
+  height: auto;
+  filter: drop-shadow(0 0 3px #d8b76e88);
+  opacity: 0.6;
 }
