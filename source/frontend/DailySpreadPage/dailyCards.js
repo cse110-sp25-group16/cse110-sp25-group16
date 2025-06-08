@@ -67,7 +67,7 @@ class CardComponent extends HTMLElement {
          </div>
          <div class="card-front"> 
             <div class="summary">
-               <img src="${image}" alt="${title}"/>
+               <img src="../../..${image}" alt="${title}"/>
                <h3>${numeral}) ${title} </h3>
                <strong>${arcana} - ${suit} </strong>
             </div>
@@ -144,13 +144,13 @@ class CardComponent extends HTMLElement {
             perspective: 1200px;
             cursor: pointer;
             margin: 1rem;
-            border-radius: 16px;
+            border-radius: 16px
          }
 
          .card-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center
          }
 
          .card {
@@ -161,12 +161,12 @@ class CardComponent extends HTMLElement {
             transition: transform 0.8s ease-in-out;
             border-radius: 16px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            background-color: #f9f5ec ;
+            background-color: #f9f5ec;
             border: dashed gray 1px
          }
 
          .card.flip {
-            transform: rotateY(180deg);
+            transform: rotateY(180deg)
          }
 
          .card-front, .card-back {
@@ -174,19 +174,14 @@ class CardComponent extends HTMLElement {
             height: 100%;
             position: absolute;
             backface-visibility: hidden;
-            // display: flex;
-            // flex-direction: column;
-            // align-items: center;
-            // justify-content: flex-start;
             border-radius: 16px;
-            // background-color: white;
             overflow-y: auto;
             padding: 16px;
-            box-sizing: border-box;
+            box-sizing: border-box
          }
 
          .card-back {
-            background: url('../images/cardback.jpg') center/cover no-repeat;
+            background: url('../images/cardback.jpg') center/cover no-repeat
          }
 
          .card-front {
@@ -196,7 +191,7 @@ class CardComponent extends HTMLElement {
             align-items: center;
             justify-content: flex-start;
             height: 100%;
-            overflow-y: auto;
+            overflow-y: auto
          }
 
          section {
@@ -204,20 +199,19 @@ class CardComponent extends HTMLElement {
          }
 
          .section-header {
-            width: full;
+            width: 100%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 4px; 
-            // padding: 4px 0;
+            margin-bottom: 4px
          }
 
          .section-header h4 {
             margin: 0;
             font-size: 14px;
             font-weight: 600;
-            color: #333;
+            color: #333
          }
 
          .section-header button {
@@ -227,11 +221,11 @@ class CardComponent extends HTMLElement {
             border: 1px solid #ccc;
             border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease
          }
 
          .section-header button:hover {
-            background-color: #e2e8f0;
+            background-color: #e2e8f0
          }
 
          [data-content].collapsed {
@@ -240,31 +234,31 @@ class CardComponent extends HTMLElement {
             padding: 0;
             margin: 0;
             opacity: 0;
-            transition: all 0.2s ease;
+            transition: all 0.2s ease
          }
 
          [data-content] {
-            transition: all 0.2s ease;
+            transition: all 0.2s ease
          }
 
          img {
             height: 80%;
             margin-bottom: 12px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
          }
 
          h3 {
             margin: 8px 0 4px;
             font-size: 1.1rem;
             text-align: center;
-            font-weight: 600;
+            font-weight: 600
          }
 
          strong {
             font-size: 0.8rem;
             margin-bottom: 8px;
-            text-align: center;
+            text-align: center
          }
 
          .keywords {
@@ -272,13 +266,12 @@ class CardComponent extends HTMLElement {
             font-size: 0.85rem;
             color: #555;
             margin-top: 8px;
-            text-align: center;
+            text-align: center
          }
 
          ul {
-            // list-style-type: none;
             padding-left: 1.2rem;
-            margin: 8px 0;
+            margin: 8px 0
          }
 
          ul li {
@@ -289,8 +282,7 @@ class CardComponent extends HTMLElement {
          p {
             font-size: 0.8rem;
             line-height: 1.4;
-            margin-top: 10px;
-            // text-align: justify;
+            margin-top: 10px
          }
 
          .details.hidden {
@@ -300,7 +292,7 @@ class CardComponent extends HTMLElement {
          .card.focused {
             z-index: 10;
             transform: scale(1.2) rotateY(180deg);
-            transition: transform 0.6s ease, z-index 0s;
+            transition: transform 0.6s ease, z-index 0s
          }
 
          .reversed-note {
@@ -311,7 +303,7 @@ class CardComponent extends HTMLElement {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 6px;
+            gap: 6px
          }
 
          .info-btn {
@@ -320,11 +312,11 @@ class CardComponent extends HTMLElement {
          cursor: pointer;
          font-size: 1rem;
          padding: 0;
-         color: #555;
+         color: #555
          }
 
          .info-btn:hover {
-         color: #000;
+            color: #000
          }
 
          .summary {
@@ -332,20 +324,20 @@ class CardComponent extends HTMLElement {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100%;
+            height: 100%
          }
 
          .card.upsidedown .card-front .summary img {
-            transform: rotateX(180deg);
+            transform: rotateX(180deg)
          }
 
          .card.focused .summary {
-            display: none;
+            display: none
          }
          
          .card.focused .card-front {
             justify-content: flex-start;
-            align-items: center;
+            align-items: center
          }
 
       `;
@@ -376,10 +368,12 @@ class CardComponent extends HTMLElement {
         flipped = true;
       } else if (!focused) {
         card.classList.add('focused');
+        this.classList.add('focused');
         card.querySelector('.details').classList.remove('hidden');
         focused = true;
       } else {
         card.classList.remove('focused');
+        this.classList.remove('focused');
         card.querySelector('.details').classList.add('hidden');
         focused = false;
       }
