@@ -82,9 +82,7 @@ describe('getStoredCards', () => {
  * @jest-environment jsdom
  */
 
-import * as ExportBtn from "../ExportButton.js";
 import Horoscope from "../../../backend/horoscope.js";
-import Card from "../../../backend/Card.js";
 
 describe("ExportButton extra coverage", () => {
   beforeEach(() => {
