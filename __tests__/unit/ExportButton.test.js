@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals';
-import * as ExportBtn from "../../../source/frontend/components/ExportButton.js";
+import * as ExportButton from '../../source/frontend/components/ExportButton.js';
 
 // Mock Card class
 jest.mock('../../source/backend/Card.js', () => {
