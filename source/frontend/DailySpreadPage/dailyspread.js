@@ -13,7 +13,8 @@ window.addEventListener('DOMContentLoaded', init);
  */
 async function init() {
   const userData = JSON.parse(localStorage.getItem('tarotUserInfo'));
-  document.querySelector('#username').textContent = `Hi ${userData.name}!`;
+  const name = userData?.name || 'User';
+  document.querySelector('#username').textContent = `Hi ${name}!`;
 
   /*Selects grid-container in html and clears the cards loaded from previous draw*/
   const grid = document.querySelector('.cards-container');
