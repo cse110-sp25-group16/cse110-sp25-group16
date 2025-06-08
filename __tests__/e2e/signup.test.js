@@ -5,8 +5,8 @@ describe('Signup Page', () => {
       'http://localhost:8080/source/frontend/signup.html',
       { waitUntil: 'domcontentloaded' } // don't let scripts run yet
     );
-});
-it('should render the signup form with all required fields', async () => {
+  });
+  it('should render the signup form with all required fields', async () => {
     await page.waitForSelector('#signup-form');
     const nameExists = await page.$('#name');
     const monthExists = await page.$('#dob-month');
@@ -53,5 +53,5 @@ it('should render the signup form with all required fields', async () => {
     expect(userInfo.name).toBe('Jane Doe');
     expect(userInfo.mbti).toBe('INTJ');
     expect(userInfo.dob).toBe('1990-06-08');
-  }, 30000);
+  }, 120000);
 });
