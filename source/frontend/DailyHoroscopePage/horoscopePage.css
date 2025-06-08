@@ -92,3 +92,12 @@ header p {
   width: 20vh;
   height: 20vh;
 }
+
+#share {
+  padding-bottom: 4em;
+}
+
+#generateHoroscopeBtn {
+  display: block;
+  margin: 2rem auto;
+}

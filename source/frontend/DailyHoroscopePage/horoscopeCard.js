@@ -40,7 +40,7 @@ class HoroscopeCard extends HTMLElement {
         backface-visibility: hidden;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         box-shadow: 0 6px 12px rgba(0,0,0,0.15);
       }
@@ -48,7 +48,7 @@ class HoroscopeCard extends HTMLElement {
         max-width: 100px;
         height: auto;
         margin-top: 10px;
-        background-color: f9f5ec;
+        background-color: none;
       }
       .card-face h2 {
         margin: 0;

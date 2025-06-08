@@ -73,6 +73,19 @@
   box-shadow: 0 0 0 2px rgba(91, 157, 217, 0.3);
 }
 
+#generateTarotCardsBtn {
+  display: block;
+  margin: 2rem auto;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.disabled button {
+  background-color: #d8b66e79;
+}
+
 /* .card1 {
     grid-column: 2 / 4;
     grid-row: 2 / 4;

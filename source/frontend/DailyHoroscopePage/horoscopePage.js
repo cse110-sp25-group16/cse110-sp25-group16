@@ -8,15 +8,19 @@ window.addEventListener('DOMContentLoaded', init);
 
 async function init() {
   const [theme, mood, advice] = Horoscope.generateReadingFromCurrentUser();
+  const [themeExpanded, moodExpanded, adviceExpanded] =
+    Horoscope.expandedReadingFromCurrentUser();
 
   const items = document.querySelectorAll('horoscope-card');
   console.log(items);
   const labels = ['Theme', 'Mood', 'Advice'];
   const values = [theme, mood, advice];
+  const valuesExpanded = [themeExpanded, moodExpanded, adviceExpanded];
 
   for (let i = 0; i < labels.length; i++) {
     items[i].setAttribute('front-title', labels[i]);
     items[i].setAttribute('back-title', values[i]);
+    items[i].setAttribute('back-desc', valuesExpanded[i]);
   }
 
   console.log(items);

@@ -52,7 +52,7 @@ class CardComponent extends HTMLElement {
             width: 250px;
             height: 400px;
             perspective: 1000px;
-            cursor: pointer;
+            cursor: pointer
          }
 
          .card {
@@ -60,11 +60,11 @@ class CardComponent extends HTMLElement {
             height: 100%;
             position: relative;
             transform-style: preserve-3d;
-            transition: transform 0.8s;
+            transition: transform 0.8s
          }
 
          .card.flip {
-            transform: rotateY(180deg);
+            transform: rotateY(180deg)
          }
 
          .card-front, .card-back {
@@ -81,34 +81,34 @@ class CardComponent extends HTMLElement {
             background: white;
             overflow: auto;
             padding: 10px;
-            box-sizing: border-box;
+            box-sizing: border-box
          }
 
          .card-back {
-            background: url('/path/to/back-image.jpg') center/cover no-repeat;
+            background: url('/path/to/back-image.jpg') center/cover no-repeat
          }
 
          .card-front {
-            transform: rotateY(180deg);
+            transform: rotateY(180deg)
          }
 
          img {
             max-width: 100px;
-            margin-bottom: 10px;
+            margin-bottom: 10px
          }
 
          h3 {
-            margin: 5px 0;
+            margin: 5px 0
          }
 
          p {
-            font-size: 0.8rem;
+            font-size: 0.8rem
          }
 
          .keywords {
             font-style: italic;
             font-size: 0.8rem;
-            margin-top: 8px;
+            margin-top: 8px
          }
       `;
 
