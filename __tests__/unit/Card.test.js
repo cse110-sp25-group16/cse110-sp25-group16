@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import cardDictionary from '../../source/backend/CardDictionary.js';
 
 describe('Card.js Tarot Data', () => {
