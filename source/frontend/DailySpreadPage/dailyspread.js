@@ -12,6 +12,9 @@ window.addEventListener('DOMContentLoaded', init);
  * This function serves as the main function for the Dail spread page.
  */
 async function init() {
+  const userData = JSON.parse(localStorage.getItem('tarotUserInfo'));
+  document.querySelector('#username').textContent = `Hi ${userData.name}!`;
+
   /*Selects grid-container in html and clears the cards loaded from previous draw*/
   const grid = document.querySelector('.cards-container');
   const selectedAmnt = document.querySelector('#card-amount');
