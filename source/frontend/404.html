@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 - Page Not Found</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* fallback styling if your CSS doesn’t load */
+    body { font-family: sans-serif; text-align: center; margin: 4rem; }
+    h1 { font-size: 3rem; color: #c00; }
+    a { color: #00c; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <!-- your nav component, if you want -->
+  <header>
+    <navigation-bar
+      bgImg="./images/paint-navbar.jpg"
+      links='[
+        {"href":"./index.html","label":"Home"},
+        {"href":"./DailySpreadPage/dailyspread.html","label":"Tarot Cards"},
+        {"href":"./DailyHoroscopePage/horoscopePage.html","label":"Horoscope"},
+        {"href":"./settings.html","label":"Profile"}
+      ]'>
+    </navigation-bar>
+  </header>
+
+  <main>
+    <h1>404</h1>
+    <p>Sorry, we couldn't find that page.</p>
+    <p><a href="./index.html">Return Home</a></p>
+  </main>
+
+  <script src="./components/NavigationBar.js"></script>
+</body>
+</html>
