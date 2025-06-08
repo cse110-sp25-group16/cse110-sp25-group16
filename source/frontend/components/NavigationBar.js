@@ -19,7 +19,7 @@ class NavigationBar extends HTMLElement {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-family: sans-serif;
+        font-family: sans-serif
       }
 
       .brand {
@@ -27,12 +27,12 @@ class NavigationBar extends HTMLElement {
         font-size: 2em;
         padding: 0em;
         font-family: "Noto Serif", serif;
-        background-color: rgba(15, 16, 28, 0.52);
+        background-color: rgba(15, 16, 28, 0.52)
       }
     
       .links {
         display: flex;
-        margin-left: auto;
+        margin-left: auto
       }
 
       .links a {
@@ -42,11 +42,11 @@ class NavigationBar extends HTMLElement {
         padding: 0em;
         text-decoration: none;
         font-family: "Noto Serif", serif;
-        background-color:rgba(15, 16, 28, 0.52);
+        background-color:rgba(15, 16, 28, 0.52)
       }
 
       .links a:hover {
-        text-decoration: underline;
+        text-decoration: underline
       }
     `;
 
