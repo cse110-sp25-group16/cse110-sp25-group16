@@ -27,8 +27,7 @@ async function init() {
   signText.textContent = sign;
 
   document.querySelector("#username").textContent = `Hi ${userData.name}!`;
-  // document.querySelector("#zodiac-picture").src = `../images/zodiacs/${sign}.png`;
-  document.querySelector("#zodiac-picture").src = "../images/logo.png";
+  document.querySelector("#zodiac-picture").src = `../images/zodiacs/${sign}.png`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
