@@ -101,3 +101,11 @@ header p {
   display: block;
   margin: 2rem auto;
 }
+
+@media (max-width: 600px) {
+  .content {
+    display: flex;
+    flex-wrap: wrap; /* allow wrapping on small screens */
+    flex-direction: column; /* stack vertically on small screens */
+  }
+}
