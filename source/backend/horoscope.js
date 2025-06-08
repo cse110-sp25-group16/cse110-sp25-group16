@@ -111,6 +111,47 @@ class Horoscope {
     return readingOutput;
   }
 
+  /**
+   *
+   * @returns {Array<string>} [expandedMood, expandedTheme]
+   */
+  static expandedReadingFromCurrentUser() {
+    const userInfo = JSON.parse(localStorage.getItem('tarotUserInfo'));
+    const dob = userInfo['dob'];
+    const horoscope = Horoscope.getHoroscope(Horoscope.getDate(dob));
+
+    const currentDate = new Date();
+
+    return Horoscope.expandedReading(horoscope, currentDate);
+  }
+
+  /**
+   * Given a sign and a date, provide an expanded theme & expanded mood from static lists.
+   * @param {string} horoscope  The zodiac sign name.
+   * @param {Date} date         The date to base the reading on.
+   * @returns {Array<string>}   [expandedTheme, expandedMood].
+   */
+  static expandedReading(horoscope, date) {
+    const dateString = date.toDateString();
+    const fullText = horoscope + dateString;
+
+    const hashValue = Math.abs(Horoscope.hashCode(fullText));
+    console.log(hashValue);
+    const readingOutput = [];
+
+    readingOutput.push(
+      Horoscope.themes_expand[hashValue % Horoscope.themes.length]
+    );
+    readingOutput.push(
+      Horoscope.moods_expand[hashValue % Horoscope.moods.length]
+    );
+    readingOutput.push(
+      Horoscope.advice_expand[hashValue % Horoscope.moods.length]
+    );
+
+    return readingOutput;
+  }
+
   /** List of possible reading themes. */
   static themes = [
     'love',
@@ -125,6 +166,22 @@ class Horoscope {
     'spirituality',
     'adventure',
     'balance',
+  ];
+
+  /** List of possible expanded themes. */
+  static themes_expand = [
+    'When the veils part, the heart remembers what time has hidden.',
+    'Cast your craft upon the wheel of fate, and let destiny temper its edge.',
+    'The vessel thrives when moon and marrow are in accord.',
+    'Gold answers not to grasping hands, but to those who heed the silence beneath the coin.',
+    'Peer into the mirror between worlds, and name the shadow by its true name.',
+    'What lies dormant beneath stone shall bloom when stars decree it so.',
+    'Entwine not the threads too tightly, lest they fray in unseen places.',
+    'Words, once loosed, become spells—speak with the weight of knowing.',
+    'Summon the unseen with ink and breath, and let the unknown reply.',
+    'Wander the liminal—where breath meets ether, revelation awaits.',
+    'Tread where maps end; the wyrm of wonder coils beyond the edge.',
+    'In the stillpoint between flame and frost, the soul finds its sigil.',
   ];
 
   /** List of possible reading moods. */
@@ -146,6 +203,25 @@ class Horoscope {
     'passionate',
   ];
 
+  /** List of possible expanded moods. */
+  static moods_expand = [
+    'The dawn does not question the dark—it rises, inevitable and golden.',
+    'Even the shadow bears witness to light once known.',
+    'The scales rest between fates, awaiting the tremor of choice.',
+    'When lightning dances on the horizon, the soul prepares to leap.',
+    'The winds howl loudest before the veil lifts—stand firm in the storm.',
+    'Still waters are mirrors for truths too ancient to name.',
+    'The key seeks not the door, but the hand bold enough to turn it.',
+    'The seed dreams of sky long before its roots touch earth.',
+    'Within the well of echoes, old voices shape the present spell.',
+    'In the hush between longing and having, eternity breathes.',
+    'The muse stirs in smoke and shadow—follow where the flame bends.',
+    'Steel does not ask if it will strike true; it is the will made manifest.',
+    'The path coils like a serpent—those who walk it awaken the unknown.',
+    'One must listen to the silence between thoughts, for it speaks in runes.',
+    'Let the fire within consume not what you hold, but what holds you.',
+  ];
+
   /** List of possible advice snippets. */
   static advice = [
     'trust your instincts',
@@ -159,18 +235,43 @@ class Horoscope {
     'take risks',
     'practice gratitude',
     'cultivate patience',
-    'find joy in the little things',
+    'find joy in little things',
     'explore new horizons',
     'reflect on your journey',
-    'reach out to someone you have been thinking about',
-    'take a moment to breathe and relax',
-    'set clear intentions for the future',
-    'embrace the present moment',
-    'let go of past regrets',
+    'reach out',
+    'breathe and relax',
+    'set clear intentions',
+    'embrace the present',
+    'let go of regrets',
     'trust the process of life',
     'find beauty in simplicity',
     'connect with nature',
     'listen to your inner voice',
+  ];
+
+  static advice_expand = [
+    'That quiet feeling inside you often knows before you do.',
+    'Change may feel like loss at first, but it often holds a gift.',
+    'You deserve the same kindness you give to others—start with yourself.',
+    'Say yes, even if your voice shakes—you can always find your footing later.',
+    'Love grows in the small things—show up, check in, and be present.',
+    'When the world spins fast, return to what makes you feel steady and whole.',
+    'You don’t have to do it all—just enough to feel like yourself again.',
+    'What sets your heart alight is worth chasing, even if no one understands.',
+    'Some leaps won’t land perfectly, but they’ll still carry you forward.',
+    'There’s always something soft to hold onto, even on the hard days.',
+    'Not everything blooms when you want it to—trust that it’s growing anyway.',
+    'Joy doesn’t always shout—sometimes it whispers in quiet moments.',
+    'There is more out there than you’ve seen, and more in you than you’ve known.',
+    'Look back not with regret, but with respect for how far you’ve come.',
+    'You don’t have to carry everything alone—someone is waiting to listen.',
+    'Let your shoulders drop. Let your breath remind you—you are here.',
+    'Be honest about what you want. It’s okay to ask more of life.',
+    'You don’t have to have it all figured out—just be here, now.',
+    'You did the best you could with what you knew—give yourself peace.',
+    'Even when the path isn’t clear, life is still moving you forward.',
+    'You don’t need more to feel full—sometimes less lets you breathe.',
+    'Step outside. Let the sky remind you how vast and calm it all can be.',
   ];
 }
 
