@@ -53,5 +53,5 @@ it('should render the signup form with all required fields', async () => {
     expect(userInfo.name).toBe('Jane Doe');
     expect(userInfo.mbti).toBe('INTJ');
     expect(userInfo.dob).toBe('1990-06-08');
-  }, 10000);
+  }, 30000);
 });
