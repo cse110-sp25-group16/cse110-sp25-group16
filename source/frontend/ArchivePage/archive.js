@@ -145,6 +145,7 @@ function getArchived(active, date) {
     console.log(sign);
 
     const horoscopeContainer = document.querySelector('.horoscope-container');
+    horoscopeContainer.innerHTML = '';
 
     for (let i = 0; i < values.length; i++) {
       const horoscopeCard = document.createElement('horoscope-card');
