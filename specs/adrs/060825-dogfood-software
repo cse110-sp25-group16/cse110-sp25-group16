@@ -1,0 +1,54 @@
+# Dogfood Software Evaluation
+
+## Signup
+
+- I was able to input my full name, date of birth, and MBTI personality type.
+- Inputting name, date of birth, and MBTI worked seamlessly.
+- **Rating: 8/10** – Inputting information was smooth and gave a success notification.
+
+### RFI (Request for Improvement)
+- The success notification could be more aesthetically aligned with the app’s starry theme.
+- Although the MBTI was fun to input, it’s currently not utilized in the app.
+
+---
+
+## Tarot Cards
+
+- Successfully pulled 3, 5, or 10 cards, each with a visual depiction.
+- Exporting the reading includes reasoning for each card, providing a holistic overview.
+- Clicking on a turned card reveals more detailed info.
+
+- **Rating: 7/10** – Visually engaging. The flipping animation added interactivity.
+
+### RFI
+- Consider adding one overarching description of the reading to help users interpret the results more effectively.
+
+---
+
+## Horoscope
+
+- Based on my birthday, the app identified my sign (e.g., Aries with a Ram icon).
+- Offered three horoscope dimensions: **Theme**, **Mood**, and **Advice**.
+- Exporting capability allowed sharing of horoscope readings.
+
+- **Rating: 7/10** – Similar strengths to Tarot. Segmenting into three aspects made the reading more applicable to daily life.
+
+### RFI
+- An overarching summary of the day across all three aspects would enhance clarity.
+- More detailed descriptions under Theme, Mood, and Advice would be beneficial.
+
+---
+
+## Settings
+
+- Accurately saved Name, MBTI, and Date of Birth.
+- Allowed editing of any field for updates or multi-user access from the same device.
+
+- **Rating: 9/10** – Clear purpose and user autonomy appreciated.
+
+### RFI
+- Current font and gold coloring match the aesthetic well.
+- Additional celestial or starry-themed design elements could enhance visual appeal.
+
+---
+
