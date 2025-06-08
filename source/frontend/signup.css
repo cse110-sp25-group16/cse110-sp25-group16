@@ -1,10 +1,10 @@
 .container {
   width: 600px;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 40px;
   margin: 120px auto;
   border-radius: 15px;
-  border: 2px solid #e3bcba;
+  border: 2px solid white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -17,18 +17,19 @@ h1 {
 label {
   display: block;
   margin-top: 15px;
-  color: #7d4f50;
+  color: white;
 }
 
 input,
 select {
   width: 100%;
   padding: 10px;
-  border: 2px solid #7d4f50;
+  border: 2px solid #d8b76e;
   border-radius: 10px;
   margin-top: 5px;
   background-color: #fff;
-  font-family: 'Noto Serif', serif;
+  font-family: "Noto Serif", serif;
+  color: black;
 }
 
 .dob-fields {
@@ -63,13 +64,13 @@ button:hover {
 .storage-note {
   font-size: 0.85em;
   margin-top: 10px;
-  color: #7d4f50;
+  color: white;
   text-align: center;
 }
 
 .disclaimer {
   font-size: 0.85em;
-  color: #7d4f50;
+  color: white;
   margin-top: 5px;
 }
 
