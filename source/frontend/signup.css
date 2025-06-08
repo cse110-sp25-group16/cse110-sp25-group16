@@ -1,53 +1,76 @@
 .container {
   width: 600px;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 40px;
-  margin: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 120px auto;
+  border-radius: 15px;
+  border: 2px solid white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #d8b76e;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  color: white;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #d8b76e;
+  border-radius: 10px;
+  margin-top: 5px;
+  background-color: #fff;
+  font-family: 'Noto Serif', serif;
+  color: black;
 }
 
 .dob-fields {
   display: flex;
   gap: 10px;
-  max-width: 300px;
+  margin-top: 10px;
 }
 
 .dob-fields input {
-  width: 30%;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  border: 2px solid #7d4f50;
-  border-radius: 10px;
   text-align: center;
+  font-size: 16px;
   color: #7d4f50;
 }
 
-.dob-fields input:nth-child(1) {
-  width: 50px; /* Day */
+button {
+  background-color: #d8b76e;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin-top: 25px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
 }
 
-.dob-fields input:nth-child(2) {
-  width: 50px; /* Month */
-}
-
-.dob-fields input:nth-child(3) {
-  width: 90px; /* Year */
+button:hover {
+  background-color: #d7732f;
 }
 
 .storage-note {
-  font-size: 0.8em;
-  margin-top: 15px;
-  color: #7d4f50;
+  font-size: 0.85em;
+  margin-top: 10px;
+  color: white;
+  text-align: center;
 }
 
 .disclaimer {
-  display: block;
   font-size: 0.85em;
-  color: #7d4f50;
+  color: white;
   margin-top: 5px;
 }
 

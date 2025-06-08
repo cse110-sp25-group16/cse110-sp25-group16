@@ -1,52 +1,81 @@
+.settings-container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 40px;
+  background-color: #ffffff; /* pure white */
+  border-radius: 15px;
+  border: 2px solid #1e2a52; /* dark blue border */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
 h1 {
-  color: #7d4f50;
-  margin-bottom: 20px;
-  font-size: 40px;
+  text-align: center;
+  color: #1e2a52; /* dark blue */
+  margin-bottom: 25px;
 }
 
 label {
+  color: #1e2a52;
+  margin-top: 15px;
   display: block;
-  margin: 10px 0 0px;
-  color: #7d4f50;
+  font-weight: bold;
 }
 
-input[type='text'],
+input,
 select {
   width: 100%;
   padding: 10px;
-  border: 2px solid #7d4f50;
+  border: 2px solid #d8b76e;
   border-radius: 10px;
-  box-sizing: border-box;
-  margin-bottom: 5px;
+  margin-top: 5px;
   background-color: #fff;
-  max-width: 500px;
+  color: #1e2a52;
+  font-family: 'Noto Serif', serif;
 }
 
 .dob-fields {
-  width: 1000%;
   display: flex;
-  max-width: 300px;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+input[type='text'],
+.dob-fields input {
+  border: 2px solid #d8b76e;
+  color: #1e2a52;
 }
 
 button {
-  background-color: #ed8839;
-  border-color: #e3bcba;
+  background-color: #1e2a52;
   color: white;
-  padding: 10px 15px;
+  border: none;
+  padding: 12px;
+  margin-top: 25px;
   border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  margin-top: 20px;
-  font-size: 20px;
-  display: block;
-  width: 200px;
+  width: 100%;
+}
+
+.save-btn {
+  background-color: #d8b76e; /* gold */
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #c7a556;
+}
+
+button:hover {
+  background-color: #2c3e75;
 }
 
 #clearButton {
-  background-color: rgb(237, 68, 68);
-  width: 150px;
-  font-size: 17px;
+  background-color: #a94442;
+  margin-top: 15px;
 }
 
 #clearButton:hover {
-  background-color: rgb(167, 5, 5);
+  background-color: #922d2d;
 }
