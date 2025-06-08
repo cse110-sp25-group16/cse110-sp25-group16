@@ -1,18 +1,18 @@
-import Horoscope from "../source/backend/horoscope.js";
+import Horoscope from '../../source/backend/horoscope.js';
 
 describe("Horoscope", () => {
   describe("getDate()", () => {
     it('correctly parses "31/10/2004" into a Date object', () => {
       const date = Horoscope.getDate("31/10/2004");
       expect(date.getFullYear()).toBe(2004);
-      expect(date.getMonth()).toBe(9); // October
+      expect(date.getMonth()).toBe(9);
       expect(date.getDate()).toBe(31);
     });
 
     it('correctly parses "15-06-1999"', () => {
       const date = Horoscope.getDate("15-06-1999");
       expect(date.getFullYear()).toBe(1999);
-      expect(date.getMonth()).toBe(5); // June
+      expect(date.getMonth()).toBe(5);
       expect(date.getDate()).toBe(15);
     });
   });
