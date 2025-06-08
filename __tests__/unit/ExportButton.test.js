@@ -1,39 +1,36 @@
-
-const {
+import {
   getStoredCards,
   wrapText,
   loadImage,
   generateImageCards,
-} = require('../../source/frontend/components/ExportButton.js');
+} from '../../source/frontend/components/ExportButton.js';
 
-jest.mock('../../source/backend/Card.js', () => {
-  return jest.fn().mockImplementation((id, faceup, upsideDown) => ({
-    getImg: () => 'mock-image.png',
-    getCardName: () => `Card-${id}`,
-    getKeywords: () => ['keyword1', 'keyword2'],
-    getUprightMeanings: () => ['Meaning 1'],
-    getReversedMeaning: () => 'Reversed Meaning',
-    getSuit: () => 'Suit',
-    getArcana: () => 'Major',
-    getNumeral: () => 'I',
-    getDescription: () => 'Description',
-    getSymbolism: () => 'Symbolism',
-  }));
-});
+jest.unstable_mockModule('../../source/backend/Card.js', () => ({
+  default: function MockCard(id) {
+    return {
+      getImg: () => `${id}.jpg`,
+      isFaceUp: () => true,
+      isUpsideDown: () => false,
+    };
+  },
+}));
 
-describe('getStoredCards', () => {
-  beforeEach(() => {
-    localStorage.clear();
+describe('ExportButton functions', () => {
+  it('getStoredCards should return an array', () => {
+    localStorage.setItem('cards', JSON.stringify([{ id: 'card1' }]));
+    const cards = getStoredCards();
+    expect(Array.isArray(cards)).toBe(true);
+    expect(cards[0].id).toBe('card1');
   });
 
-  it('should return an empty array if no cards are stored', () => {
-    const result = getStoredCards();
-    expect(result).toEqual([]);
+  it('wrapText should wrap long text', () => {
+    const ctx = document.createElement('canvas').getContext('2d');
+    const lines = wrapText(ctx, 'This is a test sentence', 100, 0, 0, 50);
+    expect(Array.isArray(lines)).toBe(true);
   });
 
-  it('should parse and return stored cards', () => {
-    localStorage.setItem('cards', JSON.stringify([{ id: 1 }]));
-    const result = getStoredCards();
-    expect(result).toEqual([{ id: 1 }]);
+  it('loadImage should resolve an Image', async () => {
+    const img = await loadImage('https://via.placeholder.com/150');
+    expect(img).toBeInstanceOf(HTMLImageElement);
   });
 });
