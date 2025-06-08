@@ -75,3 +75,145 @@ describe('getStoredCards', () => {
     expect(typeof date).toBe('string');
   });
 });
+
+
+
+/**
+ * @jest-environment jsdom
+ */
+
+import * as ExportBtn from "../ExportButton.js";
+import Horoscope from "../../../backend/horoscope.js";
+import Card from "../../../backend/Card.js";
+
+describe("ExportButton extra coverage", () => {
+  beforeEach(() => {
+    jest
+      .useFakeTimers()
+      .setSystemTime(new Date("2025-06-10T00:00:00Z"));
+    // reset localStorage
+    localStorage.clear();
+  });
+
+  describe("getStoredCards", () => {
+    it("picks reversed meaning when upsideDown=true", () => {
+      const date = "2025-06-10";
+      const payload = {
+        [date]: {
+          3: [
+            JSON.stringify({ id: 1, faceup: true, upsideDown: true }),
+          ],
+        },
+      };
+      localStorage.setItem("dailyCards", JSON.stringify(payload));
+
+      const cards = ExportBtn.getStoredCards(3);
+      expect(cards).toHaveLength(2);           // one card + date
+      const first = cards[0];
+      expect(first.upsideDown).toBe(true);
+      expect(first.meaning).toContain("reversed");
+      const last = cards[1];
+      expect(last).toMatch(/\d{4}-\d{2}-\d{2}/);
+    });
+
+    it("throws if no dailyCards in storage", () => {
+      expect(() => ExportBtn.getStoredCards(3)).toThrow();
+    });
+  });
+
+  describe("wrapText", () => {
+    let ctx;
+    beforeEach(() => {
+      ctx = {
+        fillText: jest.fn(),
+        measureText: jest.fn((str) => ({ width: str.length * 5 })),
+      };
+    });
+
+    it("applies both lineStart and lineEnd", () => {
+      ExportBtn.wrapText(ctx, "hello world", 10, 20, 50, 10, "[", "]");
+      const lastCall = ctx.fillText.mock.calls.slice(-1)[0][0];
+      expect(lastCall.startsWith("[")).toBe(true);
+      expect(lastCall.endsWith("]")).toBe(true);
+    });
+  });
+
+  describe("loadImage", () => {
+    it("rejects on img.onerror", async () => {
+      global.Image = class {
+        constructor() {
+          this.onload = null;
+          this.onerror = null;
+        }
+        set src(_) {
+          setTimeout(() => this.onerror(new Error("fail")), 0);
+        }
+      };
+      await expect(ExportBtn.loadImage("bad.png")).rejects.toThrow("fail");
+    });
+  });
+
+  describe("generateImageCards", () => {
+    it("uses the upsideDown drawing branch", async () => {
+      const data = [
+        { image: "one.png", name: "One", keywords: "a", upsideDown: true, meaning: "m1" },
+        "2025-06-10",
+      ];
+      const make = jest.spyOn(document, "createElement");
+      const canvas = document.createElement("canvas");
+      const ctx = {
+        drawImage: jest.fn(),
+        save: jest.fn(),
+        translate: jest.fn(),
+        scale: jest.fn(),
+        restore: jest.fn(),
+        strokeRect: jest.fn(),
+        fillText: jest.fn(),
+        beginPath: jest.fn(),
+        moveTo: jest.fn(),
+        lineTo: jest.fn(),
+        stroke: jest.fn(),
+        measureText: () => ({ width: 10 }),
+      };
+      jest.spyOn(canvas, "getContext").mockReturnValue(ctx);
+      make.mockImplementation((tag) => tag === "canvas" ? canvas : document.createElement(tag));
+      jest.spyOn(ExportBtn, "loadImage").mockResolvedValueOnce(new Image());
+      jest.spyOn(ExportBtn, "loadImage").mockResolvedValueOnce(new Image());
+      jest.spyOn(ExportBtn, "loadImage").mockResolvedValueOnce(new Image());
+      await ExportBtn.generateImageCards(data);
+      expect(ctx.save).toHaveBeenCalled();
+      expect(ctx.translate).toHaveBeenCalled();
+      expect(ctx.scale).toHaveBeenCalledWith(1, -1);
+      expect(ctx.restore).toHaveBeenCalled();
+    });
+  });
+
+  describe("generateImageHoroscope", () => {
+    it("draws the username, sign, and advice items", async () => {
+      localStorage.setItem("tarotUserInfo", JSON.stringify({ name: "Zoe", dob: "01/01/2000" }));
+      jest.spyOn(Horoscope, "getHoroscope").mockReturnValue("Libra");
+      jest.spyOn(Horoscope, "generateReadingFromCurrentUser").mockReturnValue(["theme", "mood", "advice"]);
+      const canvas = document.createElement("canvas");
+      const ctx = {
+        drawImage: jest.fn(),
+        fillText: jest.fn(),
+        beginPath: jest.fn(),
+        arc: jest.fn(),
+        stroke: jest.fn(),
+        createLinearGradient: () => ({ addColorStop: jest.fn() }),
+        measureText: () => ({ width: 10 }),
+      };
+      jest.spyOn(canvas, "getContext").mockReturnValue(ctx);
+      jest.spyOn(document, "createElement").mockImplementation((tag) =>
+        tag === "canvas" ? canvas : document.createElement(tag)
+      );
+      jest.spyOn(ExportBtn, "loadImage").mockResolvedValue(new Image());
+      await ExportBtn.generateImageHoroscope();
+      expect(ctx.fillText).toHaveBeenCalledWith("Zoe's Horoscope", expect.any(Number), expect.any(Number));
+      expect(ctx.fillText).toHaveBeenCalledWith("Libra", expect.any(Number), expect.any(Number));
+      expect(ctx.fillText).toHaveBeenCalledWith("theme", expect.any(Number), expect.any(Number));
+      expect(ctx.fillText).toHaveBeenCalledWith("mood", expect.any(Number), expect.any(Number));
+      expect(ctx.fillText).toHaveBeenCalledWith("advice", expect.any(Number), expect.any(Number));
+    });
+  });
+});
