@@ -1,19 +1,23 @@
 describe('Daily Spread Page', () => {
   beforeAll(async () => {
-    await page.goto('about:blank');
+    // First go to the real page, but block the scripts from running
+    await page.goto(
+      'http://localhost:8080/source/frontend/DailySpreadPage/dailyspread.html',
+      { waitUntil: 'domcontentloaded' } // don't let scripts run yet
+    );
 
+    // Set localStorage before any script uses it
     await page.evaluate(() => {
       localStorage.setItem(
         'tarotUserInfo',
         JSON.stringify({ name: 'TestUser' })
       );
-      location.reload(); // reload so the page re-runs init with user data
     });
 
-    await page.goto(
-      'http://localhost:8080/source/frontend/DailySpreadPage/dailyspread.html'
-    );
+    // Now reload so the page scripts run and pick up localStorage
+    await page.reload({ waitUntil: 'networkidle0' });
 
+    // Now wait for the greeting to appear
     await page.waitForSelector('#username');
   });
 
