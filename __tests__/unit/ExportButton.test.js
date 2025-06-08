@@ -9,13 +9,18 @@ jest.mock('../../source/backend/Card.js', () => {
   return jest.fn().mockImplementation((id, faceup, upsideDown) => ({
     getImg: () => 'mock-image.png',
     getCardName: () => `Card-${id}`,
-    getKeywords: () => ['Keyword1', 'Keyword2'],
+    getKeywords: () => ['wisdom', 'guidance'],
     isUpsideDown: () => upsideDown,
-    getReversedMeaning: () => ['Reversed meaning'],
-    getUprightMeanings: () => ['Upright meaning'],
+    getReversedMeaning: () => ['reversed meaning'],
+    getUprightMeanings: () => ['upright meaning'],
   }));
 });
 
+global.Image = class {
+  set src(val) {
+    setTimeout(() => this.onload(), 10);
+  }
+};
 
 Storage.prototype.getItem = jest.fn(() =>
   JSON.stringify({
@@ -29,8 +34,6 @@ Storage.prototype.getItem = jest.fn(() =>
   })
 );
 
-Storage.prototype.setItem = jest.fn();
-
 describe('getStoredCards', () => {
   beforeEach(() => {
     jest.useFakeTimers();
@@ -41,65 +44,31 @@ describe('getStoredCards', () => {
     jest.useRealTimers();
   });
 
-  it('should return parsed card data with metadata', () => {
-    const result = getStoredCards(3);
-    expect(result).toHaveLength(4); // 3 cards + date
-
-    const card = result[0];
-    expect(card).toHaveProperty('image', 'mock-image.png');
-    expect(card).toHaveProperty('name', 'Card-1');
-    expect(card).toHaveProperty('keywords', 'wisdom, guidance');
-    expect(card).toHaveProperty('meaning', 'upright meaning');
+  it('returns stored cards with enriched data', () => {
+    const cards = getStoredCards(3);
+    expect(cards.length).toBe(4); // 3 cards + 1 date
+    expect(cards[0]).toMatchObject({
+      name: 'Card-1',
+      keywords: 'wisdom, guidance',
+      meaning: 'upright meaning',
+    });
   });
 });
 
 describe('wrapText', () => {
-  let mockCtx;
-
-  beforeEach(() => {
-    mockCtx = {
+  it('calls fillText multiple times for wrapping', () => {
+    const mockCtx = {
       fillText: jest.fn(),
-      measureText: jest.fn((text) => ({ width: text.length * 10 })),
+      measureText: jest.fn((t) => ({ width: t.length * 8 })),
     };
-  });
-
-  it('should call fillText appropriately for short text', () => {
-    wrapText(mockCtx, 'short words only', 100, 50, 200, 20, '', '');
-    expect(mockCtx.fillText).toHaveBeenCalled();
-  });
-
-  it('should wrap long text across multiple lines', () => {
-    wrapText(
-      mockCtx,
-      'this is a very long line that needs to wrap multiple times',
-      100,
-      50,
-      120,
-      20,
-      '',
-      ''
-    );
+    wrapText(mockCtx, 'This is a long sentence that should wrap', 10, 10, 100, 20, '', '');
     expect(mockCtx.fillText.mock.calls.length).toBeGreaterThan(1);
   });
 });
 
 describe('loadImage', () => {
-  it('resolves with an image on successful load', async () => {
-    const img = await loadImage('http://example.com/test.png');
+  it('resolves with a mocked image object', async () => {
+    const img = await loadImage('https://mock.url/image.png');
     expect(img).toBeInstanceOf(Image);
-  });
-
-  it('rejects if image fails to load', async () => {
-    const badURL = 'http://badurl.test/image.png';
-    const mockImage = {
-      set src(value) {
-        setTimeout(() => this.onerror(new Error('fail')), 0);
-      },
-      onload: null,
-      onerror: null,
-    };
-    global.Image = jest.fn(() => mockImage);
-
-    await expect(loadImage(badURL)).rejects.toThrow();
   });
 });

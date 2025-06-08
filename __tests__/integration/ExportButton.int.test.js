@@ -1,33 +1,36 @@
-import { generateImageCards } from '../source/frontend/export.js';
+const { generateImageCards } = require('../../source/frontend/components/ExportButton.js');
 
 describe('generateImageCards', () => {
-  it('should create and download a canvas with card visuals', async () => {
+  it('renders canvas and draws cards properly', async () => {
     const cardData = [
       {
         image: 'card1.png',
         name: 'The Fool',
         keywords: 'new beginnings',
         upsideDown: false,
-        meaning: 'Fresh start.'
+        meaning: 'Fresh start.',
       },
       {
         image: 'card2.png',
         name: 'The Magician',
         keywords: 'manifestation',
         upsideDown: true,
-        meaning: 'Manipulation.'
+        meaning: 'Manipulation.',
       },
-      '2025-06-07'
+      '2025-06-07',
     ];
 
     const mockCanvas = document.createElement('canvas');
-    document.createElement = jest.fn((tag) => tag === 'canvas' ? mockCanvas : document.createElement(tag));
-    mockCanvas.getContext = jest.fn(() => ({
+    document.createElement = jest.fn((tag) =>
+      tag === 'canvas' ? mockCanvas : document.createElement(tag)
+    );
+
+    const ctx = {
       fillText: jest.fn(),
       drawImage: jest.fn(),
       strokeRect: jest.fn(),
       stroke: jest.fn(),
-      measureText: () => ({ width: 100 }),
+      measureText: () => ({ width: 80 }),
       beginPath: jest.fn(),
       moveTo: jest.fn(),
       lineTo: jest.fn(),
@@ -38,12 +41,14 @@ describe('generateImageCards', () => {
       rotate: jest.fn(),
       arc: jest.fn(),
       createLinearGradient: () => ({
-        addColorStop: jest.fn()
+        addColorStop: jest.fn(),
       }),
-    }));
+    };
+
+    mockCanvas.getContext = jest.fn(() => ctx);
 
     await generateImageCards(cardData);
-
-    expect(mockCanvas.getContext).toHaveBeenCalled();
+    expect(mockCanvas.getContext).toHaveBeenCalledWith('2d');
+    expect(ctx.fillText).toHaveBeenCalled();
   });
 });
