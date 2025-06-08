@@ -10,9 +10,11 @@
       rel="stylesheet"
     />
     <script src="./horoscopePage.js" type="module"></script>
-    <title>Daily Spread</title>
+    <title>Pocket Diviner</title>
+
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="./horoscopePage.css" />
+    <link rel="icon" href="../images/logo.png" />
   </head>
   <body>
     <!-- This header bar still needs to be linked to the other pages -->
@@ -20,7 +22,6 @@
     <!-- * This header displays navigation bar to other pages of this application.* -->
     <header>
       <navigation-bar
-        bgImg="../images/paint-navbar.jpg"
         links='[{"href": "../index.html", "label": "Home"},{"href": "../DailySpreadPage/dailyspread.html", "label": "Tarot Cards"},{"href": "./horoscopePage.html", "label": "Horoscope"}, {"href": "../settings.html", "label": "Profile"}]'
       ></navigation-bar>
     </header>
@@ -52,7 +53,7 @@
         </div>
       </div>
     </div>
-
+    <button id="generateHoroscopeBtn">Share Horoscope</button>
     <script src="../components/NavigationBar.js"></script>
   </body>
 </html>
