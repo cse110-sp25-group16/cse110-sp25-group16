@@ -1,4 +1,12 @@
+/**
+ * A collection of static helpers for computing zodiac signs and readings.
+ */
 class Horoscope {
+  /**
+   * Parse a user‐entered date string into a Date object.
+   * @param {string} birthday  A date in “DD/MM/YYYY” or “DD-MM-YYYY” format.
+   * @returns {Date}           A JavaScript Date representing that day.
+   */
   static getDate(birthday) {
     const parts = birthday.split(/-|\//);
 
@@ -14,6 +22,11 @@ class Horoscope {
     return new Date(dateObj.yyyy, dateObj.mm - 1, dateObj.dd);
   }
 
+  /**
+   * Determine the Western zodiac sign for a given Date.
+   * @param {Date} date  A JavaScript Date.
+   * @returns {string|null}  The sign name (e.g. “Aries”), or null if invalid.
+   */
   static getHoroscope(date) {
     const day = date.getDate();
     const month = date.getMonth() + 1; // getMonth() is 0-based
@@ -48,7 +61,7 @@ class Horoscope {
   }
 
   /**
-   * Returns a hash code from a string
+   * Returns a 32-bit hash code for a given string
    * @param  {String} str The string to hash.
    * @return {Number}    A 32bit integer
    * @see http://werxltd.com/wp/2010/05/13/javascript-implementation-of-javas-string-hashcode-method/
@@ -63,6 +76,10 @@ class Horoscope {
     return hash;
   }
 
+  /**
+   * Look up the current user’s DOB in localStorage and generate today’s reading.
+   * @returns {Array<string>}  [theme, mood, advice] for today’s date/sign.
+   */
   static generateReadingFromCurrentUser() {
     const userInfo = JSON.parse(localStorage.getItem('tarotUserInfo'));
     const dob = userInfo['dob'];
@@ -72,7 +89,13 @@ class Horoscope {
 
     return Horoscope.generateReading(horoscope, currentDate);
   }
-
+  
+   /**
+   * Given a sign and a date, pick a “theme”, “mood”, and “advice” from static lists.
+   * @param {string} horoscope  The zodiac sign name.
+   * @param {Date} date         The date to base the reading on.
+   * @returns {Array<string>}   [chosenTheme, chosenMood, chosenAdvice].
+   */
   static generateReading(horoscope, date) {
     const dateString = date.toDateString();
     const fullText = horoscope + dateString;
@@ -88,6 +111,7 @@ class Horoscope {
     return readingOutput;
   }
 
+  /** List of possible reading themes. */
   static themes = [
     'love',
     'career',
@@ -103,6 +127,7 @@ class Horoscope {
     'balance',
   ];
 
+  /** List of possible reading moods. */
   static moods = [
     'optimistic',
     'pessimistic',
@@ -121,6 +146,7 @@ class Horoscope {
     'passionate',
   ];
 
+  /** List of possible advice snippets. */
   static advice = [
     'trust your instincts',
     'be open to change',
