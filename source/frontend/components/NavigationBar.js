@@ -14,8 +14,8 @@ class NavigationBar extends HTMLElement {
         color: white;
         padding-left: 1.5em;
         padding-right: 1.5em;
-        padding-top: 1em;
-        padding-bottom: 1em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
         display: flex;
         justify-content: space-between;
         align-items: center;

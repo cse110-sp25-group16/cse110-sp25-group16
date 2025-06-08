@@ -23,57 +23,61 @@
     <header>
       <navigation-bar prefix="../"></navigation-bar>
     </header>
-    <br />
-    <br />
 
-    <!-- * This section displays the greeting and daily spread cards.* -->
-    <div class="daily-grid">
-      <!-- Get user's name from data -->
-      <div class="greeting">
-        <h2 id="username">Hello user!</h2>
-        <h2 id="label-horoscope">Today's horoscope reading:</h2>
-        <img src="../images/advice.png" id="zodiac-picture" alt="Zodiac Sign" />
-        <div class="sign-container">
-          <label class="sign-label">Your Sign:</label>
-          <p class="sign-text"></p>
+    <main class="page-wrapper">
+      <!-- * This section displays the greeting and daily spread cards.* -->
+      <div class="daily-grid">
+        <!-- Get user's name from data -->
+        <div class="greeting">
+          <h2 id="username">Hello user!</h2>
+          <h2 id="label-horoscope">Today's horoscope reading:</h2>
+          <img
+            src="../images/advice.png"
+            id="zodiac-picture"
+            alt="Zodiac Sign"
+          />
+          <div class="sign-container">
+            <label class="sign-label">Your Sign:</label>
+            <p class="sign-text"></p>
+          </div>
+        </div>
+        <div class="content">
+          <horoscope-card
+            id="theme"
+            front-img="../images/advice.png"
+            front-title="Front Side"
+            front-desc=""
+            back-img="../images/advice.png"
+            back-title="Back Side"
+            back-desc=""
+          >
+          </horoscope-card>
+          <horoscope-card
+            id="mood"
+            front-img="../images/advice.png"
+            front-title="Front Side"
+            front-desc=""
+            back-img="../images/advice.png"
+            back-title="Back Side"
+            back-desc=""
+          >
+          </horoscope-card>
+          <horoscope-card
+            id="advice"
+            front-img="../images/advice.png"
+            front-title="Front Side"
+            front-desc=""
+            back-img="../images/advice.png"
+            back-title="Back Side"
+            back-desc=""
+          >
+          </horoscope-card>
         </div>
       </div>
-      <div class="content">
-        <horoscope-card
-          id="theme"
-          front-img="../images/advice.png"
-          front-title="Front Side"
-          front-desc=""
-          back-img="../images/advice.png"
-          back-title="Back Side"
-          back-desc=""
-        >
-        </horoscope-card>
-        <horoscope-card
-          id="mood"
-          front-img="../images/advice.png"
-          front-title="Front Side"
-          front-desc=""
-          back-img="../images/advice.png"
-          back-title="Back Side"
-          back-desc=""
-        >
-        </horoscope-card>
-        <horoscope-card
-          id="advice"
-          front-img="../images/advice.png"
-          front-title="Front Side"
-          front-desc=""
-          back-img="../images/advice.png"
-          back-title="Back Side"
-          back-desc=""
-        >
-        </horoscope-card>
+      <div id="share">
+        <button id="generateHoroscopeBtn">Share</button>
       </div>
-    </div>
-    <div id="share">
-      <button id="generateHoroscopeBtn">Share</button>
-    </div>
+    </main>
     <footer>
       <div class="footer-content">
         <img
@@ -81,8 +85,8 @@
           alt="Sweet 16 Logo"
           class="sweet-logo"
         />
-        <a href="../about.html">About Us</a>
-        <p>© 2025 Sweet 16, Inc.</p>
+        <p>© 2025 Sweet 16, Inc. | All rights reserved | Powered by dreams</p>
+        <a href="../about.html">About</a>
       </div>
     </footer>
     <script src="../components/NavigationBar.js"></script>

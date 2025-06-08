@@ -16,6 +16,13 @@ body {
   overflow-x: hidden;
   width: 100vw;
   margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+main.page-wrapper {
+  flex: 1;
 }
 
 header {
@@ -100,40 +107,44 @@ button:hover {
 
 /* Footer */
 footer {
-  background-color: rgba(20, 26, 51, 0.9);
-  border-top: 2px solid #d8b76e;
+  background-color: rgba(20, 26, 51, 0.158);
+  border-top: 2px solid rgba(17, 23, 46, 0.9);
   color: white;
   text-align: center;
-  padding: 2vh 1rem;
-  margin-top: 5vh;
+  padding: 1vh 1rem;
+  margin-top: 3vh;
   font-family: 'Noto Serif', serif;
   font-weight: bold;
   width: 100%;
 }
 
+footer p {
+  color: lightslategray;
+  font-weight: normal;
+}
+
 .footer-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1em;
   flex-wrap: wrap;
 }
 
 footer a {
-  color: #d8b76e;
+  color: #52452a;
   text-decoration: none;
   font-weight: bold;
 }
 
 footer a:hover {
-  color: #d7732f;
+  color: #361d0c;
   text-decoration: underline;
 }
 
 .sweet-logo {
-  width: 50px;
+  width: 40px;
   height: auto;
-  margin-bottom: 0.5rem;
   filter: drop-shadow(0 0 3px #d8b76e88);
   opacity: 0.6;
 }

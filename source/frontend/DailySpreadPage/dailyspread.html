@@ -28,29 +28,29 @@
     <header>
       <navigation-bar prefix="../"></navigation-bar>
     </header>
-    <br />
-    <br />
 
-    <!-- * This section displays the greeting and daily spread cards.* -->
-    <div class="daily-grid">
-      <!-- Get user's name from data -->
-      <div class="greeting">
-        <p id="username">Hi [username]!</p>
-        <p>Today's readings:</p>
-        <select id="card-amount">
-          <option value="select" disabled selected>
-            Select # of Cards to Read:
-          </option>
-          <option value="3">3</option>
-          <option value="5">5</option>
-          <option value="10">10</option>
-        </select>
+    <main class="page-wrapper">
+      <!-- * This section displays the greeting and daily spread cards.* -->
+      <div class="daily-grid">
+        <!-- Get user's name from data -->
+        <div class="greeting">
+          <p id="username">Hi [username]!</p>
+          <p>Today's readings:</p>
+          <select id="card-amount">
+            <option value="select" disabled selected>
+              Select # of Cards to Read:
+            </option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+        <div class="cards-container"></div>
       </div>
-      <div class="cards-container"></div>
-    </div>
-    <div id="share" class="disabled">
-      <button id="generateTarotCardsBtn">Share</button>
-    </div>
+      <div id="share" class="disabled">
+        <button id="generateTarotCardsBtn">Share</button>
+      </div>
+    </main>
     <footer>
       <div class="footer-content">
         <img

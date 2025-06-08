@@ -17,42 +17,44 @@
     <header>
       <navigation-bar></navigation-bar>
     </header>
-    <h1 id="title">Pocket Diviner</h1>
-    <h2 id="welcome-msg"></h2>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const welcomeMsg = document.getElementById('welcome-msg');
-        const userName = localStorage.getItem('userName') || 'Guest';
-        welcomeMsg.textContent = `Welcome, ${userName}! Explore your divination options below.`;
-      });
-    </script>
-    <div class="card-container">
-      <app-card
-        title="Tarot Cards"
-        description="Learn what the cards have in store for you"
-        icon="./images/tarot.jpg"
-        link="./DailySpreadPage/dailyspread.html"
-      ></app-card>
-      <app-card
-        id="horoscope"
-        title="Horoscopes"
-        description="How do your stars align today?"
-        icon="./images/zodiacs.webp"
-        link="./DailyHoroscopePage/horoscopePage.html"
-      ></app-card>
-    </div>
+    <main class="page-wrapper">
+      <h1 id="title">Pocket Diviner</h1>
+      <h2 id="welcome-msg"></h2>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const welcomeMsg = document.getElementById('welcome-msg');
+          const userName = localStorage.getItem('userName') || 'Guest';
+          welcomeMsg.textContent = `Welcome, ${userName}! Explore your divination options below.`;
+        });
+      </script>
+      <div class="card-container">
+        <app-card
+          title="Tarot Cards"
+          description="Learn what the cards have in store for you"
+          icon="./images/tarot.jpg"
+          link="./DailySpreadPage/dailyspread.html"
+        ></app-card>
+        <app-card
+          id="horoscope"
+          title="Horoscopes"
+          description="How do your stars align today?"
+          icon="./images/zodiacs.webp"
+          link="./DailyHoroscopePage/horoscopePage.html"
+        ></app-card>
+      </div>
 
-    <script src="./components/AppCard.js"></script>
-    <script src="./components/NavigationBar.js"></script>
+      <script src="./components/AppCard.js"></script>
+      <script src="./components/NavigationBar.js"></script>
+    </main>
 
     <footer>
       <div class="footer-content">
         <img
-          src="./images/sweet16_bw.png"
+          src="../images/sweet16_bw.png"
           alt="Sweet 16 Logo"
           class="sweet-logo"
         />
-        <a href="about.html">About Us</a>
+        <a href="./about.html">About Us</a>
         <p>© 2025 Sweet 16, Inc.</p>
       </div>
     </footer>
