@@ -90,7 +90,6 @@ class NavigationBar extends HTMLElement {
             label: 'Horoscope',
           },
           { href: './settings.html', label: 'Profile' },
-         
         ];
         linkArray.forEach((link) => {
           const a = document.createElement('a');
