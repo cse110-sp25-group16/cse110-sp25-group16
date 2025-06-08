@@ -62,6 +62,10 @@ class NavigationBar extends HTMLElement {
 
     const rawLinks = this.getAttribute('links');
 
+    let prefix = this.getAttribute('prefix');
+
+    if (!prefix) prefix = '';
+
     console.log('rawlinks:' + rawLinks);
 
     if (rawLinks) {
@@ -70,6 +74,27 @@ class NavigationBar extends HTMLElement {
         linkArray.forEach((link) => {
           const a = document.createElement('a');
           a.href = link.href;
+          a.textContent = link.label;
+          links.appendChild(a);
+        });
+      } catch (err) {
+        console.error('Invalid links JSON:', rawLinks, err);
+      }
+    } else {
+      try {
+        const linkArray = [
+          { href: './index.html', label: 'Home' },
+          { href: './DailySpreadPage/dailyspread.html', label: 'Tarot Cards' },
+          {
+            href: './DailyHoroscopePage/horoscopePage.html',
+            label: 'Horoscope',
+          },
+          { href: './settings.html', label: 'Profile' },
+          { href: './about.html', label: 'About Us' },
+        ];
+        linkArray.forEach((link) => {
+          const a = document.createElement('a');
+          a.href = prefix + link.href;
           a.textContent = link.label;
           links.appendChild(a);
         });
