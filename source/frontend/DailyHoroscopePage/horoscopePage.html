@@ -32,28 +32,49 @@
     <div class="daily-grid">
       <!-- Get user's name from data -->
       <div class="greeting">
-        <h2 id="username">Hi [username], here's today's horoscope</h2>
+        <h2 id="username">Hello user!</h2>
+        <h2 id="label-horoscope">Today's horoscope reading:</h2>
+        <img src="../images/advice.png" id="zodiac-picture" alt="Zodiac Sign" />
         <div class="sign-container">
           <label class="sign-label">Your Sign:</label>
           <p class="sign-text"></p>
         </div>
       </div>
       <div class="content">
-        <div class="item-container">
-          <label class="item-label"></label>
-          <p class="item-text"></p>
-        </div>
-        <div class="item-container">
-          <label class="item-label"></label>
-          <p class="item-text"></p>
-        </div>
-        <div class="item-container">
-          <label class="item-label"></label>
-          <p class="item-text"></p>
-        </div>
+        <horoscope-card
+          id="theme"
+          front-img="../images/advice.png"
+          front-title="Front Side"
+          front-desc=""
+          back-img="../images/advice.png"
+          back-title="Back Side"
+          back-desc=""
+        >
+        </horoscope-card>
+        <horoscope-card
+          id="mood"
+          front-img="../images/advice.png"
+          front-title="Front Side"
+          front-desc=""
+          back-img="../images/advice.png"
+          back-title="Back Side"
+          back-desc=""
+        >
+        </horoscope-card>
+        <horoscope-card
+          id="advice"
+          front-img="../images/advice.png"
+          front-title="Front Side"
+          front-desc=""
+          back-img="../images/advice.png"
+          back-title="Back Side"
+          back-desc=""
+        >
+        </horoscope-card>
       </div>
     </div>
     <button id="generateHoroscopeBtn">Share Horoscope</button>
     <script src="../components/NavigationBar.js"></script>
+    <script src="./horoscopeCard.js"></script>
   </body>
 </html>
