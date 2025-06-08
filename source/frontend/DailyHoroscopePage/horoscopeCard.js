@@ -22,7 +22,7 @@ class HoroscopeCard extends HTMLElement {
       .card {
         width: 100%;
         height: 100%;
-        position: relative;
+        
         transform-style: preserve-3d;
         transition: transform 0.8s;
         transform-origin: center;
@@ -59,6 +59,16 @@ class HoroscopeCard extends HTMLElement {
         font-size: 1em;
         text-align: center;
         margin-bottom: 10px;
+
+      }
+
+      .card-front {
+      color: #ffffff;
+        text-shadow:
+          -1px -1px 0 #000,  
+          1px -1px 0 #000,
+          -1px  1px 0 #000,
+          1px  1px 0 #000;
       }
       .card-back {
         transform: rotateY(180deg);
@@ -66,7 +76,7 @@ class HoroscopeCard extends HTMLElement {
         background-image: none;
       }
       .card-back h2 {
-        color: black;
+        color: #000000;
       }
       .card-back a {
         color: black;

@@ -53,7 +53,7 @@ header p {
 
 .sign-text {
   font-size: 24px;
-  color: #ed8839;
+  color: #ffffff;
 }
 
 .content {
@@ -63,7 +63,6 @@ header p {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  color: #ffffff;
 }
 
 .item-container {
