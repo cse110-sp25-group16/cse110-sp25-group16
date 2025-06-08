@@ -5,22 +5,42 @@
 import {
   getStoredCards,
   wrapText,
-  loadImage,
-  generateImageCards,
+  loadImage
 } from '../../source/frontend/components/ExportButton.js';
 
 import { jest } from '@jest/globals';
 
-// Manual mock for Card.js (if needed)
-jest.mock('../../source/backend/Card.js', () => {
-  return function MockCard(id) {
-    return {
-      getImg: () => `${id}.jpg`,
-      isFaceUp: () => true,
-      isUpsideDown: () => false
-    };
+// === Mocks ===
+
+// Mock localStorage for getStoredCards
+beforeEach(() => {
+  const store = {};
+  global.localStorage = {
+    getItem: key => store[key],
+    setItem: (key, value) => (store[key] = value),
+    removeItem: key => delete store[key],
+    clear: () => Object.keys(store).forEach(k => delete store[k])
   };
 });
+
+// Mock canvas getContext and ctx.measureText
+beforeAll(() => {
+  HTMLCanvasElement.prototype.getContext = () => ({
+    fillText: jest.fn(),
+    measureText: text => ({ width: text.length * 5 }),
+  });
+});
+
+// Mock global Image constructor
+global.Image = class {
+  constructor() {
+    setTimeout(() => {
+      if (this.onload) this.onload();
+    }, 0);
+  }
+};
+
+// === Tests ===
 
 describe('ExportButton helpers', () => {
   it('getStoredCards returns an array from localStorage', () => {
