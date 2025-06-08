@@ -1,191 +1,130 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us - MysticAlign</title>
-    <link rel="stylesheet" href="assets/styles/style.css" />
-    <style>
-      body {
-        font-family: 'Arial', sans-serif;
-        background-color: #fff0f5;
-        color: #333;
-      }
-
-      header {
-        background-color: pink;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-      }
-
-      nav a {
-        margin: 0 1rem;
-        color: white;
-        text-decoration: none;
-      }
-
-      section {
-        margin: 2rem;
-      }
-
-      .team-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .team-card {
-        background-color: white;
-        border-radius: 12px;
-        padding: 1rem;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .team-card h3 {
-        margin-top: 0.5rem;
-      }
-
-      .team-card a {
-        display: block;
-        color: #0077cc;
-        margin-top: 0.25rem;
-        text-decoration: none;
-      }
-
-      footer {
-        text-align: center;
-        padding: 1rem;
-        background-color: #f8d3e0;
-      }
-    </style>
+    <title>About Us - Pocket Diviner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./about.css" />
+    <link rel="icon" href="./images/logo.png" />
   </head>
+
   <body>
     <header>
-      <img src="../../admin/branding/sweet16logo.png" alt="Sweet 16 logo" height="60" />
-      <h1>Welcome to MysticAlign by Team Sweet 16</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html" aria-current="page">About</a>
-      </nav>
+      <navigation-bar
+        bgImg="./images/paint-navbar.jpg"
+        links='[
+          {"href": "./index.html", "label": "Home"},
+          {"href": "./DailySpreadPage/dailyspread.html", "label": "Tarot Cards"},
+          {"href": "./DailyHoroscopePage/horoscopePage.html", "label": "Horoscope"},
+          {"href": "./settings.html", "label": "Profile"}
+        ]'
+      ></navigation-bar>
     </header>
 
     <main>
-      <section id="product">
+      <h1 id="title">About Pocket Diviner</h1>
+
+      <section class="section">
         <h2>Our Product</h2>
         <p>
-          <strong>MysticAlign</strong> is an interactive experience that blends
-          tarot readings, astrology horoscopes, and MBTI personality types into
-          a social, reflective daily ritual. The platform creates a personalized
-          feed of daily insights and allows users to compare readings and
-          spiritual vibes with their friends.
+          Pocket Diviner is your personalized spiritual companion, combining the
+          mystical power of Tarot readings, daily horoscopes, and MBTI
+          personality insights. Unlike traditional apps that separate these
+          tools, we bring them together into one dynamic platform — for
+          introspection, connection, and fun.
         </p>
       </section>
 
-      <section id="values">
-        <h2>Team Sweet 16: Our Values</h2>
+      <section class="section">
+        <h2>Our Mission</h2>
         <p>
-          We believe in <strong>timely delivery</strong>,
-          <strong>clear communication</strong>,
-          <strong>consistent collaboration</strong>, and
-          <strong>supportive teamwork</strong>. Whether debugging backend logic
-          or perfecting CSS themes, we work with purpose, transparency, and
-          pride.
+          We believe in the power of self-discovery through symbolism,
+          storytelling, and reflection. Our mission is to provide a calm, cosmic
+          space where users can engage with spiritual tools, understand their
+          personality, and share meaningful insights with friends — all through
+          a beautifully crafted, accessible interface.
         </p>
       </section>
 
-      <section id="team">
-        <h2>Meet the Team</h2>
-        <div class="team-grid">
-          <div class="team-card">
-            <h3>Tyler Hoang – Lead</h3>
-            <p>3rd Year CS, Backend SWE</p>
-            <a href="https://github.com/Tylody">GitHub</a>
-            <a href="https://www.linkedin.com/in/tyler-hoang-8079ab246/"
-              >LinkedIn</a
-            >
-          </div>
+      <img
+        src="./images/sweet16_bw.png"
+        alt="Sweet 16 Logo"
+        class="sweet-logo"
+      />
 
-          <div class="team-card">
-            <h3>Anusha Rao – Lead</h3>
-            <p>3rd Year CE, Full Stack</p>
-            <a href="https://github.com/anushaprao">GitHub</a>
-            <a href="https://www.linkedin.com/in/anusha-p-rao">LinkedIn</a>
-          </div>
-
-          <div class="team-card">
-            <h3>Leonard Shi</h3>
-            <p>4th Year MATH CS, Full Stack</p>
-            <a href="https://github.com/leonardshi058">GitHub</a>
-            <a href="https://www.linkedin.com/in/leonard-shi-439976263/"
-              >LinkedIn</a
-            >
-          </div>
-
-          <div class="team-card">
-            <h3>Angelica Cabusi</h3>
-            <p>2nd Year CS, Frontend</p>
-            <a href="https://github.com/Lyka717">GitHub</a>
-            <a href="https://www.linkedin.com/in/angelica-cabusi-715a62246/"
-              >LinkedIn</a
-            >
-          </div>
-
-          <div class="team-card">
-            <h3>Ria Singhania</h3>
-            <p>3rd Year Int'l Business + CS, Frontend</p>
-            <a href="https://github.com/riasinghania">GitHub</a>
-            <a href="https://www.linkedin.com/in/ria-singhania/">LinkedIn</a>
-          </div>
-
-          <div class="team-card">
-            <h3>Anthony Georgis</h3>
-            <p>3rd Year CE, Backend</p>
-            <a href="https://github.com/Malakelis">GitHub</a>
-            <a href="https://www.linkedin.com/in/anthony-georgis-awg/"
-              >LinkedIn</a
-            >
-          </div>
-
-          <div class="team-card">
-            <h3>Aiden Krueger</h3>
-            <p>3rd Year CE, Full Stack</p>
-            <a href="https://github.com/aidenkrew">GitHub</a>
-            <a href="https://www.linkedin.com/in/aiden-krueger-951699247/"
-              >LinkedIn</a
-            >
-          </div>
-
-          <div class="team-card">
-            <h3>Minjoo O</h3>
-            <p>2nd Year CS, Full Stack</p>
-            <a href="https://github.com/ominjoo">GitHub</a>
-            <a href="https://linkedin.com/in/minjoo-o">LinkedIn</a>
-          </div>
-
-          <div class="team-card">
-            <h3>Nikhil Akiti</h3>
-            <p>2nd Year CS, Full Stack</p>
-            <a href="https://github.com/Nakiti">GitHub</a>
-            <a href="https://www.linkedin.com/in/nikhil-akiti-445bb6242/"
-              >LinkedIn</a
-            >
-          </div>
-
-          <div class="team-card">
-            <h3>Dustin Nguyen</h3>
-            <p>3rd Year CS, Full Stack</p>
-            <a href="https://github.com/dustinnguyen012">GitHub</a>
-            <a href="https://www.linkedin.com/in/dustin-nguyen-429256240/"
-              >LinkedIn</a
-            >
-          </div>
-        </div>
-      </section>
+      <h2 id="welcome-msg" style="text-align: center">Meet the Team</h2>
+      <div class="card-container">
+        <app-card
+          title="Tyler Hoang"
+          description="Backend SWE | 3rd Year CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/Tylody"
+        ></app-card>
+        <app-card
+          title="Anusha Rao"
+          description="Full Stack | 3rd Year CE"
+          icon="./images/tarot.jpg"
+          link="https://github.com/anushaprao"
+        ></app-card>
+        <app-card
+          title="Ria Singhania"
+          description="Frontend | 3rd Year IB + CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/riasinghania"
+        ></app-card>
+        <app-card
+          title="Angelica Cabusi"
+          description="Frontend | 2nd Year CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/Lyka717"
+        ></app-card>
+        <app-card
+          title="Anthony Georgis"
+          description="Backend | 3rd Year CE"
+          icon="./images/tarot.jpg"
+          link="https://github.com/Malakelis"
+        ></app-card>
+        <app-card
+          title="Aiden Krueger"
+          description="Fullstack | 3rd Year CE"
+          icon="./images/tarot.jpg"
+          link="https://github.com/aidenkrew"
+        ></app-card>
+        <app-card
+          title="Minjoo O"
+          description="Full Stack | 2nd Year CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/ominjoo"
+        ></app-card>
+        <app-card
+          title="Nikhil Akiti"
+          description="Full Stack | 2nd Year CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/Nakiti"
+        ></app-card>
+        <app-card
+          title="Dustin Nguyen"
+          description="Full Stack | 3rd Year CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/dustinnguyen012"
+        ></app-card>
+        <app-card
+          title="Leonard Shi"
+          description="Full Stack | 4th Year MATH CS"
+          icon="./images/tarot.jpg"
+          link="https://github.com/leonardshi058"
+        ></app-card>
+      </div>
     </main>
 
-    <footer>
-      <p>© 2025 Sweet 16 – MysticAlign | UC San Diego</p>
-    </footer>
+    <script src="./components/AppCard.js"></script>
+    <script src="./components/NavigationBar.js"></script>
   </body>
 </html>
