@@ -6,7 +6,7 @@ on:
     paths:
       - '**/*.js'
       - 'package.json'
-      
+
   pull_request:
     branches: [main]
     paths:
