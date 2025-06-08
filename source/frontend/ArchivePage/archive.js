@@ -136,14 +136,28 @@ function getArchived(active, date) {
       horoscope,
       new Date(date)
     );
+    const [themeExpanded, moodExpanded, adviceExpanded] =
+      Horoscope.expandedReading(horoscope, new Date(date));
     const values = [theme, mood, advice];
+    const labels = ['Theme', 'Mood', 'Advice'];
+    const valuesExpanded = [themeExpanded, moodExpanded, adviceExpanded];
+    const sign = Horoscope.getHoroscope(Horoscope.getDate(userInfo.dob));
+    console.log(sign);
 
-    console.log(values);
-    const items = document.querySelectorAll('.item-container');
+    const horoscopeContainer = document.querySelector('.horoscope-container');
+    horoscopeContainer.innerHTML = '';
 
     for (let i = 0; i < values.length; i++) {
-      const text = items[i].querySelector('.item-text');
-      text.textContent = values[i];
+      const horoscopeCard = document.createElement('horoscope-card');
+      horoscopeCard.setAttribute('front-img', `../images/advice.png`);
+      horoscopeCard.setAttribute('front-title', labels[i]);
+      // horoscopeCard.setAttribute("front-desc", )
+
+      horoscopeCard.setAttribute('back-img', `../images/advice.png`);
+      horoscopeCard.setAttribute('back-title', values[i]);
+      horoscopeCard.setAttribute('back-desc', valuesExpanded[i]);
+
+      horoscopeContainer.appendChild(horoscopeCard);
     }
   }
 }
