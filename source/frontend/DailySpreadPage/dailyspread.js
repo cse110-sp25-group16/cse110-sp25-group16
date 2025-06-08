@@ -18,9 +18,11 @@ async function init() {
   console.log('selectedAmnt: ' + selectedAmnt.value);
 
   document
-    .getElementById("generateTarotCardsBtn")
-    .addEventListener("click", () => generateImageCards(getStoredCards(selectedAmnt.value)));
-    
+    .getElementById('generateTarotCardsBtn')
+    .addEventListener('click', () =>
+      generateImageCards(getStoredCards(selectedAmnt.value))
+    );
+
   /*Selects cards and amount drawn depends on what option is picked */
   selectedAmnt.addEventListener('change', (event) => {
     const currDate = new Date().toISOString().split('T')[0]; // gets date in YYYY-MM-DD format
@@ -88,10 +90,5 @@ async function init() {
 
       grid.appendChild(cardElement);
     }
-
   });
-
 }
-
-
-

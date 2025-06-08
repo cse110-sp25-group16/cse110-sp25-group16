@@ -1,39 +1,42 @@
-import Card from "../../backend/Card.js";
-import Horoscope from "../../backend/horoscope.js";
+import Card from '../../backend/Card.js';
+import Horoscope from '../../backend/horoscope.js';
 
-const backgroundImageURL = "../images/paul-volkmer-stars.jpg";
+const backgroundImageURL = '../images/paul-volkmer-stars.jpg';
 
 // grab from localStorage
 function getStoredCards(amount) {
-  const allData = JSON.parse(localStorage.getItem(`dailyCards_${amount}`));
+  const currentDate = new Date().toISOString().split('T')[0];
 
-  const saved = allData.cards;
-  const date = allData.date;
+  const allData = JSON.parse(localStorage.getItem('dailyCards'));
 
-  console.log("saved: " + saved);
+  console.log(currentDate);
+
+  const dailySpread = allData[currentDate][amount];
+
+  console.log('saved: ' + dailySpread);
 
   let cardArray = [];
 
-  saved.forEach((card) => {
-    let parsed = typeof card === "string" ? JSON.parse(card) : card;
+  dailySpread.forEach((card) => {
+    let parsed = typeof card === 'string' ? JSON.parse(card) : card;
     cardArray.push(new Card(parsed.id, parsed.faceup, parsed.upsideDown));
   });
 
-  console.log("Saved cards from localStorage:", cardArray);
+  console.log('Saved cards from localStorage:', cardArray);
 
   let result = cardArray.map((card) => ({
     image: card.getImg(),
     name: card.getCardName(),
-    keywords: card.getKeywords().join(", "),
+    keywords: card.getKeywords().join(', '),
     upsideDown: card.isUpsideDown(),
     meaning: card.isUpsideDown()
-      ? card.getReversedMeaning().join(". ")
-      : card.getUprightMeanings().join(". "),
+      ? card.getReversedMeaning().join('. ')
+      : card.getUprightMeanings().join('. '),
   }));
 
-  result.push(date);
+  result.push(currentDate);
 
-  console.log("result: " + result);
+  console.log('result: ' + result);
   return result;
 }
 
@@ -57,38 +60,34 @@ async function generateImageCards(data) {
   const canvasWidth = cols * cardWidth + (cols + 1) * padding;
   const canvasHeight = rows * cardAndBoxHeight + (rows + 1) * padding + 80; // 80 for date at the top
 
-  const canvas = document.createElement("canvas");
+  const canvas = document.createElement('canvas');
   canvas.width = canvasWidth;
   canvas.height = canvasHeight;
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext('2d');
 
   const date = data[data.length - 1];
   data.pop();
 
-  ctx.textBaseline = "middle";
-  ctx.fillStyle = "#fff";
-  ctx.textAlign = "center";
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#fff';
+  ctx.textAlign = 'center';
 
   await document.fonts.ready;
 
   // background image
   const bgImg = await loadImage(backgroundImageURL);
   const itemImages = await Promise.all(
-    data.map((item) => loadImage("../../cards/" + item.image))
+    data.map((item) => loadImage('../../cards/' + item.image))
   );
   ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
 
   const usernameY = 50;
   const dateY = 100;
 
-  const userInfo = JSON.parse(localStorage.getItem("tarotUserInfo"));
-  const username = userInfo.name || "User";
+  const userInfo = JSON.parse(localStorage.getItem('tarotUserInfo'));
+  const username = userInfo.name || 'User';
   ctx.font = "52px 'Noto Serif'";
-  ctx.fillText(
-    `${username}'s Daily Tarot Reading`,
-    canvas.width / 2,
-    usernameY
-  );
+  ctx.fillText(`${username}'s Daily Tarot`, canvas.width / 2, usernameY);
 
   ctx.font = "48px 'Noto Serif'";
   ctx.fillText(`${date}`, canvas.width / 2, dateY);
@@ -134,7 +133,7 @@ async function generateImageCards(data) {
 
     // Draw text box below card
     ctx.lineWidth = 2;
-    ctx.strokeStyle = "#fff";
+    ctx.strokeStyle = '#fff';
     ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
 
     ctx.font = "28px 'Noto Serif'";
@@ -144,7 +143,7 @@ async function generateImageCards(data) {
     ctx.moveTo(x, nameY + 18);
     ctx.lineTo(x + cardWidth, nameY + 18);
     ctx.lineWidth = 2;
-    ctx.strokeStyle = "#fff";
+    ctx.strokeStyle = '#fff';
     ctx.stroke();
 
     ctx.font = "24px 'Noto Serif'";
@@ -155,9 +154,10 @@ async function generateImageCards(data) {
       keywordsY,
       cardWidth,
       24,
-      "keywords: ",
-      ""
+      'keywords: ',
+      ''
     );
+    ctx.font = "20px 'Noto Serif'";
     wrapText(
       ctx,
       item.meaning,
@@ -165,28 +165,27 @@ async function generateImageCards(data) {
       meaningY,
       cardWidth,
       24,
-      "meanings: ",
-      "."
+      'Meanings: ',
+      '.'
     );
   });
 
-  // Export as PNG and trigger download
-  const link = document.createElement("a");
-  link.download = "daily_reading.png";
-  link.href = canvas.toDataURL("image/png");
+  const link = document.createElement('a');
+  link.download = 'daily_reading.jpg';
+  link.href = canvas.toDataURL('image/jpeg');
   link.click();
 }
 
 function wrapText(ctx, text, x, y, maxWidth, lineHeight, lineStart, lineEnd) {
-  const words = text.split(" ");
+  const words = text.split(' ');
   let line = lineStart;
 
   for (let i = 0; i < words.length; i++) {
-    const testLine = line + words[i] + " ";
+    const testLine = line + words[i] + ' ';
     const testWidth = ctx.measureText(testLine).width;
     if (testWidth > maxWidth && i > 0) {
       ctx.fillText(line, x, y);
-      line = words[i] + " ";
+      line = words[i] + ' ';
       y += lineHeight;
     } else {
       line = testLine;
@@ -200,7 +199,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight, lineStart, lineEnd) {
 function loadImage(src) {
   return new Promise((resolve, reject) => {
     const img = new Image();
-    img.crossOrigin = "anonymous";
+    img.crossOrigin = 'anonymous';
     img.onload = () => resolve(img);
     img.onerror = reject;
     img.src = src;
@@ -208,7 +207,7 @@ function loadImage(src) {
 }
 
 async function generateImageHoroscope() {
-  const userText = await localStorage.getItem("tarotUserInfo");
+  const userText = await localStorage.getItem('tarotUserInfo');
   const userInfo = await JSON.parse(userText);
 
   const sign = Horoscope.getHoroscope(Horoscope.getDate(userInfo.dob));
@@ -216,17 +215,17 @@ async function generateImageHoroscope() {
   const items = Horoscope.generateReadingFromCurrentUser();
   const currentDate = new Date();
 
-  const labels = ["Theme", "Mood", "Advice"];
+  const labels = ['Theme', 'Mood', 'Advice'];
 
   const canvasWidth = 1000;
   const canvasHeight = 1200;
-  const canvas = document.createElement("canvas");
+  const canvas = document.createElement('canvas');
   canvas.width = canvasWidth;
   canvas.height = canvasHeight;
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext('2d');
 
-  ctx.fillStyle = "#fff";
-  ctx.textAlign = "center";
+  ctx.fillStyle = '#fff';
+  ctx.textAlign = 'center';
 
   const imgSize = 400;
 
@@ -254,11 +253,11 @@ async function generateImageHoroscope() {
   ctx.rotate((135 * Math.PI) / 180);
 
   const gradient = ctx.createLinearGradient(-radius, 0, radius, 0);
-  gradient.addColorStop(0, "white");
-  gradient.addColorStop(0.025, "#FED500");
-  gradient.addColorStop(0.6, "#904B01");
-  gradient.addColorStop(0.975, "#FED500");
-  gradient.addColorStop(1, "white");
+  gradient.addColorStop(0, 'white');
+  gradient.addColorStop(0.025, '#FED500');
+  gradient.addColorStop(0.6, '#904B01');
+  gradient.addColorStop(0.975, '#FED500');
+  gradient.addColorStop(1, 'white');
 
   ctx.beginPath();
   ctx.strokeStyle = gradient;
@@ -295,28 +294,27 @@ async function generateImageHoroscope() {
     ctx.font = "bold 40px 'Noto Serif'";
     ctx.fillText(labels[i], canvas.width / 2, y);
     ctx.font = "32px 'Noto Serif'";
-    wrapText(ctx, item, canvas.width / 2, y + 40, 640, 28, "", "");
+    wrapText(ctx, item, canvas.width / 2, y + 40, 640, 28, '', '');
     y += 110; // space between items
   });
 
-  // Export as PNG and trigger download
-  const link = document.createElement("a");
-  link.download = "horoscope.png";
-  link.href = canvas.toDataURL("image/png");
+  const link = document.createElement('a');
+  link.download = 'horoscope.jpg';
+  link.href = canvas.toDataURL('image/jpeg');
   link.click();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  document
-    .getElementById("generateBtn")
-    .addEventListener("click", () => generateImageCards(getStoredCards(3)));
-  document.getElementById("getCardsBtn").addEventListener("click", () => {
-    const data = getStoredCards(3);
-  });
-  document
-    .getElementById("generateHoroscopeBtn")
-    .addEventListener("click", generateImageHoroscope);
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   document
+//     .getElementById("generateBtn")
+//     .addEventListener("click", () => generateImageCards(getStoredCards(3)));
+//   document.getElementById("getCardsBtn").addEventListener("click", () => {
+//     const data = getStoredCards(3);
+//   });
+//   document
+//     .getElementById("generateHoroscopeBtn")
+//     .addEventListener("click", generateImageHoroscope);
+// });
 
 export default getStoredCards;
 export { generateImageHoroscope };

@@ -1,5 +1,5 @@
 import Horoscope from '../../backend/horoscope.js';
-import { generateImageHoroscope } from "../components/ExportButton.js";
+import { generateImageHoroscope } from '../components/ExportButton.js';
 
 /**
  * Upon page load, call the init() function
@@ -30,8 +30,8 @@ async function init() {
     `Hi ${userData.name}! Here's today's horoscope reading:`;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   document
-    .getElementById("generateHoroscopeBtn")
-    .addEventListener("click", generateImageHoroscope);
+    .getElementById('generateHoroscopeBtn')
+    .addEventListener('click', generateImageHoroscope);
 });
