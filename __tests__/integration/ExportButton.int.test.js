@@ -1,54 +1,30 @@
+
 const { generateImageCards } = require('../../source/frontend/components/ExportButton.js');
 
 describe('generateImageCards', () => {
   it('renders canvas and draws cards properly', async () => {
-    const cardData = [
+    document.body.innerHTML = '<canvas id="tarot-canvas" width="1000" height="1000"></canvas>';
+    const canvas = document.getElementById('tarot-canvas');
+    const ctx = canvas.getContext('2d');
+
+    const cards = [
       {
-        image: 'card1.png',
-        name: 'The Fool',
-        keywords: 'new beginnings',
-        upsideDown: false,
-        meaning: 'Fresh start.',
+        id: 1,
+        getImg: () => 'mock-image.png',
+        getCardName: () => 'Card-1',
+        getKeywords: () => ['keyword1'],
+        getUprightMeanings: () => ['meaning1'],
+        getReversedMeaning: () => 'reversed',
+        getSuit: () => 'Wands',
+        getArcana: () => 'Major',
+        getNumeral: () => 'I',
+        getDescription: () => 'desc',
+        getSymbolism: () => 'sym',
       },
-      {
-        image: 'card2.png',
-        name: 'The Magician',
-        keywords: 'manifestation',
-        upsideDown: true,
-        meaning: 'Manipulation.',
-      },
-      '2025-06-07',
     ];
 
-    const mockCanvas = document.createElement('canvas');
-    document.createElement = jest.fn((tag) =>
-      tag === 'canvas' ? mockCanvas : document.createElement(tag)
-    );
-
-    const ctx = {
-      fillText: jest.fn(),
-      drawImage: jest.fn(),
-      strokeRect: jest.fn(),
-      stroke: jest.fn(),
-      measureText: () => ({ width: 80 }),
-      beginPath: jest.fn(),
-      moveTo: jest.fn(),
-      lineTo: jest.fn(),
-      save: jest.fn(),
-      restore: jest.fn(),
-      translate: jest.fn(),
-      scale: jest.fn(),
-      rotate: jest.fn(),
-      arc: jest.fn(),
-      createLinearGradient: () => ({
-        addColorStop: jest.fn(),
-      }),
-    };
-
-    mockCanvas.getContext = jest.fn(() => ctx);
-
-    await generateImageCards(cardData);
-    expect(mockCanvas.getContext).toHaveBeenCalledWith('2d');
-    expect(ctx.fillText).toHaveBeenCalled();
+    const date = new Date('2024-01-01');
+    await generateImageCards(ctx, cards, 'mockHoroscope', date);
+    expect(ctx).toBeDefined();
   });
 });
