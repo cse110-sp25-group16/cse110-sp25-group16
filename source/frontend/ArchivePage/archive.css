@@ -46,8 +46,6 @@ h2 {
   margin-right: auto;
 }
 
-
-
 .date-container label {
   font-weight: bold;
   display: block;
@@ -160,10 +158,10 @@ button.active {
 }
 
 @media (max-width: 600px) {
-   .horoscope-container {
-      flex-direction: column;
-      align-items: center;
-   }
+  .horoscope-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* Wider on small screens */
