@@ -368,12 +368,10 @@ class CardComponent extends HTMLElement {
         flipped = true;
       } else if (!focused) {
         card.classList.add('focused');
-        this.classList.add('focused');
         card.querySelector('.details').classList.remove('hidden');
         focused = true;
       } else {
         card.classList.remove('focused');
-        this.classList.remove('focused');
         card.querySelector('.details').classList.add('hidden');
         focused = false;
       }
