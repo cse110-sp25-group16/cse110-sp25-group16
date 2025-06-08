@@ -54,7 +54,7 @@ Our mission is to make spiritual and personal exploration more accessible by uni
 
 ---
 
-## 🧭 Group Values
+## Group Values
 
 - **Communication**: Regular bi-weekly standups and proactive help-seeking from teammates and TAs.
 - **Accountability**: Everyone is expected to complete assigned tasks and take ownership post-Sprint 1.
@@ -62,7 +62,7 @@ Our mission is to make spiritual and personal exploration more accessible by uni
 
 ---
 
-## 🗓️ Timeline
+## Timeline
 
 ### Week 3: April 14–18
 
@@ -116,7 +116,7 @@ Our mission is to make spiritual and personal exploration more accessible by uni
 
 ---
 
-## ⚙️ CI/CD Pipeline Brief
+## CI/CD Pipeline Brief
 
 Our CI/CD pipeline (GitHub Actions) ensures reliable, tested, and production-ready code:
 
