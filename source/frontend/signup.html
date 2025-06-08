@@ -4,18 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="signup.css" />
+    <script src="./components/NavigationBar.js" type="module"></script>
   </head>
   <body>
-    <h1 style="color: white; text-align: center; font-weight: bold">
-      Pocket Diviner
-    </h1>
     <div class="container">
-      <h1>Sign up</h1>
+      <h1>Register</h1>
 
       <form id="signup-form">
-        <label for="name">Name:</label>
+        <label for="name">Name</label>
         <input type="text" id="name" name="name" required />
 
         <label>Date of Birth</label>
@@ -43,19 +47,16 @@
           />
         </div>
 
-        <label for="mbti">
-          MBTI ⓘ
-          <span class="disclaimer">
-            Don’t know your MBTI?
-            <a
-              href="https://www.16personalities.com/free-personality-test"
-              target="_blank"
-            >
-              Click here
-            </a>
-            to take the Myers-Briggs Personality Test
-          </span>
-        </label>
+        <label for="mbti">MBTI ⓘ</label>
+        <span class="disclaimer">
+          Don’t know your MBTI?
+          <a
+            href="https://www.16personalities.com/free-personality-test"
+            target="_blank"
+          >
+            Click here
+          </a>
+        </span>
         <select id="mbti" name="mbti" required>
           <option value="">Select...</option>
           <option value="ESFJ">ESFJ</option>
@@ -76,8 +77,7 @@
           <option value="ISTP">ISTP</option>
         </select>
 
-        <button type="submit">Sign up</button>
-
+        <button type="submit">Submit</button>
         <p class="storage-note">
           Note: Your data is stored securely and used only for personalization.
         </p>
