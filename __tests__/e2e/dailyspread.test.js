@@ -3,6 +3,16 @@ describe('Daily Spread Page', () => {
     await page.goto(
       'http://localhost:8080/source/frontend/DailySpreadPage/dailyspread.html'
     );
+
+    await page.evaluate(() => {
+      localStorage.setItem(
+        'tarotUserInfo',
+        JSON.stringify({ name: 'TestUser' })
+      );
+      location.reload(); // reload so the page re-runs init with user data
+    });
+
+    await page.waitForSelector('#username');
   });
 
   it('should greet the user with a message', async () => {
