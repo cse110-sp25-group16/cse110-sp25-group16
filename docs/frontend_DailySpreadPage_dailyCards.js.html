@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSDoc: Source: frontend/DailySpreadPage/dailyCards.js</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/prettify-tomorrow.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <h1 class="page-title">Source: frontend/DailySpreadPage/dailyCards.js</h1>
+
+      <section>
+        <article>
+          <pre class="prettyprint source linenums"><code>/**
+ * Card Component is a custom web component that creates a tarot-style card with a front/back flip animation
+ * and collapsible subsections
+ *
+ * Attributes:
+ * - image: string - URL to card image
+ * - title: string - Name of card
+ * - arcana: string - Arcana type
+ * - suit: string - Suit of card
+ * - uprightMeanings: JSON encoded array of strings - meanings of card
+ * - reversedMeanings: JSON encoded array of strings - reversed meanings of card
+ * - keywords: JSON encoded array of strings - keywords for card
+ * - description: string - Description of card
+ * - numeral: string - Numeral of card
+ */
+
+class CardComponent extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  /**
+   * The connectedCallback method is called after the element is attached to the DOM.
+   * This is so that we can set the attirbutes of the card-component element in dailyspread.js file
+   */
+  connectedCallback() {
+    let flipped = false;
+    let focused = false;
+
+    this.attachShadow({ mode: 'open' });
+    const shadow = this.shadowRoot;
+
+    // create wrapper and card container
+    const container = document.createElement('div');
+    container.classList.add('card-container');
+
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('card-wrapper');
+
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    // retrieve attributes
+    const image = this.getAttribute('image');
+    const title = this.getAttribute('name');
+    const arcana = this.getAttribute('arcana');
+    const suit = this.getAttribute('suit');
+    const uprightMeanings = JSON.parse(
+      this.getAttribute('uprightMeanings') || '[]'
+    );
+    const reversedMeanings = JSON.parse(
+      this.getAttribute('reversedMeanings') || '[]'
+    );
+    const keywords = JSON.parse(this.getAttribute('keywords') || '[]');
+    const description = this.getAttribute('description');
+    const numeral = this.getAttribute('numeral');
+    const facing = this.getAttribute('facing');
+    const upsideDown = this.getAttribute('upsideDown');
+    //  const interpretation = this.getAttribute('interpretation')
+
+    /**
+     * card.innerHtml defines the visual html structure of the card
+     */
+    card.innerHTML = `
+         &lt;div class="card-back">
+
+         &lt;/div>
+         &lt;div class="card-front"> 
+            &lt;div class="summary">
+               &lt;img src="${image}" alt="${title}"/>
+               &lt;h3>${numeral}) ${title} &lt;/h3>
+               &lt;strong>${arcana} - ${suit} &lt;/strong>
+            &lt;/div>
+            &lt;div class="details hidden">
+               &lt;section>
+                  &lt;div class="section-header">
+                     &lt;h4>Description&lt;/h4>
+                     &lt;button data-toggle="desc">-&lt;/button>
+                  &lt;/div>
+                  &lt;p data-content="desc">${description}&lt;/p>
+               &lt;/section>
+               &lt;section>
+                  &lt;div class="section-header">
+                     &lt;h4>Keywords&lt;/h4>
+                     &lt;button data-toggle="keywords">-&lt;/button>
+                  &lt;/div>
+                  &lt;div class="keywords" data-content="keywords">
+                     ${keywords.join(', ')}
+                  &lt;/div>
+               &lt;/section>
+               ${
+                 upsideDown == 'false'
+                   ? `&lt;section>
+                  &lt;div class="section-header">
+                     &lt;h4>Upright Meanings&lt;/h4>
+                     &lt;button data-toggle="upright">-&lt;/button>
+                  &lt;/div>
+                  &lt;ul data-content="upright">
+                     ${uprightMeanings.map((item) => `&lt;li>${item}&lt;/li>`).join('')}
+                  &lt;/ul>
+               &lt;/section>`
+                   : `&lt;section>
+                  &lt;div class="section-header">
+                     &lt;h4>Reversed Meanings&lt;/h4>
+                     &lt;button id="reversed">-&lt;/button>
+                  &lt;/div>
+                  &lt;ul data-content="reversed">
+                     ${reversedMeanings.map((item) => `&lt;li>${item}&lt;/li>`).join('')}
+                  &lt;/ul>
+               &lt;/section>`
+               }
+            &lt;/div>
+         &lt;/div>
+      `;
+    /**
+     * Adds toggle behavior with data-attribute
+     */
+    const toggleButtons = card.querySelectorAll('button[data-toggle]');
+    toggleButtons.forEach((button) => {
+      const key = button.getAttribute('data-toggle');
+      const content = card.querySelector(`[data-content="${key}"]`);
+      let collapsed = false;
+
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        collapsed = !collapsed;
+
+        if (collapsed) {
+          content.classList.add('collapsed');
+          button.textContent = '+';
+        } else {
+          content.classList.remove('collapsed');
+          button.textContent = '−';
+        }
+      });
+    });
+
+    // create styles
+    const style = document.createElement('style');
+    style.textContent = `
+         .card-wrapper {
+            width: 260px;
+            height: 420px;
+            perspective: 1200px;
+            cursor: pointer;
+            margin: 1rem;
+            border-radius: 16px;
+         }
+
+         .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+         }
+
+         .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease-in-out;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background-color: #f9f5ec ;
+            border: dashed gray 1px
+         }
+
+         .card.flip {
+            transform: rotateY(180deg);
+         }
+
+         .card-front, .card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            // display: flex;
+            // flex-direction: column;
+            // align-items: center;
+            // justify-content: flex-start;
+            border-radius: 16px;
+            // background-color: white;
+            overflow-y: auto;
+            padding: 16px;
+            box-sizing: border-box;
+         }
+
+         .card-back {
+            background: url('../images/cardback.jpg') center/cover no-repeat;
+         }
+
+         .card-front {
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            overflow-y: auto;
+         }
+
+         section {
+            margin-bottom: 4px
+         }
+
+         .section-header {
+            width: full;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px; 
+            // padding: 4px 0;
+         }
+
+         .section-header h4 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+         }
+
+         .section-header button {
+            padding: 1px 8px;
+            font-size: 13px;
+            background-color: #f0f4f8;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+         }
+
+         .section-header button:hover {
+            background-color: #e2e8f0;
+         }
+
+         [data-content].collapsed {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+            transition: all 0.2s ease;
+         }
+
+         [data-content] {
+            transition: all 0.2s ease;
+         }
+
+         img {
+            height: 80%;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         }
+
+         h3 {
+            margin: 8px 0 4px;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: 600;
+         }
+
+         strong {
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            text-align: center;
+         }
+
+         .keywords {
+            font-style: italic;
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: 8px;
+            text-align: center;
+         }
+
+         ul {
+            // list-style-type: none;
+            padding-left: 1.2rem;
+            margin: 8px 0;
+         }
+
+         ul li {
+            font-size: 12px;
+            margin-bottom: 2px
+         }
+
+         p {
+            font-size: 0.8rem;
+            line-height: 1.4;
+            margin-top: 10px;
+            // text-align: justify;
+         }
+
+         .details.hidden {
+            display: none
+         }
+
+         .card.focused {
+            z-index: 10;
+            transform: scale(1.2) rotateY(180deg);
+            transition: transform 0.6s ease, z-index 0s;
+         }
+
+         .reversed-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #000;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+         }
+
+         .info-btn {
+         background: none;
+         border: none;
+         cursor: pointer;
+         font-size: 1rem;
+         padding: 0;
+         color: #555;
+         }
+
+         .info-btn:hover {
+         color: #000;
+         }
+
+         .summary {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+         }
+
+         .card.upsidedown .card-front .summary img {
+            transform: rotateX(180deg);
+         }
+
+         .card.focused .summary {
+            display: none;
+         }
+         
+         .card.focused .card-front {
+            justify-content: flex-start;
+            align-items: center;
+         }
+
+      `;
+
+    //append to shadow layer
+    wrapper.appendChild(card);
+    container.appendChild(wrapper);
+
+    // if reversed, add label below the card
+    if (upsideDown === 'true' || facing === 'true') {
+      //       const reversedNote = document.createElement("div");
+      //       reversedNote.classList.add("reversed-note");
+      //       reversedNote.innerHTML = `
+      //     &lt;span>Reversed&lt;/span>
+      //     &lt;button class="info-btn" title="Reversed cards have different meanings from normal cards">ℹ️&lt;/button>
+      //   `;
+      //       container.appendChild(reversedNote);
+      card.classList.add('upsidedown');
+    }
+
+    shadow.append(style, container);
+
+    // add event listener for card flipping on click
+
+    wrapper.addEventListener('click', () => {
+      if (!flipped) {
+        card.classList.add('flip');
+        flipped = true;
+      } else if (!focused) {
+        card.classList.add('focused');
+        card.querySelector('.details').classList.remove('hidden');
+        focused = true;
+      } else {
+        card.classList.remove('focused');
+        card.querySelector('.details').classList.add('hidden');
+        focused = false;
+      }
+    });
+  }
+}
+
+customElements.define('card-component', CardComponent);
+</code></pre>
+        </article>
+      </section>
+    </div>
+
+    <nav>
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Classes</h3>
+      <ul>
+        <li><a href="Card.html">Card</a></li>
+        <li><a href="CardComponent.html">CardComponent</a></li>
+        <li><a href="CardDeck.html">CardDeck</a></li>
+      </ul>
+      <h3>Global</h3>
+      <ul>
+        <li><a href="global.html#init">init</a></li>
+      </ul>
+    </nav>
+
+    <br class="clear" />
+
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sat Jun 07
+      2025 22:21:18 GMT-0700 (Pacific Daylight Time)
+    </footer>
+
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+  </body>
+</html>
