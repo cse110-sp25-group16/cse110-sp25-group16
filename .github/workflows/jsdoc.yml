@@ -5,10 +5,13 @@ on:
     branches: [main]
     paths:
       - '**/*.js'
+      - 'package.json'
+
   pull_request:
     branches: [main]
     paths:
       - '**/*.js'
+      - 'package.json'
 
 jobs:
   jsdoc:

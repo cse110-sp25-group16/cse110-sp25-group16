@@ -92,7 +92,7 @@ class Card {
 
   /**
    *
-   * @returns
+   * @returns {string} Returns the sybmolism of the associated card
    */
   getSymbolism() {
     return cardDictionary[this.id].symbolism;
