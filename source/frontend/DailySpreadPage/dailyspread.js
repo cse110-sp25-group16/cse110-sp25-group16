@@ -19,19 +19,23 @@ async function init() {
   /*Selects grid-container in html and clears the cards loaded from previous draw*/
   const grid = document.querySelector('.cards-container');
   const selectedAmnt = document.querySelector('#card-amount');
+  selectedAmnt.value = 'select';
   console.log('selectedAmnt: ' + selectedAmnt.value);
 
-  document
-    .getElementById('generateTarotCardsBtn')
-    .addEventListener('click', () =>
-      generateImageCards(getStoredCards(selectedAmnt.value))
-    );
+  const shareButton = document.getElementById('generateTarotCardsBtn');
+  shareButton.addEventListener('click', () =>
+    generateImageCards(getStoredCards(selectedAmnt.value))
+  );
+
+  const shareDiv = document.querySelector('.disabled');
 
   /*Selects cards and amount drawn depends on what option is picked */
   selectedAmnt.addEventListener('change', (event) => {
     const currDate = new Date().toISOString().split('T')[0]; // gets date in YYYY-MM-DD format
     const existingData = JSON.parse(localStorage.getItem('dailyCards')) || {};
     let pulledCards;
+
+    shareDiv.classList.remove('disabled');
 
     /**
      * Checks if have cards already drawn and saved today and uses those cards to display.

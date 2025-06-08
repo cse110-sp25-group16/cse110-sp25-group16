@@ -61,7 +61,7 @@ input[type='password'],
 select {
   width: 100%;
   padding: 10px;
-  border: 2px solid #7d4f50;
+  border: 2px solid #d8b76e;
   border-radius: 10px;
   box-sizing: border-box;
   margin-bottom: 5px;
@@ -82,7 +82,7 @@ select:focus {
 
 button {
   background-color: #d8b76e;
-  border-color: #e3bcba;
+  border-color: #d8b76e;
   color: white;
   padding: 10px 15px;
   border-radius: 10px;
@@ -95,4 +95,5 @@ button {
 
 button:hover {
   background-color: #d7732f;
+  border-color: #d7732f;
 }
