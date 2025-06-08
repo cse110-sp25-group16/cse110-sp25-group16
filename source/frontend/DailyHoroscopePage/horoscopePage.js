@@ -1,4 +1,5 @@
-import Horoscope from "../../backend/horoscope.js";
+import Horoscope from '../../backend/horoscope.js';
+import { generateImageHoroscope } from '../components/ExportButton.js';
 
 /**
  * Upon page load, call the init() function
@@ -29,3 +30,9 @@ async function init() {
   // document.querySelector("#zodiac-picture").src = `../images/zodiacs/${sign}.png`;
   document.querySelector("#zodiac-picture").src = "../images/logo.png";
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document
+    .getElementById('generateHoroscopeBtn')
+    .addEventListener('click', generateImageHoroscope);
+});

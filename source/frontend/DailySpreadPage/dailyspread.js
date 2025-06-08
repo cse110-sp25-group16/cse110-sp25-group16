@@ -1,5 +1,7 @@
 import CardDeck from '../../backend/CardDeck.js';
 import Card from '../../backend/Card.js';
+import { generateImageCards } from '../components/ExportButton.js';
+import { getStoredCards } from '../components/ExportButton.js';
 
 /**
  * Upon page load, call the init() function
@@ -13,6 +15,13 @@ async function init() {
   /*Selects grid-container in html and clears the cards loaded from previous draw*/
   const grid = document.querySelector('.cards-container');
   const selectedAmnt = document.querySelector('#card-amount');
+  console.log('selectedAmnt: ' + selectedAmnt.value);
+
+  document
+    .getElementById('generateTarotCardsBtn')
+    .addEventListener('click', () =>
+      generateImageCards(getStoredCards(selectedAmnt.value))
+    );
 
   /*Selects cards and amount drawn depends on what option is picked */
   selectedAmnt.addEventListener('change', (event) => {
