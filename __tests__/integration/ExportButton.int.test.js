@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { generateImageCards } from '../../source/frontend/components/ExportButton.js';
 
 describe('generateImageCards', () => {
