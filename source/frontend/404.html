@@ -1,60 +1,61 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <!-- ensure responsive layout on all screen sizes for accessibility -->
-  <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <title>404 - Page Not Found</title>
-  <style>
-    /* fallback styling */
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      margin: 4rem;
-    }
-    h1 {
-      font-size: 3rem;
-      color: #c00;
-    }
-    a {
-      color: #d8b76e;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    a:focus {
-      text-decoration: underline;
-      outline: 2px solid #d8b76e;  /* gold outline for focus */
-      outline-offset: 2px;
-    }
-    p {
-      margin: 1.5rem 0;
-    }
-  </style>
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <!-- site navigation -->
-  <header>
-    <navigation-bar
-      bgImg="./images/paint-navbar.jpg"
-      links='[
+  <head>
+    <meta charset="UTF-8" />
+    <!-- ensure responsive layout on all screen sizes for accessibility -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 - Page Not Found</title>
+    <style>
+      /* fallback styling */
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        margin: 4rem;
+      }
+      h1 {
+        font-size: 3rem;
+        color: #c00;
+      }
+      a {
+        color: #d8b76e;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      a:focus {
+        text-decoration: underline;
+        outline: 2px solid #d8b76e; /* gold outline for focus */
+        outline-offset: 2px;
+      }
+      p {
+        margin: 1.5rem 0;
+      }
+    </style>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- site navigation -->
+    <header>
+      <navigation-bar
+        bgImg="./images/paint-navbar.jpg"
+        links='[
         {"href":"./index.html","label":"Home"},
         {"href":"./DailySpreadPage/dailyspread.html","label":"Tarot Cards"},
         {"href":"./DailyHoroscopePage/horoscopePage.html","label":"Horoscope"},
         {"href":"./settings.html","label":"Profile"}
-      ]'>
-    </navigation-bar>
-  </header>
+      ]'
+      >
+      </navigation-bar>
+    </header>
 
-  <main>
-    <h1>404</h1>
-    <p>Sorry, we couldn't find that page.</p>
-    <p><a href="./index.html">Return Home</a></p>
-  </main>
+    <main>
+      <h1>404</h1>
+      <p>Sorry, we couldn't find that page.</p>
+      <p><a href="./index.html">Return Home</a></p>
+    </main>
 
-  <script src="./components/NavigationBar.js"></script>
-</body>
+    <script src="./components/NavigationBar.js"></script>
+  </body>
 </html>
