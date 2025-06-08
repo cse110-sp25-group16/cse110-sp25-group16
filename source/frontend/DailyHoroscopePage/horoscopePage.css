@@ -49,11 +49,12 @@ header p {
 .sign-label {
   font-size: 24px;
   font-weight: bold;
+  color: white;
 }
 
 .sign-text {
   font-size: 24px;
-  color: #ffffff;
+  color: #d8b76e;
 }
 
 .content {
