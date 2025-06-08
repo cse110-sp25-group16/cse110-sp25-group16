@@ -40,7 +40,7 @@ class HoroscopeCard extends HTMLElement {
         backface-visibility: hidden;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         box-shadow: 0 6px 12px rgba(0,0,0,0.15);
       }
