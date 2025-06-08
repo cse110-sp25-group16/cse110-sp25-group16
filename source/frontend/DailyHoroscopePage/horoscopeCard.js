@@ -9,8 +9,8 @@ class HoroscopeCard extends HTMLElement {
     const style = document.createElement('style');
     style.textContent = `
       .card-container {
-        width: 25vh;
-        height: 40vh;
+        width: 240px;
+        height: 370px;
         perspective: 1000px;
         cursor: pointer;
 
@@ -31,6 +31,8 @@ class HoroscopeCard extends HTMLElement {
         transform: rotateY(180deg);
       }
       .card-face {
+        box-sizing: border-box;
+        padding: 10px;
         position: absolute;
         width: 100%;
         height: 100%;
