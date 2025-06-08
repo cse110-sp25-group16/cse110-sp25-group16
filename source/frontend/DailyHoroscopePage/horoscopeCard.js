@@ -65,6 +65,12 @@ class HoroscopeCard extends HTMLElement {
         background-color: #f9f5ec;
         background-image: none;
       }
+      .card-back h2 {
+        color: black;
+      }
+      .card-back a {
+        color: black;
+      }
     `;
 
     const frontImg = this.getAttribute("front-img");
