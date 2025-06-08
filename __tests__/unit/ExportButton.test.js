@@ -1,5 +1,4 @@
 import { jest } from '@jest/globals';
-import Card from '../../source/backend/Card.js';
 import * as ExportButton from '../../source/frontend/components/ExportButton.js';
 
 // Mock Card class
@@ -70,6 +69,8 @@ describe('getStoredCards', () => {
     expect(card2.meaning).toContain(
       'Being aloof. Obsessing on secrets and conspiracies. Rejecting guidance from spirit or intuition. Revealing all. Ignoring gut feelings. Refusing to become involved, even when involvement is appropriate'
     );
+
+    expect(card3.faceup).toBe(true);
 
     expect(typeof date).toBe('string');
   });
