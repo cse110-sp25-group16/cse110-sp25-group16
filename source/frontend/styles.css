@@ -113,9 +113,10 @@ footer {
 
 .footer-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  gap: 1em;
+  flex-wrap: wrap;
 }
 
 footer a {
@@ -130,8 +131,9 @@ footer a:hover {
 }
 
 .sweet-logo {
-  width: 80px;
+  width: 50px;
   height: auto;
   margin-bottom: 0.5rem;
   filter: drop-shadow(0 0 3px #d8b76e88);
+  opacity: 0.6;
 }
