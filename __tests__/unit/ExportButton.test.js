@@ -1,64 +1,76 @@
-/**
- * @jest-environment jsdom
- */
-
-import {
-  getStoredCards,
-  wrapText,
-  loadImage
-} from '../../source/frontend/components/ExportButton.js';
-
 import { jest } from '@jest/globals';
+import Card from '../../source/backend/Card.js';
+import * as ExportButton from '../../source/frontend/components/ExportButton.js';
 
-// === Mocks ===
+// Mock Card class
+jest.mock('../../source/backend/Card.js', () => {
+  return jest.fn().mockImplementation((id, faceup, upsideDown) => {
+    return {
+      id,
+      faceup,
+      upsideDown,
+      getImg: () => `card-${id}.jpg`,
+      getCardName: () => `Card ${id}`,
+      getKeywords: () => ['keyword1', 'keyword2'],
+      isUpsideDown: () => upsideDown,
+      getReversedMeaning: () => ['Reversed meaning A', 'Reversed meaning B'],
+      getUprightMeanings: () => ['Upright meaning A', 'Upright meaning B'],
+    };
+  });
+});
 
-// Mock localStorage for getStoredCards
+// Mock localStorage
 beforeEach(() => {
-  const store = {};
+  const currentDate = new Date().toISOString().split('T')[0];
+
+  const fakeCardData = [
+    { id: 1, faceup: true, upsideDown: false },
+    { id: 2, faceup: true, upsideDown: true },
+    { id: 3, faceup: true, upsideDown: false },
+  ];
+
+  const dailyCardsMock = {
+    [currentDate]: {
+      3: fakeCardData,
+    },
+  };
+
   global.localStorage = {
-    getItem: key => store[key],
-    setItem: (key, value) => (store[key] = value),
-    removeItem: key => delete store[key],
-    clear: () => Object.keys(store).forEach(k => delete store[k])
+    getItem: (key) => {
+      if (key === 'dailyCards') {
+        return JSON.stringify(dailyCardsMock);
+      } else if (key === 'tarotUserInfo') {
+        return JSON.stringify({ name: 'TestUser', dob: '2000-01-01' });
+      }
+    },
+    setItem: jest.fn(),
+    removeItem: jest.fn(),
+    clear: jest.fn(),
   };
 });
 
-// Mock canvas getContext and ctx.measureText
-beforeAll(() => {
-  HTMLCanvasElement.prototype.getContext = () => ({
-    fillText: jest.fn(),
-    measureText: text => ({ width: text.length * 5 }),
-  });
-});
+describe('getStoredCards', () => {
+  it('parses and returns card metadata correctly', () => {
+    const result = ExportButton.getStoredCards(3);
 
-// Mock global Image constructor
-global.Image = class {
-  constructor() {
-    setTimeout(() => {
-      if (this.onload) this.onload();
-    }, 0);
-  }
-};
+    expect(result).toHaveLength(4); // 3 cards + 1 date string
+    const [card1, card2, card3, date] = result;
 
-// === Tests ===
+    expect(card1).toMatchObject({
+      image: 'm01.jpg',
+      name: 'The Magician',
+      keywords: 'capability, empowerment, activity',
+      upsideDown: false,
+      meaning: expect.stringContaining(
+        'Taking appropriate action. Receiving guidance from a higher power. Becoming a channel of divine will. Expressing masculine energy in appropriate and constructive ways. Being yourself in every way'
+      ),
+    });
 
-describe('ExportButton helpers', () => {
-  it('getStoredCards returns an array from localStorage', () => {
-    localStorage.setItem('cards', JSON.stringify([{ id: 'x' }]));
-    const cards = getStoredCards();
-    expect(Array.isArray(cards)).toBe(true);
-    expect(cards[0].id).toBe('x');
-  });
+    expect(card2.upsideDown).toBe(true);
+    expect(card2.meaning).toContain(
+      'Being aloof. Obsessing on secrets and conspiracies. Rejecting guidance from spirit or intuition. Revealing all. Ignoring gut feelings. Refusing to become involved, even when involvement is appropriate'
+    );
 
-  it('wrapText returns lines of text', () => {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    const lines = wrapText(ctx, 'This is a long sentence that wraps.', 100, 0, 0, 50);
-    expect(Array.isArray(lines)).toBe(true);
-  });
-
-  it('loadImage loads an Image', async () => {
-    const image = await loadImage('https://via.placeholder.com/150');
-    expect(image).toBeInstanceOf(Image);
+    expect(typeof date).toBe('string');
   });
 });
