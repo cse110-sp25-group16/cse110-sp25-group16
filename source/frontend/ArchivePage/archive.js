@@ -21,7 +21,7 @@ async function init() {
     horoscopeButton.classList.remove("active");
     console.log(active);
 
-    const cardsContainer = document.querySelector(".cards-container");
+    const cardsContainer = document.querySelector(".all-cards-container");
     const horoscopeContainer = document.querySelector(".horoscope-container");
 
     if (active === "tarot") {
@@ -54,14 +54,24 @@ async function init() {
     date = e.target.value;
     getArchived(active, date);
   });
+
+  ["3", "5", "10"].forEach(item => {
+   const button = document.getElementById(`${item}-dropdown-button`)
+   const container = document.getElementById(`${item}-card-container`)
+
+   button.addEventListener("click", () => {
+    const isHidden = container.classList.toggle("hidden-group");
+    button.textContent = isHidden ? "Open" : "Close";
+   });
+  })
 }
 
 function getArchived(active, date) {
   if (active == "tarot") {
     const allData = JSON.parse(localStorage.getItem("dailyCards")) || {};
 
-    const tarotContainer = document.querySelector(".cards-container");
-    tarotContainer.innerHTML = "";
+   //  const tarotContainer = document.querySelector(".cards-container");
+   //  tarotContainer.innerHTML = "";
 
     if (!allData[date] || Object.keys(allData[date]).length === 0) {
       const tarotContainer = document.querySelector(".cards-container");
@@ -71,7 +81,15 @@ function getArchived(active, date) {
     }
 
     const tarotLabels = {"3": "3-Card", "5": "5-Card", "10": "10-Card"};
+    console.log(allData)
     Object.keys(tarotLabels).forEach((stackAmount) => {
+        const groupContainer = document.getElementById(`${stackAmount}-card-container`)
+        groupContainer.innerHTML = ""
+
+        if (!allData[date][stackAmount] || allData[date][stackAmount].length === 0) {
+         groupContainer.innerHTML = "<p style='text-align: center;'>No cards drawn for this group.</p>";
+         return;
+      }
 
         /*Check if the stack exists*/
         if(allData[date][stackAmount]) {
@@ -98,7 +116,7 @@ function getArchived(active, date) {
                 cardElement.setAttribute("numeral", card.getNumeral());
                 cardElement.setAttribute("facing", card.isFaceUp());
                 cardElement.setAttribute("upsideDown", card.isUpsideDown());
-                tarotContainer.appendChild(cardElement);
+                groupContainer.appendChild(cardElement);
             });
         }
     });
