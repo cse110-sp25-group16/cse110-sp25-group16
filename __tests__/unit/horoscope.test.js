@@ -4,23 +4,24 @@
 
 import Horoscope from '../../source/backend/horoscope.js';
 
+// Mock Math.random for consistent output
+jest.spyOn(Math, 'random').mockReturnValue(0.1);
+
 describe('Horoscope module', () => {
   describe('getDate', () => {
-    it('parses MM/DD/YYYY format into a Date object', () => {
+    it('parses MM/DD/YYYY format into {month, day}', () => {
       const result = Horoscope.getDate('10/25/1999');
-      expect(result instanceof Date).toBe(true);
-      expect(result.getMonth()).toBe(9); // October is 9
-      expect(result.getDate()).toBe(25);
+      expect(result).toEqual({ month: 10, day: 25 });
     });
 
     it('returns Invalid Date for bad input', () => {
       const result = Horoscope.getDate('hello');
-      expect(isNaN(result.getTime())).toBe(true);
+      expect(result).toEqual({ month: NaN, day: NaN });
     });
 
     it('returns Invalid Date for another bad format', () => {
       const result = Horoscope.getDate('1999-10-25');
-      expect(isNaN(result.getTime())).toBe(true);
+      expect(result).toEqual({ month: NaN, day: NaN });
     });
   });
 
