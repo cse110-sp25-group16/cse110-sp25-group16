@@ -38,19 +38,19 @@ describe('Archive Page', () => {
     await dateInput.press('Enter');
 
     // Instead of page.waitForTimeout:
-    await new Promise((r) => setTimeout(r, 500));
+    await new Promise((r) => setTimeout(r, 1000));
   });
 
   it('should display 3 tarot cards when 3-card dropdown is opened', async () => {
-    await page.click('#\\33 -dropdown-button'); // use escaped selector
-    await page.waitForSelector('#\\33 -card-container card-component');
+    await page.click('#\\3 -dropdown-button'); // use escaped selector
+    await page.waitForSelector('#\\3 -card-container card-component');
 
-    const cards = await page.$$('#\\33 -card-container card-component');
+    const cards = await page.$$('#\\3 -card-container card-component');
     expect(cards.length).toBe(3);
   });
 
   it('should render each card with a shadow root', async () => {
-    const cards = await page.$$('#\\33 -card-container card-component');
+    const cards = await page.$$('#\\3 -card-container card-component');
     expect(cards.length).toBeGreaterThan(0);
 
     const shadowRoot = await cards[0].evaluateHandle((card) => card.shadowRoot);
