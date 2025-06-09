@@ -115,16 +115,16 @@ describe('Archive Page', () => {
     await dateInput.type('2025-06-08');
     await dateInput.press('Enter');
 
-    // 3. **KEY FIX**: Wait for the dropdown button for the 3-card reading to be
-    // rendered on the page BEFORE trying to interact with it.
-    const dropdownButtonSelector = '#\\33-card-reading-dropdown'; // Escaped selector for id="3-card-reading-dropdown"
+    // 3. **KEY FIX**: Wait for the dropdown button using a stable attribute selector.
+    // This avoids issues with CSS escaping for IDs that start with a number.
+    const dropdownButtonSelector = '[id="3-dropdown-button"]';
     await page.waitForSelector(dropdownButtonSelector);
 
     // 4. Click the dropdown to reveal the cards.
     await page.click(dropdownButtonSelector);
 
     // 5. Wait for the card container and the custom card components to be visible.
-    const cardSelector = '#\\33-card-reading-container card-component'; // Selector for cards within the container
+    const cardSelector = '[id="3-card-container"] card-component';
     await page.waitForSelector(cardSelector);
 
     // 6. Get all card components and assert that there are exactly 3.
@@ -136,6 +136,6 @@ describe('Archive Page', () => {
     expect(firstCard).toBeDefined();
     const shadowRoot = await firstCard.evaluateHandle((card) => card.shadowRoot);
     expect(shadowRoot.asElement()).toBeTruthy();
-  }, 60000); // Test timeout increased to 60 seconds.
+  }, 60000); // Test timeout remains at 60 seconds.
 });
 
