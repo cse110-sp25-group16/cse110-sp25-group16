@@ -17,11 +17,12 @@
 
     <!-- Card Custom Web Component -->
     <script src="../DailySpreadPage/dailyCards.js" type="module"></script>
+    <script src="../DailyHoroscopePage/horoscopeCard.js" type="module"></script>
   </head>
 
   <body>
-    <nav></nav>
-    <main>
+    <header><navigation-bar prefix="../"></navigation-bar></header>
+    <main class="page-wrapper">
       <h1>Your Archive</h1>
       <!-- <h2>See your tarot and horoscope readings from the past</h2> -->
 
@@ -65,7 +66,7 @@
       </div>
 
       <div class="horoscope-container">
-        <div class="item-container">
+        <!-- <div class="item-container">
           <label class="item-label">Theme</label>
           <p class="item-text"></p>
         </div>
@@ -76,8 +77,21 @@
         <div class="item-container">
           <label class="item-label">Advice</label>
           <p class="item-text"></p>
-        </div>
+        </div> -->
       </div>
     </main>
+    <footer>
+      <div class="footer-content">
+        <img
+          src="../images/sweet16_bw.png"
+          alt="Sweet 16 Logo"
+          class="sweet-logo"
+        />
+        <p>© 2025 Sweet 16, Inc. | All rights reserved | Powered by dreams</p>
+        <a href="../about.html">About</a>
+      </div>
+    </footer>
+
+    <script src="../components/NavigationBar.js"></script>
   </body>
 </html>
