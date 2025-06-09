@@ -10,7 +10,7 @@ describe('Settings Page E2E', () => {
     });
     page = await browser.newPage();
 
-    const html = require('fs').readFileSync('./settings.html', 'utf8');
+    const html = require('fs').readFileSync('source/frontend/settings.html', 'utf8');
     await page.setContent(html, { waitUntil: 'domcontentloaded' });
 
     // Mock localStorage before the DOMContentLoaded script
@@ -29,11 +29,20 @@ describe('Settings Page E2E', () => {
   it('loads existing user data from localStorage', async () => {
     await page.reload({ waitUntil: 'domcontentloaded' });
 
-    const nameValue = await page.$eval('#name', el => el.value);
-    const mbtiValue = await page.$eval('#mbti', el => el.value);
-    const mm = await page.$eval('.dob-fields input[placeholder="MM"]', el => el.value);
-    const dd = await page.$eval('.dob-fields input[placeholder="DD"]', el => el.value);
-    const yyyy = await page.$eval('.dob-fields input[placeholder="YYYY"]', el => el.value);
+    const nameValue = await page.$eval('#name', (el) => el.value);
+    const mbtiValue = await page.$eval('#mbti', (el) => el.value);
+    const mm = await page.$eval(
+      '.dob-fields input[placeholder="MM"]',
+      (el) => el.value
+    );
+    const dd = await page.$eval(
+      '.dob-fields input[placeholder="DD"]',
+      (el) => el.value
+    );
+    const yyyy = await page.$eval(
+      '.dob-fields input[placeholder="YYYY"]',
+      (el) => el.value
+    );
 
     expect(nameValue).toBe('TestUser');
     expect(mbtiValue).toBe('INTJ');
@@ -45,9 +54,18 @@ describe('Settings Page E2E', () => {
   it('submits form and stores correct values in localStorage', async () => {
     await page.type('#name', ' Updated');
     await page.select('#mbti', 'ENTP');
-    await page.$eval('.dob-fields input[placeholder="MM"]', el => el.value = '12');
-    await page.$eval('.dob-fields input[placeholder="DD"]', el => el.value = '31');
-    await page.$eval('.dob-fields input[placeholder="YYYY"]', el => el.value = '1999');
+    await page.$eval(
+      '.dob-fields input[placeholder="MM"]',
+      (el) => (el.value = '12')
+    );
+    await page.$eval(
+      '.dob-fields input[placeholder="DD"]',
+      (el) => (el.value = '31')
+    );
+    await page.$eval(
+      '.dob-fields input[placeholder="YYYY"]',
+      (el) => (el.value = '1999')
+    );
 
     await page.click('.save-btn');
 
@@ -67,10 +85,12 @@ describe('Settings Page E2E', () => {
 
     await page.click('#clearButton');
 
-    const data = await page.evaluate(() => localStorage.getItem('tarotUserInfo'));
+    const data = await page.evaluate(() =>
+      localStorage.getItem('tarotUserInfo')
+    );
     expect(data).toBeNull();
 
-    const nameValue = await page.$eval('#name', el => el.value);
+    const nameValue = await page.$eval('#name', (el) => el.value);
     expect(nameValue).toBe('');
   });
 
