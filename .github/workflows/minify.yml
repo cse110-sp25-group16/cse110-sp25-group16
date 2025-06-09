@@ -1,4 +1,4 @@
-name: Minify Assets
+name: "Minify Assets"
 
 on:
   pull_request:
@@ -33,7 +33,7 @@ jobs:
       - name: Minify CSS in-place
         run: |
           find source/frontend -type f -name '*.css' | \
-          xargs -I{} sh -c 'cssnano-cli "{}" > "{}.tmp" && mv "{}.tmp" "{}"'
+          xargs -I{} sh -c 'cssnano "{}" > "{}.tmp" && mv "{}.tmp" "{}"'
 
       - name: Minify HTML in-place
         run: |
