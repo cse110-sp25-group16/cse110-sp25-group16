@@ -25,8 +25,7 @@ class NavigationBar extends HTMLElement {
         font-size: 2em;
         padding: 0em;
         padding-left: 0.5em;
-        font-family: "Noto Serif", serif;
-        background-color: rgba(15, 16, 28, 0.52)
+        font-family: "Noto Serif", serif
       }
     
       .links {
@@ -46,6 +45,49 @@ class NavigationBar extends HTMLElement {
 
       .links a:hover {
         text-decoration: underline
+      }
+
+      .hamburger {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 2em;
+        color: white;
+        cursor: pointer;
+        margin-left: 1em
+      }
+
+      @media (max-width: 700px) {
+        .links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background: rgba(15, 16, 28, 0.95);
+          position: absolute;
+          top: 60px;
+          left: 0;
+          z-index: 100
+        }
+        .brand {
+          font-size: 2em;
+        }
+        .links.show {
+          display: flex;
+          flex-direction: column;
+          align-items: center
+        }
+        .links a {
+          margin-left: 0;
+          margin-top: 1em;
+          margin-bottom: 1em
+        }
+        .hamburger {
+          display: block
+        }
+        nav {
+          position: relative;
+          background-color: rgb(20, 26, 51)
+        }
       }
     `;
 
@@ -70,6 +112,10 @@ class NavigationBar extends HTMLElement {
     const rawLinks = this.getAttribute('links');
 
     console.log('rawlinks:' + rawLinks);
+
+    const hamburger = document.createElement('button');
+    hamburger.classList.add('hamburger');
+    hamburger.innerHTML = '&#9776;'; // Unicode hamburger icon
 
     if (rawLinks) {
       try {
@@ -111,9 +157,14 @@ class NavigationBar extends HTMLElement {
 
     nav.appendChild(logo);
     nav.appendChild(brand);
+    nav.appendChild(hamburger);
     nav.appendChild(links);
     shadow.appendChild(style);
     shadow.appendChild(nav);
+
+    hamburger.addEventListener('click', () => {
+      links.classList.toggle('show');
+    });
   }
 }
 
