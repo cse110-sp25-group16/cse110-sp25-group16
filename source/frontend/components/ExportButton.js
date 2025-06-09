@@ -13,6 +13,10 @@ function getStoredCards(amount) {
 
   const dailySpread = allData[currentDate][amount];
 
+  if (dailySpread === undefined) {
+    return [];
+  }
+
   console.log('saved: ' + dailySpread);
 
   let cardArray = [];

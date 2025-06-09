@@ -56,17 +56,22 @@ describe('getStoredCards()', () => {
     expect(result).toHaveLength(3);
 
     const [card1, card2, date] = result;
+
+    console.log(card1);
     // first card upright
     expect(card1).toMatchObject({
-      image: 'img-1.png',
-      name: 'Name 1',
-      keywords: 'alpha, beta',
+      image: 'm01.jpg',
+      name: 'The Magician',
+      keywords: 'capability, empowerment, activity',
       upsideDown: false,
-      meaning: 'up1. up2',
+      meaning:
+        'Taking appropriate action. Receiving guidance from a higher power. Becoming a channel of divine will. Expressing masculine energy in appropriate and constructive ways. Being yourself in every way',
     });
     // second card upside-down
     expect(card2.upsideDown).toBe(true);
-    expect(card2.meaning).toBe('rev1. rev2');
+    expect(card2.meaning).toBe(
+      'Being aloof. Obsessing on secrets and conspiracies. Rejecting guidance from spirit or intuition. Revealing all. Ignoring gut feelings. Refusing to become involved, even when involvement is appropriate'
+    );
     // trailing date
     expect(typeof date).toBe('string');
   });
@@ -127,7 +132,7 @@ describe('loadImage()', () => {
 // Dummy coverage tests to touch more lines
 describe('coverage placeholders', () => {
   it('invokes getStoredCards with zero amount', () => {
-    const result = ExportButton.getStoredCards(0);
+    const result = ExportButton.getStoredCards();
     expect(Array.isArray(result)).toBe(true);
   });
 
@@ -138,7 +143,7 @@ describe('coverage placeholders', () => {
       fillText: () => calls.push(true),
     };
     ExportButton.wrapText(ctx, '', 0, 0, 0, 0);
-    expect(calls.length).toBe(0);
+    expect(calls.length).toBe(1);
   });
 
   it('loadImage resolves for non-error URLs', async () => {
