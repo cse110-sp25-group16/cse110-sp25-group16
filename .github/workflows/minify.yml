@@ -1,0 +1,43 @@
+name: "Minify Assets"
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'source/frontend/**/*.css'
+      - 'source/frontend/**/*.html'
+      - 'source/frontend/**/*.js'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'source/frontend/**/*.css'
+      - 'source/frontend/**/*.html'
+      - 'source/frontend/**/*.js'
+
+jobs:
+  minify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Minify CSS
+        uses: samuelmeuli/action-cssnano@v1
+        with:
+          files: 'source/frontend/**/*.css'
+
+      - name: Minify HTML
+        uses: miketheman/html-minifier-action@v1
+        with:
+          files: 'source/frontend/**/*.html'
+          options: > 
+            --collapse-whitespace
+            --remove-comments
+            --minify-js true
+            --minify-css true
+
+      - name: Minify JS
+        uses: dcollien/uglifyjs-action@v1
+        with:
+          files: 'source/frontend/**/*.js'
+          options: '-c -m'
