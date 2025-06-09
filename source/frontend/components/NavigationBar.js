@@ -12,9 +12,9 @@ class NavigationBar extends HTMLElement {
       nav {
         background-image: url("${bgImg}");
         color: white;
-        padding-left: 1.5em;
+        padding-left: 1em;
         padding-right: 1.5em;
-        padding-top: 0.5em;
+        padding-top: 0em;
         padding-bottom: 0.5em;
         display: flex;
         justify-content: space-between;
@@ -26,6 +26,7 @@ class NavigationBar extends HTMLElement {
         font-weight: bold;
         font-size: 2em;
         padding: 0em;
+        padding-left: 0.5em;
         font-family: "Noto Serif", serif;
         background-color: rgba(15, 16, 28, 0.52)
       }
@@ -51,7 +52,15 @@ class NavigationBar extends HTMLElement {
     `;
 
     // Template
+
+    let prefix = this.getAttribute('prefix');
+
+    if (!prefix) prefix = '';
+
     const nav = document.createElement('nav');
+
+    const logo = document.createElement('img');
+    logo.src = prefix + './images/logo-white.png';
 
     const brand = document.createElement('div');
     brand.classList.add('brand');
@@ -61,10 +70,6 @@ class NavigationBar extends HTMLElement {
     links.classList.add('links');
 
     const rawLinks = this.getAttribute('links');
-
-    let prefix = this.getAttribute('prefix');
-
-    if (!prefix) prefix = '';
 
     console.log('rawlinks:' + rawLinks);
 
@@ -106,6 +111,7 @@ class NavigationBar extends HTMLElement {
       }
     }
 
+    nav.appendChild(logo);
     nav.appendChild(brand);
     nav.appendChild(links);
     shadow.appendChild(style);
