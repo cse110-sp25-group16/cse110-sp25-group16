@@ -60,7 +60,7 @@ class NavigationBar extends HTMLElement {
     const nav = document.createElement('nav');
 
     const logo = document.createElement('img');
-    logo.src = prefix + './images/logo-white.png';
+    logo.src = prefix + './images/logo-gold.png';
 
     const brand = document.createElement('div');
     brand.classList.add('brand');
