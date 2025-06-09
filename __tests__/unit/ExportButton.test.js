@@ -152,3 +152,121 @@ describe('coverage placeholders', () => {
     ).resolves.toBeInstanceOf(global.Image);
   });
 });
+
+describe('generateImageCards()', () => {
+  let originalCreateElement;
+  let fakeCanvas, fakeLink, ctx;
+
+  beforeEach(() => {
+    // stub document.createElement
+    originalCreateElement = document.createElement;
+    // stub fonts.ready
+    document.fonts = { ready: Promise.resolve() };
+    // stub loadImage to immediately resolve with a dummy image
+    jest.spyOn(ExportButton, 'loadImage').mockImplementation(() => Promise.resolve({}));
+    // stub localStorage for tarotUserInfo
+    jest.spyOn(global.localStorage, 'getItem').mockImplementation((key) => {
+      if (key === 'tarotUserInfo') return JSON.stringify({ name: 'Tester', dob: '2000-01-01' });
+      return null;
+    });
+
+    // build a minimal fake 2D context with all methods used
+    ctx = {
+      textBaseline: '',
+      fillStyle: '',
+      textAlign: '',
+      drawImage: jest.fn(),
+      strokeRect: jest.fn(),
+      stroke: jest.fn(),
+      fillText: jest.fn(),
+      beginPath: jest.fn(),
+      moveTo: jest.fn(),
+      lineTo: jest.fn(),
+      arc: jest.fn(),
+      createLinearGradient: jest.fn(() => ({ addColorStop: jest.fn() })),
+      save: jest.fn(),
+      translate: jest.fn(),
+      scale: jest.fn(),
+      restore: jest.fn(),
+    };
+
+    // fake <canvas> and <a> elements
+    fakeCanvas = {
+      width: 0,
+      height: 0,
+      getContext: () => ctx,
+      toDataURL: () => 'data:image/jpeg;base64,FAKE',
+    };
+    fakeLink = { click: jest.fn(), download: '', href: '' };
+
+    document.createElement = (tag) =>
+      tag === 'canvas' ? fakeCanvas : tag === 'a' ? fakeLink : originalCreateElement(tag);
+  });
+
+  afterEach(() => {
+    document.createElement = originalCreateElement;
+    jest.restoreAllMocks();
+  });
+
+  it('walks through every branch and triggers download', async () => {
+    const data = [
+      { image: 'img1.png', name: 'Card 1', keywords: 'k1', meaning: 'm1', upsideDown: false },
+      { image: 'img2.png', name: 'Card 2', keywords: 'k2', meaning: 'm2', upsideDown: true },
+      '2025-06-08',
+    ];
+    await expect(ExportButton.generateImageCards([...data])).resolves.toBeUndefined();
+    expect(fakeLink.click).toHaveBeenCalled();
+  });
+});
+
+describe('generateImageHoroscope()', () => {
+  let originalCreateElement;
+  let fakeCanvas, fakeLink, ctx;
+
+  beforeEach(() => {
+    originalCreateElement = document.createElement;
+    document.fonts = { ready: Promise.resolve() };
+    jest.spyOn(ExportButton, 'loadImage').mockImplementation(() => Promise.resolve({}));
+    // reuse the same fake localStorage stub
+    jest.spyOn(global.localStorage, 'getItem').mockImplementation((key) => {
+      if (key === 'tarotUserInfo') return JSON.stringify({ name: 'Tester', dob: '2000-01-01' });
+      return null;
+    });
+
+    ctx = {
+      fillStyle: '',
+      textAlign: '',
+      drawImage: jest.fn(),
+      stroke: jest.fn(),
+      fillText: jest.fn(),
+      beginPath: jest.fn(),
+      createLinearGradient: jest.fn(() => ({ addColorStop: jest.fn() })),
+      arc: jest.fn(),
+      save: jest.fn(),
+      translate: jest.fn(),
+      rotate: jest.fn(),
+      restore: jest.fn(),
+    };
+
+    fakeCanvas = {
+      width: 1000,
+      height: 1200,
+      getContext: () => ctx,
+      toDataURL: () => 'data:image/jpeg;base64,FAKE',
+    };
+    fakeLink = { click: jest.fn(), download: '', href: '' };
+
+    document.createElement = (tag) =>
+      tag === 'canvas' ? fakeCanvas : tag === 'a' ? fakeLink : originalCreateElement(tag);
+  });
+
+  afterEach(() => {
+    document.createElement = originalCreateElement;
+    jest.restoreAllMocks();
+  });
+
+  it('walks through all drawing logic and triggers download', async () => {
+    await expect(ExportButton.generateImageHoroscope()).resolves.toBeUndefined();
+    expect(fakeLink.click).toHaveBeenCalled();
+  });
+});
