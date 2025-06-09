@@ -42,13 +42,14 @@ class AppCard extends HTMLElement {
 
       .app-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15)
       }
 
       .app-card img {
         width: 80%;         /* Responsive width */
         margin-bottom: 12px;
         max-width: 100%;    /* Prevent overflow */
+        object-fit: contain
       }
 
       .app-card h3 {
@@ -56,7 +57,7 @@ class AppCard extends HTMLElement {
         font-size: 1.2em;
         font-weight: 600;
         text-align: center;
-        color: white;
+        color: white
       }
 
       .app-card p {
@@ -64,7 +65,7 @@ class AppCard extends HTMLElement {
         font-size: 0.9em;
         color: #555;
         text-align: center;
-        color: white;
+        color: white
       }
     `;
 
