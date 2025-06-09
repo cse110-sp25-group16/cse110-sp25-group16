@@ -6,17 +6,27 @@
 
 @media (max-height: 500px) {
   .card-container {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0rem;
     gap: 1rem;
+  }
+  app-card {
+    width: 50%;
   }
 }
 
 @media (max-width: 600px) {
   .card-container {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0rem;
     gap: 1rem;
+  }
+  app-card {
+    width: 60%;
   }
 }
 
