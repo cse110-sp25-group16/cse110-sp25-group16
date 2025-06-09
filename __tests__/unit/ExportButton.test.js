@@ -1,8 +1,9 @@
-import { jest } from '@jest/globals';
-import * as ExportButton from '../../source/frontend/components/ExportButton.js';
 /**
  * @jest-environment jsdom
  */
+import { jest } from '@jest/globals';
+import * as ExportButton from '../../source/frontend/components/ExportButton.js';
+
 
 // --- mock out Card and Horoscope so we never hit canvas ---
 jest.mock('../../source/backend/Card.js', () =>
