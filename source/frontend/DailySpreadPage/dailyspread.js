@@ -31,7 +31,7 @@ async function init() {
 
   /*Selects cards and amount drawn depends on what option is picked */
   selectedAmnt.addEventListener('change', (event) => {
-    const currDate = new Date().toISOString().split('T')[0]; // gets date in YYYY-MM-DD format
+    const currDate = new Date().toLocaleDateString(); // gets date in YYYY-MM-DD format
     const existingData = JSON.parse(localStorage.getItem('dailyCards')) || {};
     let pulledCards;
 
