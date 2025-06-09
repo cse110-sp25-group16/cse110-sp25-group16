@@ -142,4 +142,4 @@ Our CI/CD pipeline (GitHub Actions) ensures reliable, tested, and production-rea
 - Horoscope Astrology Wheel — [Vecteezy](https://www.vecteezy.com/png/29145582-astrology-wheel-with-zodiac-signs-vintage-frame-divine-magic-hand-drawn-antique-illustration)
 - Tarot Cards — [Rider Waite](https://www.tarot.com/tarot/decks/rider)
 - Individual Horoscope Images — [Vecteezy](https://pngtree.com/freepng/sixth-moon-gold-color-line-tarot-card-symbol_6160735.html)
-- Pocket Diviner Logo - Larissa Lumba
+- Pocket Diviner Logo - [Larissa Lumba](https://www.linkedin.com/in/larissa-lumba-2981b5214/)

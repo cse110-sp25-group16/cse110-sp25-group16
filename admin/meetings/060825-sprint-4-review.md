@@ -21,7 +21,7 @@
   - A good amount of backend and front end work was completed. We also were able to narrow our scope to more reasonable goals, focusing our resources on improving what we had (Quality over Quantity).
 
 - Open discussion on what did NOT go well during the last sprint:
-  - Multiple people were put on the same task, such as 3 people working on archive page, making some work redundant when their time could have been better spent on other pending issues. 
+  - Multiple people were put on the same task, such as 3 people working on archive page, making some work redundant when their time could have been better spent on other pending issues.
 
 ## Concluding Thoughts
 
