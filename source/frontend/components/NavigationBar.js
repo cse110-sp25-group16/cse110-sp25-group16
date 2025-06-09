@@ -89,6 +89,10 @@ class NavigationBar extends HTMLElement {
             href: './DailyHoroscopePage/horoscopePage.html',
             label: 'Horoscope',
           },
+          {
+            href: './ArchivePage/archive.html',
+            label: 'Archive',
+          },
           { href: './settings.html', label: 'Profile' },
         ];
         linkArray.forEach((link) => {
