@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', init);
  */
 async function init() {
   let active = 'tarot';
-  let date = new Date().toLocaleDateString('en-CA'); // gets date in YYYY-MM-DD format
+  let date = new Date().toLocaleDateString(); // gets date in YYYY-MM-DD format
 ;
 
   const tarotButton = document.getElementById('tarot');
