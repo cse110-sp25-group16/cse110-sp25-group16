@@ -1,77 +1,126 @@
+// __tests__/components/ExportButton.test.js
 import { jest } from '@jest/globals';
 import * as ExportButton from '../../source/frontend/components/ExportButton.js';
 
-// Mock Card class
-jest.mock('../../source/backend/Card.js', () => {
-  return jest.fn().mockImplementation((id, faceup, upsideDown) => {
-    return {
-      id,
-      faceup,
-      upsideDown,
-      getImg: () => `card-${id}.jpg`,
-      getCardName: () => `Card ${id}`,
-      getKeywords: () => ['keyword1', 'keyword2'],
-      isUpsideDown: () => upsideDown,
-      getReversedMeaning: () => ['Reversed meaning A', 'Reversed meaning B'],
-      getUprightMeanings: () => ['Upright meaning A', 'Upright meaning B'],
+// --- mock out Card and Horoscope so we never hit canvas ---
+jest.mock('../../source/backend/Card.js', () =>
+  jest.fn().mockImplementation((id, faceup, upsideDown) => ({
+    id,
+    faceup,
+    upsideDown,
+    getImg: () => `img-${id}.png`,
+    getCardName: () => `Name ${id}`,
+    getKeywords: () => ['alpha', 'beta'],
+    isUpsideDown: () => upsideDown,
+    getReversedMeaning: () => ['rev1', 'rev2'],
+    getUprightMeanings: () => ['up1', 'up2'],
+  }))
+);
+
+jest.mock('../../source/backend/horoscope.js', () => ({
+  getHoroscope: jest.fn().mockReturnValue('aries'),
+  getDate: jest.fn().mockReturnValue('2000-01-01'),
+  generateReadingFromCurrentUser: jest
+    .fn()
+    .mockReturnValue(['theme-text', 'mood-text', 'advice-text']),
+}));
+
+describe('getStoredCards()', () => {
+  beforeEach(() => {
+    // mock localStorage to return a mix of object and JSON-string entries
+    const today = new Date().toISOString().split('T')[0];
+    const fakeDaily = {
+      [today]: [
+        { id: 1, faceup: true, upsideDown: false },
+        JSON.stringify({ id: 2, faceup: true, upsideDown: true }),
+      ],
     };
+    global.localStorage = {
+      getItem: jest.fn((key) => {
+        if (key === 'dailyCards') return JSON.stringify(fakeDaily);
+        if (key === 'tarotUserInfo')
+          return JSON.stringify({ name: 'Tester', dob: '2000-01-01' });
+      }),
+      setItem: jest.fn(),
+      removeItem: jest.fn(),
+      clear: jest.fn(),
+    };
+  });
+
+  it('parses stored cards and returns the correct shape', () => {
+    const amount = 2;
+    const result = ExportButton.getStoredCards(amount);
+
+    // 2 cards + the date string
+    expect(result).toHaveLength(3);
+
+    const [card1, card2, date] = result;
+    // first card upright
+    expect(card1).toMatchObject({
+      image: 'img-1.png',
+      name: 'Name 1',
+      keywords: 'alpha, beta',
+      upsideDown: false,
+      meaning: 'up1. up2',
+    });
+    // second card upside-down
+    expect(card2.upsideDown).toBe(true);
+    expect(card2.meaning).toBe('rev1. rev2');
+    // trailing date
+    expect(typeof date).toBe('string');
   });
 });
 
-// Mock localStorage
-beforeEach(() => {
-  const currentDate = new Date().toLocaleDateString();
+describe('wrapText()', () => {
+  it('breaks long text into multiple fillText calls', () => {
+    const calls = [];
+    const ctx = {
+      // measureText returns a width proportional to string length
+      measureText: (txt) => ({ width: txt.length * 8 }),
+      fillText: (text, x, y) => calls.push({ text, x, y }),
+    };
 
-  const fakeCardData = [
-    { id: 1, faceup: true, upsideDown: false },
-    { id: 2, faceup: true, upsideDown: true },
-    { id: 3, faceup: true, upsideDown: false },
-  ];
+    const longText = 'one two three four five';
+    // maxWidth small so it must wrap
+    ExportButton.wrapText(ctx, longText, 100, 10, 50, 12, '► ', '…');
 
-  const dailyCardsMock = {
-    [currentDate]: {
-      3: fakeCardData,
-    },
-  };
-
-  global.localStorage = {
-    getItem: (key) => {
-      if (key === 'dailyCards') {
-        return JSON.stringify(dailyCardsMock);
-      } else if (key === 'tarotUserInfo') {
-        return JSON.stringify({ name: 'TestUser', dob: '2000-01-01' });
-      }
-    },
-    setItem: jest.fn(),
-    removeItem: jest.fn(),
-    clear: jest.fn(),
-  };
+    expect(calls.length).toBeGreaterThan(1);
+    // each call should start with our prefix '► ' or contain words
+    calls.forEach((c) => {
+      expect(c.text.startsWith('► ') || /\w+/.test(c.text)).toBe(true);
+      expect(typeof c.x).toBe('number');
+      expect(typeof c.y).toBe('number');
+    });
+  });
 });
 
-describe('getStoredCards', () => {
-  it('parses and returns card metadata correctly', () => {
-    const result = ExportButton.getStoredCards(3);
+describe('loadImage()', () => {
+  beforeEach(() => {
+    // fake Image so we can synchronously trigger onload/onerror
+    class FakeImage {
+      constructor() {
+        this.crossOrigin = '';
+        this.onload = null;
+        this.onerror = null;
+      }
+      set src(url) {
+        if (url.includes('bad')) {
+          setTimeout(() => this.onerror(new Error('fail')), 0);
+        } else {
+          setTimeout(() => this.onload(), 0);
+        }
+      }
+    }
+    global.Image = FakeImage;
+  });
 
-    expect(result).toHaveLength(4); // 3 cards + 1 date string
-    const [card1, card2, card3, date] = result;
-
-    expect(card1).toMatchObject({
-      image: 'm01.jpg',
-      name: 'The Magician',
-      keywords: 'capability, empowerment, activity',
-      upsideDown: false,
-      meaning: expect.stringContaining(
-        'Taking appropriate action. Receiving guidance from a higher power. Becoming a channel of divine will. Expressing masculine energy in appropriate and constructive ways. Being yourself in every way'
-      ),
-    });
-
-    expect(card2.upsideDown).toBe(true);
-    expect(card2.meaning).toContain(
-      'Being aloof. Obsessing on secrets and conspiracies. Rejecting guidance from spirit or intuition. Revealing all. Ignoring gut feelings. Refusing to become involved, even when involvement is appropriate'
+  it('resolves when the image loads successfully', async () => {
+    await expect(ExportButton.loadImage('good.png')).resolves.toBeInstanceOf(
+      global.Image
     );
+  });
 
-    expect(typeof card3).toBe('object');
-
-    expect(typeof date).toBe('string');
+  it('rejects when the image fails to load', async () => {
+    await expect(ExportButton.loadImage('bad.png')).rejects.toThrow('fail');
   });
 });
