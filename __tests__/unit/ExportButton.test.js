@@ -163,10 +163,13 @@ describe('generateImageCards()', () => {
     // stub fonts.ready
     document.fonts = { ready: Promise.resolve() };
     // stub loadImage to immediately resolve with a dummy image
-    jest.spyOn(ExportButton, 'loadImage').mockImplementation(() => Promise.resolve({}));
+    jest
+      .spyOn(ExportButton, 'loadImage')
+      .mockImplementation(() => Promise.resolve({}));
     // stub localStorage for tarotUserInfo
     jest.spyOn(global.localStorage, 'getItem').mockImplementation((key) => {
-      if (key === 'tarotUserInfo') return JSON.stringify({ name: 'Tester', dob: '2000-01-01' });
+      if (key === 'tarotUserInfo')
+        return JSON.stringify({ name: 'Tester', dob: '2000-01-01' });
       return null;
     });
 
@@ -200,7 +203,11 @@ describe('generateImageCards()', () => {
     fakeLink = { click: jest.fn(), download: '', href: '' };
 
     document.createElement = (tag) =>
-      tag === 'canvas' ? fakeCanvas : tag === 'a' ? fakeLink : originalCreateElement(tag);
+      tag === 'canvas'
+        ? fakeCanvas
+        : tag === 'a'
+          ? fakeLink
+          : originalCreateElement(tag);
   });
 
   afterEach(() => {
@@ -210,11 +217,25 @@ describe('generateImageCards()', () => {
 
   it('walks through every branch and triggers download', async () => {
     const data = [
-      { image: 'img1.png', name: 'Card 1', keywords: 'k1', meaning: 'm1', upsideDown: false },
-      { image: 'img2.png', name: 'Card 2', keywords: 'k2', meaning: 'm2', upsideDown: true },
+      {
+        image: 'img1.png',
+        name: 'Card 1',
+        keywords: 'k1',
+        meaning: 'm1',
+        upsideDown: false,
+      },
+      {
+        image: 'img2.png',
+        name: 'Card 2',
+        keywords: 'k2',
+        meaning: 'm2',
+        upsideDown: true,
+      },
       '2025-06-08',
     ];
-    await expect(ExportButton.generateImageCards([...data])).resolves.toBeUndefined();
+    await expect(
+      ExportButton.generateImageCards([...data])
+    ).resolves.toBeUndefined();
     expect(fakeLink.click).toHaveBeenCalled();
   });
 });
@@ -226,10 +247,13 @@ describe('generateImageHoroscope()', () => {
   beforeEach(() => {
     originalCreateElement = document.createElement;
     document.fonts = { ready: Promise.resolve() };
-    jest.spyOn(ExportButton, 'loadImage').mockImplementation(() => Promise.resolve({}));
+    jest
+      .spyOn(ExportButton, 'loadImage')
+      .mockImplementation(() => Promise.resolve({}));
     // reuse the same fake localStorage stub
     jest.spyOn(global.localStorage, 'getItem').mockImplementation((key) => {
-      if (key === 'tarotUserInfo') return JSON.stringify({ name: 'Tester', dob: '2000-01-01' });
+      if (key === 'tarotUserInfo')
+        return JSON.stringify({ name: 'Tester', dob: '2000-01-01' });
       return null;
     });
 
@@ -257,7 +281,11 @@ describe('generateImageHoroscope()', () => {
     fakeLink = { click: jest.fn(), download: '', href: '' };
 
     document.createElement = (tag) =>
-      tag === 'canvas' ? fakeCanvas : tag === 'a' ? fakeLink : originalCreateElement(tag);
+      tag === 'canvas'
+        ? fakeCanvas
+        : tag === 'a'
+          ? fakeLink
+          : originalCreateElement(tag);
   });
 
   afterEach(() => {
@@ -266,7 +294,9 @@ describe('generateImageHoroscope()', () => {
   });
 
   it('walks through all drawing logic and triggers download', async () => {
-    await expect(ExportButton.generateImageHoroscope()).resolves.toBeUndefined();
+    await expect(
+      ExportButton.generateImageHoroscope()
+    ).resolves.toBeUndefined();
     expect(fakeLink.click).toHaveBeenCalled();
   });
 });
