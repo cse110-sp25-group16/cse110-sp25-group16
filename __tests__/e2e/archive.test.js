@@ -42,7 +42,7 @@ describe('Archive Page', () => {
   });
 
   it('should display 3 tarot cards when 3-card dropdown is opened', async () => {
-    await page.click('#\\3 -dropdown-button'); // use escaped selector
+    await page.click('#\\33\\ -dropdown-button'); // use escaped selector
     await page.waitForSelector('#\\33\\ -card-container card-component');
 
     const cards = await page.$$('#\\33\\ -card-container card-component');
