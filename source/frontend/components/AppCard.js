@@ -46,11 +46,9 @@ class AppCard extends HTMLElement {
       }
 
       .app-card img {
-        max-width: 400px;
-        min-width: 48px;
-        height: auto;
-        border-radius: 12px;
+        width: 100%;         /* Responsive width */
         margin-bottom: 12px;
+        max-width: 100%;    /* Prevent overflow */
       }
 
       .app-card h3 {
