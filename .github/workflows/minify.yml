@@ -1,0 +1,51 @@
+name: 'Minify Assets'
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'source/frontend/**/*.css'
+      - 'source/frontend/**/*.html'
+      - 'source/frontend/**/*.js'
+  push:
+    branches: [main]
+    paths:
+      - 'source/frontend/**/*.css'
+      - 'source/frontend/**/*.html'
+      - 'source/frontend/**/*.js'
+
+jobs:
+  minify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install minifiers
+        run: |
+          npm install -g cssnano-cli html-minifier uglify-js
+
+      - name: Minify CSS in-place
+        run: |
+          find source/frontend -type f -name '*.css' | \
+          xargs -I{} sh -c 'cssnano "{}" > "{}.tmp" && mv "{}.tmp" "{}"'
+
+      - name: Minify HTML in-place
+        run: |
+          find source/frontend -type f -name '*.html' | \
+          xargs -I{} sh -c 'html-minifier \
+            --collapse-whitespace \
+            --remove-comments \
+            --minify-js true \
+            --minify-css true \
+            -o "{}.tmp" "{}" && mv "{}.tmp" "{}"'
+
+      - name: Minify JS in-place
+        run: |
+          find source/frontend -type f -name '*.js' | \
+          xargs -I{} sh -c 'uglifyjs "{}" -c -m -o "{}.tmp" && mv "{}.tmp" "{}"'
