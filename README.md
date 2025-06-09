@@ -1,9 +1,11 @@
 # cse110-sp25-group16
 
+[Check out our page!](https://cse110-sp25-group16.github.io/cse110-sp25-group16/source/frontend/signup.html)
+
 ## [Meet our team!](/admin/team.md)
 
-[Team update status video #1 (5/20/25)](https://youtu.be/DZrYRC6jrP0)
-[Status video link in repository](./admin/videos/statusvideo1.mp4)
+- [Team update status video #1 (5/20/25)](https://youtu.be/DZrYRC6jrP0)
+- [Status video link in repository](./admin/videos/statusvideo1.mp4)
 
 # Pocket Diviner
 
