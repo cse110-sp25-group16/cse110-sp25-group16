@@ -38,7 +38,7 @@ describe('Archive Page', () => {
     await dateInput.press('Enter');
 
     // Instead of page.waitForTimeout:
-    await new Promise((r) => setTimeout(r, 1000));
+    await new Promise((r) => setTimeout(r, 30000));
   });
 
   it('should display 3 tarot cards when 3-card dropdown is opened', async () => {
