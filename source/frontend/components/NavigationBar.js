@@ -25,7 +25,7 @@ class NavigationBar extends HTMLElement {
         font-size: 2em;
         padding: 0em;
         padding-left: 0.5em;
-        font-family: "Noto Serif", serif;
+        font-family: "Noto Serif", serif
       }
     
       .links {
@@ -54,7 +54,7 @@ class NavigationBar extends HTMLElement {
         font-size: 2em;
         color: white;
         cursor: pointer;
-        margin-left: 1em;
+        margin-left: 1em
       }
 
       @media (max-width: 700px) {
@@ -66,26 +66,27 @@ class NavigationBar extends HTMLElement {
           position: absolute;
           top: 60px;
           left: 0;
-          z-index: 100;
+          z-index: 100
         }
         .brand {
-          display: none;
+          font-size: 2em;
         }
         .links.show {
           display: flex;
           flex-direction: column;
-          align-items: center;
+          align-items: center
         }
         .links a {
           margin-left: 0;
           margin-top: 1em;
-          margin-bottom: 1em;
+          margin-bottom: 1em
         }
         .hamburger {
-          display: block;
+          display: block
         }
         nav {
           position: relative;
+          background-color: rgb(20, 26, 51)
         }
       }
     `;
