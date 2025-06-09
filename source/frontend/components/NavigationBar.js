@@ -10,12 +10,12 @@ class NavigationBar extends HTMLElement {
     const style = document.createElement('style');
     style.textContent = `
       nav {
-        background-image: url("${bgImg}");
+        background-color: transparent;
         color: white;
         padding-left: 1em;
         padding-right: 1.5em;
         padding-top: 0em;
-        padding-bottom: 0.5em;
+        padding-bottom: 0em;
         display: flex;
         justify-content: space-between;
         align-items: center;
