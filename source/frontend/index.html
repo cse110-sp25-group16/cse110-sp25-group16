@@ -23,7 +23,8 @@
       <script>
         document.addEventListener('DOMContentLoaded', () => {
           const welcomeMsg = document.getElementById('welcome-msg');
-          const userName = localStorage.getItem('userName') || 'Guest';
+          const userData = JSON.parse(localStorage.getItem('tarotUserInfo'));
+          const userName = userData?.name || 'Guest';
           welcomeMsg.textContent = `Welcome, ${userName}! Explore your divination options below.`;
         });
       </script>
