@@ -15,7 +15,7 @@ body {
   background-color: #070614;
   overflow-x: hidden;
   width: 100vw;
-  padding-top: 3vh;
+  padding-top: 6vh;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -147,4 +147,16 @@ footer a:hover {
   height: auto;
   filter: drop-shadow(0 0 3px #d8b76e88);
   opacity: 0.6;
+}
+
+@media (max-width: 700px) {
+  footer p {
+    font-size: 0.6em;
+  }
+  footer a {
+    font-size: 0.6em;
+  }
+  .sweet-logo {
+    width: 20px;
+  }
 }
