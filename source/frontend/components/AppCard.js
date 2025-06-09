@@ -30,7 +30,7 @@ class AppCard extends HTMLElement {
         padding: 64px;
         border-radius: 16px;
         background: #12122E;
-        background-image: url("./images/appiconback.jpeg");
+        background-image: url("./images/appiconback.webp");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
