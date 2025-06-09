@@ -1,7 +1,8 @@
 if ('serviceWorker' in navigator) {
-  // Use relative paths from your frontend directory
-  const SW_PATH = '/source/service-worker.js';
-  const SW_SCOPE = '/source/frontend/';
+  // Use absolute paths that work with GitHub Pages structure
+  const SW_PATH = '/cse110-sp25-group16/source/service-worker.js';
+  const SW_SCOPE = '/cse110-sp25-group16/source/frontend/';
+
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register(SW_PATH, { scope: SW_SCOPE })

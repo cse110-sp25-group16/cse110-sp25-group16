@@ -1,7 +1,7 @@
 // service-worker.js
 
 const CACHE_NAME = 'tarot-images-v1';
-const BASE_PATH = '/source/';
+const BASE_PATH = '/cse110-sp25-group16/source/'; // GitHub Pages path
 const IMAGE_PATHS = [
   // Card images
   'cards/c01.jpg',
