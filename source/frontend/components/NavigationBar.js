@@ -4,8 +4,6 @@ class NavigationBar extends HTMLElement {
 
     const shadow = this.attachShadow({ mode: 'open' });
 
-    const bgImg = this.getAttribute('bgImg');
-
     // Style
     const style = document.createElement('style');
     style.textContent = `
