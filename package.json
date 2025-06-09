@@ -39,5 +39,8 @@
   },
   "dependencies": {
     "html-to-image": "^1.11.13"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   }
 }
