@@ -5,7 +5,7 @@ const backgroundImageURL = '../images/paul-volkmer-stars.jpg';
 
 // grab from localStorage
 function getStoredCards(amount) {
-  const currentDate = new Date().toISOString().split('T')[0];
+  const currentDate = new Date().toLocaleDateString();
 
   const allData = JSON.parse(localStorage.getItem('dailyCards'));
 

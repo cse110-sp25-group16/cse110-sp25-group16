@@ -20,7 +20,7 @@ jest.mock('../../source/backend/Card.js', () => {
 
 // Mock localStorage
 beforeEach(() => {
-  const currentDate = new Date().toISOString().split('T')[0];
+  const currentDate = new Date().toLocaleDateString();
 
   const fakeCardData = [
     { id: 1, faceup: true, upsideDown: false },
