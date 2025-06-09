@@ -50,7 +50,7 @@ class HoroscopeCard extends HTMLElement {
         max-width: 100px;
         height: auto;
         margin-top: 10px;
-        background-color: none;
+        background-color: transparent;
       }
       .card-face h2 {
         margin: 0;

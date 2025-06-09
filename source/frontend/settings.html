@@ -18,47 +18,60 @@
   <body>
     <header><navigation-bar></navigation-bar></header>
 
-    <div class="settings-container">
-      <h1>Settings</h1>
-      <form id="settings-form">
-        <label for="name">Name</label>
-        <input type="text" id="name" />
+    <main class="page-wrapper">
+      <div class="settings-container">
+        <h1>Settings</h1>
+        <form id="settings-form">
+          <label for="name">Name</label>
+          <input type="text" id="name" />
 
-        <label for="mbti">MBTI</label>
-        <select id="mbti" name="mbti">
-          <option disabled selected value>Select your MBTI!</option>
-          <option value="ESFJ">ESFJ</option>
-          <option value="ESFP">ESFP</option>
-          <option value="ESTJ">ESTJ</option>
-          <option value="ESTP">ESTP</option>
-          <option value="ENFJ">ENFJ</option>
-          <option value="ENFP">ENFP</option>
-          <option value="ENTJ">ENTJ</option>
-          <option value="ENTP">ENTP</option>
-          <option value="INFJ">INFJ</option>
-          <option value="INFP">INFP</option>
-          <option value="INTJ">INTJ</option>
-          <option value="INTP">INTP</option>
-          <option value="ISFJ">ISFJ</option>
-          <option value="ISFP">ISFP</option>
-          <option value="ISTJ">ISTJ</option>
-          <option value="ISTP">ISTP</option>
-        </select>
+          <label for="mbti">MBTI</label>
+          <select id="mbti" name="mbti">
+            <option disabled selected value>Select your MBTI!</option>
+            <option value="ESFJ">ESFJ</option>
+            <option value="ESFP">ESFP</option>
+            <option value="ESTJ">ESTJ</option>
+            <option value="ESTP">ESTP</option>
+            <option value="ENFJ">ENFJ</option>
+            <option value="ENFP">ENFP</option>
+            <option value="ENTJ">ENTJ</option>
+            <option value="ENTP">ENTP</option>
+            <option value="INFJ">INFJ</option>
+            <option value="INFP">INFP</option>
+            <option value="INTJ">INTJ</option>
+            <option value="INTP">INTP</option>
+            <option value="ISFJ">ISFJ</option>
+            <option value="ISFP">ISFP</option>
+            <option value="ISTJ">ISTJ</option>
+            <option value="ISTP">ISTP</option>
+          </select>
 
-        <label>Birthday</label>
-        <div class="dob-fields">
-          <input type="text" maxlength="2" placeholder="MM" />
-          <input type="text" maxlength="2" placeholder="DD" />
-          <input type="text" maxlength="4" placeholder="YYYY" />
-        </div>
+          <label>Birthday</label>
+          <div class="dob-fields">
+            <input type="text" maxlength="2" placeholder="MM" />
+            <input type="text" maxlength="2" placeholder="DD" />
+            <input type="text" maxlength="4" placeholder="YYYY" />
+          </div>
 
-        <div class="button-group">
-          <button type="submit" class="save-btn">Save</button>
-          <button type="button" id="clearButton">Clear All Data</button>
-        </div>
-      </form>
-    </div>
+          <div class="button-group">
+            <button type="submit" class="save-btn">Save</button>
+            <button type="button" id="clearButton">Clear All Data</button>
+          </div>
+        </form>
+      </div>
 
-    <script src="settings.js"></script>
+      <script src="settings.js"></script>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <img
+          src="./images/sweet16_bw.png"
+          alt="Sweet 16 Logo"
+          class="sweet-logo"
+        />
+        <p>© 2025 Sweet 16, Inc. | All rights reserved | Powered by dreams</p>
+        <a href="./about.html">About</a>
+      </div>
+    </footer>
   </body>
 </html>
