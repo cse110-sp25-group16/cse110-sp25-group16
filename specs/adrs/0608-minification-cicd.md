@@ -6,4 +6,4 @@
 - Shrink all zodiac images under `source/frontend/images/zodiacs` (reducing file size without visible quality loss).
 
 ## Rationale
-Automating minification and shrinking the images manually guarantees consistently small assets on every deploy, speeding up page loads, cutting bandwidth, and improving user experience.
+Automating minification and shrinking the images manually guarantees consistently small assets on every deployment, speeding up page loads, cutting bandwidth, and improving user experience.
