@@ -1,6 +1,11 @@
 # cse110-sp25-group16
 
 [Check out our page!](https://cse110-sp25-group16.github.io/cse110-sp25-group16/source/frontend/signup.html)
+If you are running from terminal, 
+```
+npm i
+```
+at root directory, then open signup.html with live-server (or index.html if you're already signed up)
 
 ## [Meet our team!](/admin/team.md)
 
